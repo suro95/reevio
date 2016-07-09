@@ -1,0 +1,62 @@
+doctype html
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='assets/img/favicon.ico')
+    title Vizeo
+    // Bootstrap core CSS
+    link(href='assets/css/bootstrap.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='assets/css/custom-animations.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='assets/css/component.css')
+    link(href='assets/vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    link(href='http://vjs.zencdn.net/5.0/video-js.min.css', rel='stylesheet')
+    link(href='assets/css/style.css', rel='stylesheet')
+    link(href='assets/css/custom.css', rel='stylesheet')
+    script(src='assets/js/modernizr.custom.js')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    script(src='assets/js/ie10-viewport-bug-workaround.js')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+nav.navbar(role='navigation')
+    .container
+        .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#top-navbar-1')
+                span.sr-only Toggle navigation
+                |                             MENU
+            a.navbar-brand(href='/') LOGOHERE
+        // Collect the nav links, forms, and other content for toggling
+        //#top-navbar-1.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+                //li
+                    a.scroll-link(href='#features') Features
+                //li
+                    a.scroll-link(href='#how-it-works') How it works
+                //li
+                    a.scroll-link(href='#pricing') Price
+                //li
+                    a.scroll-link(href='#about-us') About
+                li
+                    a.btn.btn-info(href='/auth/login') Login
+// ********** HEADER **********
+img(src="/img/comingsoon.png",style="margin:0 auto")
+//
+  Bootstrap core JavaScript
+  ==================================================
+// Placed at the end of the document so the pages load faster
+script(src='assets/js/jquery.min.js')
+script(src='assets/js/bootstrap.min.js')
+script(src='assets/js/retina-1.1.0.js')
+script(src='assets/js/jquery.unveilEffects.js')
+//script(src='http://vjs.zencdn.net/5.0/video.min.js')
+//script(src='assets/vendor/videojs/video.js')
+//script(src='assets/vendor/videojs/ytd.js')
+script(src='assets/js/toucheffects.js')
+//script(src='/vendor/bower_components/videojs-youtube/dist/Youtube.min.js')
+script(src='/js/scrollspy.js')
+script(src='/js/index.js')

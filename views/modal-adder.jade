@@ -1,0 +1,69 @@
+#modal_add_icon_group.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+  .modal-dialog.modal-custom(style="width: 300px")
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        h4.modal-title Add New Icon Group
+      .modal-body(style="height:250px")
+            form#icon_form.custom-scrollbar(method="post",enctype="multipart/form-data")
+                .form-group
+                    label.col-sm-12.control-label Name
+                    .col-sm-12
+                        input.form-control(type='text',name='name')
+                
+                    label.col-sm-12.control-label Icon
+                    .col-sm-12
+                        input.form-control#icon-group(type="file" name="icon" multiple)
+      .modal-footer
+        a.btn.btn-info#add_new_icon_group(href='#')
+            | SAVE &nbsp;
+            em.fa.fa-angle-right
+
+#modal_icon_group_list.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+  .modal-dialog.modal-custom(style="width: 300px")
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        h4.modal-title Icon Group List
+      .modal-body
+          .form-group.custom-scrollbar
+            each icon_group,i in icon_groups
+              label.col-sm-12.control-label #{icon_group.name}
+                .col-sm-12
+                  input.form-control(style='width: 2em;', type='checkbox', value="#{icon_group.id}")
+      .modal-footer
+        a.btn.btn-info#add_new_icons_template(href='#')
+            | SAVE &nbsp;
+            em.fa.fa-angle-right
+
+#modal_delete.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+  .modal-dialog.modal-custom(style="width: 300px")
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        h4.modal-title Delete
+      .modal-body(style="height:150px")
+         h4(style="padding-top:20px;margin-left:12px") Are you sure that you want to delete this slide?
+      .modal-footer
+        a.btn.btn-info#yes_delete(href='#')
+            | Yes &nbsp;
+            em.fa.fa-angle-right
+        a.btn.btn-info(data-dismiss='modal') Cancel
+#category-tag-modal.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+  .modal-dialog.modal-custom(style="width: 300px")
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        h4.modal-title Add New Category Tag
+      .modal-body(style="height: 250px;")
+        .form-group
+              label.col-sm-12.control-label Category Tag Name
+              .col-sm-12
+                  input.form-control(type="text" name="category-tag")
+              a.btn.btn-info#add_category_tag(href='#' style="float: right;margin-right: 15px;margin-top: 10px;")
+                | Add New &nbsp;
+                em.fa.fa-angle-right

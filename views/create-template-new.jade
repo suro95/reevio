@@ -1,0 +1,355 @@
+
+doctype html
+html(lang='en')
+    head
+        meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Reevio
+        meta(name='description', content='Reevio')
+        meta(name='author', content='Reevio')
+        link(rel='stylesheet', type="text/css", href='/vendor/jquery-ui-1.12.0/jquery-ui.min.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+        link(type='text/css', rel='stylesheet', href='/editor/css/normalize.css')
+        link(rel='stylesheet', href='/vendor/font-awesome-4.5.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/vendor/bootstrap-select/bootstrap-select.min.css')
+        link(rel='stylesheet', type="text/css", href='/vendor/jquery-collagePlus-master/support/collage.css')
+        link(rel='stylesheet', type="text/css", href='/vendor/jquery-collagePlus-master/css/transitions.css')
+        link(rel='stylesheet', type="text/css", href='/vendor/cropper/dist/cropper.css')
+
+        link(href='//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css', rel='stylesheet')
+        link(rel='stylesheet', href='/editor/css/style-1.css')
+        link(rel='stylesheet', href='/editor/css/theme-an.css')
+        link(href='/vendor/bootstrap3-editable/css/bootstrap-editable.css', rel='stylesheet')
+        link(rel='stylesheet', href='/vendor/colorpicker/css/colorpicker.css')
+        link(rel='stylesheet', href='/editor/css/main.css')
+        link(rel='stylesheet', href='/editor/css/new-main.css')
+        link(rel='stylesheet', href='/css/loaders.css')
+        //- link(rel='stylesheet', href='/vendor/percircle-master/example/style.css')
+        link(rel='stylesheet', href='/vendor/percircle-master/dist/css/percircle.css')
+
+        link(rel='stylesheet', href='/admin/css/styles.css')
+    body
+
+        #loader-wrapper(style='z-index: 999999999;')
+            #loader.loader(style='')
+            p.wow.flash.strong.animated(style='visibility: visible; animation-duration: 2s; animation-iteration-count: 1000; animation-name: flash;', data-wow-duration='2s', data-wow-iteration='1000') Loading...
+
+        #modal_new.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px",data-backdrop="static" data-keyboard="false")
+          .modal-dialog.modal-custom(style="width:700px !important")
+            .modal-content
+                .modal-header
+                    h4.modal-title New Template
+                .modal-body(style="height: 100%")
+                    .search-section
+                        form#upload_form.custom-scrollbar(method="post",enctype="multipart/form-data")
+                            .col-md-12.template-data
+                                .control-group
+                                    label(style="color: #FFF;") Name
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        input.form-control(type='text',name='name', placeholder='Name')
+                                //- .control-group
+                                    label(style="color: #FFF;") Category
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        select.form-control(name='category' multiple)
+                                            each category, i in category_all
+                                                option(value='#{category.id}') #{category.name}
+                                .control-group
+                                    label(style="color: #FFF;") Type
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        select.form-control(name='type')
+                                            option(value='static') Fixed
+                                            option(value='dynamic') Modular
+                                .control-group.aep
+                                    label(style="color: #FFF;") Aep
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        input.form-control(type='text',name='aep', placeholder='Aep')
+                                .control-group
+                                    label(style="color: #FFF;") Target
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        input.form-control(type='text',name='target', placeholder='Target')
+                                .control-group
+                                    label(style="color: #FFF;") Description
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        textarea.form-control(type='text',name='desc')
+                                .control-group
+                                    label(style="color: #FFF;") Max Sllide Duration
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        input.form-control(type='text',name='max_duration', placeholder='Max Sllide Duration', value='20')
+                                .control-group
+                                    label(style="color: #FFF;") Keyword
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        input.form-control(type='text',name='keyword', placeholder='Keyword')
+                                .control-group
+                                    label(style="color: #FFF;") Notes
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        input.form-control(type='text',name='notes', placeholder='Notes')
+                                //- .control-group
+                                    label(style="color: #FFF;") Plan
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        select.form-control(name='plan' multiple)
+                                            each paln, i in plans_all
+                                                option(value='#{paln.id}') #{paln.name}
+                                .control-group
+                                    label(style="color: #FFF;") Price
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        input.form-control(type='number',name='price', placeholder='Price')
+                                .control-group
+                                    label(style="color: #FFF;") Music
+                                    .controls.col-sm-12(style="padding: 0px 0 10px 0;")
+                                        input.form-control(type='checkbox',name='music', placeholder='Music', style="width: 2em;height: 2em;" checked)
+                                .control-group
+                                    label(style="color: #FFF;") Cover photo
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        input(type="file" name="cover_photo")#cover_photo
+                                .control-group
+                                    label(style="color: #FFF;") Video
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        input(type="file" name="video")#video
+                                .control-group
+                                    label(style="color: #FFF;") Timline slides
+                                    .controls(style="padding: 10px 0 10px 0;")
+                                        input(type="file" name="timline_slides" multiple)#timline_slides
+                                .control-group.aep
+                                    label(style="color: #FFF;") Aep file
+                                    .controls(style="padding: 10px 0 10px 0;")
+                                        input(type="file" name="aep_file")#aep_file
+                                .control-group
+                                    label
+                                    .controls(style="padding: 0px 0 10px 0;")
+                                        button.btn-primary(type='button').add_template
+                                         | SAVE
+                .modal-footer
+        .app(data-template-id='')
+            // Top Bar Start
+            header#app-top.navbar.app-top(role='banner')
+                .container-fluid
+                    a(href='/video-designs')
+                        a#exit-editor.header-buttons(href='/video-designs')
+                            | Exit
+                            span
+                                i.fa.fa-sign-out
+                    button#submit-template.header-buttons
+                        | Submit Template
+                        span
+                            i.fa.fa-check-circle-o
+
+                    .navbar-header
+                        a.navbar-brand(href='#') reevio
+            // Top Bar End
+            // App Content - middle part  start
+            .app-content.clearfix
+                aside.sidebar-left
+                    //- Arrow for showing left sidebar on width < 1300px
+                    a#show-sidebar-left
+                        i.fa.fa-arrow-right
+                    div.sidebar-left-nav
+                        ul.nav(role='tablist')
+                            li(role='presentation')
+                                a.blue(href='#main-elements', aria-controls='elements', role='tab', data-toggle='tab')
+                                    i.fa.fa-share-alt
+                                    |                           Elements
+                            li.active(role='presentation')
+                                a.yellow(href='#main-audio', aria-controls='audio', role='tab', data-toggle='tab')
+                                    i.fa.fa-file-code-o
+                                    |                           Inputs
+                            li(role='presentation')
+                                a.red(href='#main-option', aria-controls='options', role='tab', data-toggle='tab')
+                                    i.fa.fa-cog
+                                    |                           Options
+                    .tab-content
+                        #main-audio.tab-pane.active(role='tabpanel')
+                            ul.nav-buttons
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.example___video.add-img(href='#') Images
+                                li.active(role='presentation')
+                                    a.btn.btn-block.red.bordered.add-input(href='#') Text
+                                        i.fa.fa-refresh.fa-lg.change-order(style='float: right;', data-type='inputs')
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.reset_image.add-video(href='#') Video
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.add-element(href='#') Element
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.add-icon(href='#') Graph
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.add-background(href='#') Background
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.add-multi-element(href='#') Multi Element
+                                //- li(role='presentation')
+                                    a.btn.btn-block.red.bordered.add-logo(href='#') Logo
+                        #main-elements.tab-pane(role='tabpanel')
+                            .table-tools(style="height: 50px;")
+                                form
+                                    div
+                                        .input-group(style="margin: 0 auto;")
+                                            button.btn.add-new-group(type='button') Add New Group
+                                    div
+                                        .input-group(style="margin: 0 auto;border-radius: 5px !important;color: #777;")
+                                            button.btn.icon-group-list(type='button') Icon group
+                            .elements-container
+                                .custom-scrollbar
+                                    .col-md-12
+                                        .control-group
+                                            label(style="color: #FFF;") Graphic
+                                            .controls(style="padding: 0px 0 10px 0;")
+                                                    input.form-control#graphic(style="width: 2em;" type="checkbox")
+                        #main-option.tab-pane(role='tabpanel')
+                            ul.nav-buttons
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.example___video.show-all-element(href='#') Naming
+                                //- li(role='presentation')
+                                    a.btn.btn-block.red.bordered.category(href='#') Category
+                                //- li(role='presentation')
+                                    a.btn.btn-block.red.bordered.plan(href='#') Plan
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.placeholder(href='#') Placeholder
+                                // Tab 4 End
+                        // Left Sidebar End
+                        // Slide preview start
+                .app-middle
+                    .current-slide.upload(data-id="0")
+                        .span.add_slide.item-form
+                            .div-center.field.image___file.empty
+                                .btn.add-new-images-input(style="visibility: hidden;")
+
+                        //.current-slide(data-id='1')
+                            img(src='/templates/',style="width:100%;height:100%")
+                // Right Sidebar start
+                .sidebar-right
+                    //- Arrow for showing right sidebar on width < 1300px
+                    a#show-sidebar-right
+                        i.fa.fa-arrow-left
+                    .slides-container
+                        ul.nav
+                            li.active(role='presentation')
+                                a(href='#images', aria-controls='images', role='tab', data-toggle='tab')
+                                    em.fa.fa-film
+                                    | &nbsp;Slides
+                        .custom-scrollbar
+                            figure.image-tn
+                                .hold-asp-ratio
+                                    .asp-content
+                                        img(src='', alt='tn' style="visibility:hidden")
+                            figure.image-tn
+                                .hold-asp-ratio
+                                    .asp-content
+                                        video(src='',controls,preload="metadata" style="height:auto;width:100%;visibility:hidden")
+                // Right Sidebar End
+            // App Content - middle part  end
+            // bottom bar start
+            footer.app-footer
+                .app-status
+                    span.status(style="visibility: hidden;")
+                        i.fa.fa-check-circle
+                    span.preview
+                // Carousel Start
+                .carousel
+                    .swiper-container
+                        .swiper-wrapper
+                            .swiper-slide.droppable
+                                figure.slide-img
+                                    .hold-asp-ratio
+                                        .asp-content
+                                            span.drophere-box.add_cov UPLOAD COV
+                                    .steps(style="visibility:hidden;")
+                                            span
+                                                i.fa.fa-text-width.circle
+                                                |  
+                                                span.validate-inputs 0/0
+                    .swiper-button-next
+                        i.fa.fa-angle-right
+                    .swiper-button-prev
+                        i.fa.fa-angle-left
+                // Carousel End
+                .progress-container
+                    .content
+                        span
+                            strong(style="visibility: hidden;") 0% finished
+                        .progress(style="visibility: hidden;")
+                            .progress-bar(role='progressbar', aria-valuenow='0', aria-valuemin='0', aria-valuemax='100', style='width: 0%;')
+                form#img-upload.dropzone(action='/admin/img-upload' style="display: none;")
+                    input.folder_name(type="hidden", name="folder_name",value='asd')
+                    input.image_type(type="hidden", name="image_type",value='cov')
+                    input.slide_id(type="hidden", name="slide_id",value='1')
+                    input.slide_path(type="hidden", name="slide_path",value='')
+                form#placeholder-upload.dropzone(action='/admin/placeholder-upload' style="display: none;")
+                    input.placeholder(type="file", name="placeholder")
+
+#modal.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+  .modal-dialog.modal-custom(style="width: 300px")
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        h4.modal-title STYLE
+      .modal-body(style="height:250px")
+      .modal-footer
+        a.btn.btn-info#save(href='#')
+            | SAVE &nbsp;
+            em.fa.fa-angle-right
+
+include modal-adder.jade
+//- include delete-modal.jade
+
+
+script(src='/editor/js/jquery-1.10.1.min.js')
+
+script(src='/editor/js/bootstrap.min.js')
+script(src='/vendor/bootstrap-select/bootstrap-select.min.js')
+script(src='/editor/js/swiper.min.js')
+script(src='/editor/js/jquery.mCustomScrollbar.js')
+script(src='/editor/js/scripts.js')
+script(src='/editor/js/dropzone.js')
+//- script(src='/editor/js/draggable.js')
+//- script(src='/editor/js/editor.js')
+//- script(src='/js/editor-static.js')
+script(src='/vendor/jquery-collagePlus-master/jquery.collagePlus.js')
+script(src='/vendor/jquery-collagePlus-master/extras/jquery.collageCaption.min.js')
+script(src='/vendor/jquery-collagePlus-master/extras/jquery.removeWhitespace.min.js')
+
+
+script(src='/vendor/colorpicker/js/colorpicker.js')
+script(src='/vendor/jquery-ui/ui/jquery-ui.js')
+
+
+script(src='/vendor/bootstrap3-editable/js/bootstrap-editable.js')
+script(src='/vendor/jquery.inlinee/jquery.inlineedit.js')
+script(src='/editor/js/tabs.js')
+script(src='/admin/js/script.js')
+script(src='/admin/js/sort-table.js')
+script(type='text/javascript').
+    var template_icons = !{template_icons};
+    Dropzone.autoDiscover = false;
+    //- $('select.form-control').selectpicker({multiple:true});
+
+    $('html').ready(function() {
+        setTimeout(function() {
+            $('#loader-wrapper').fadeOut();
+        }, 1000);
+    });
+
+    // Here we apply the actual CollagePlus plugin
+    function collage() {
+        $('.collage').removeWhitespace().collagePlus(
+                {
+                    'fadeSpeed': 500,
+                    'targetHeight': 180,
+                    'direction': 'vertical',
+                    'allowPartialLastRow': true
+                }
+        );
+    };
+    // This is just for the case that the browser window is resized
+    var resizeTimer = null;
+    $(window).bind('resize', function () {
+        // hide all the images until we resize them
+        $('.collage .image-wrapper').css("opacity", 0);
+        // set a timer to re-apply the plugin
+        if (resizeTimer) clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(collage, 1000);
+    });
+    $('#modal_new').modal('show');
+    var type = 'static';
+    var category_tag_options = '!{all_categorys_slides}';
+        if(category_tag_options){
+            category_tag_options = JSON.parse(category_tag_options);
+        }

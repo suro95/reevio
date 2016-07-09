@@ -1,0 +1,418 @@
+extends layout
+block content
+    // Page content
+    main
+        .container.page-content
+            form.form-horizontal
+                .form-group.form-inner
+                    .col-sm-3
+                        input.form-control(type='text', placeholder='Search')
+                    .col-sm-2
+                        select.form-control.selectpicker.dropdownMenuPlugin
+                          option(value='reevio') Reevio
+                          option(value='pixabay') Pixabay
+                          option(value='youzign') Youzign
+                          //option(value='splashbase') Splashbase
+                          option(value='imgflip') Meme
+                    .col-sm-2
+                        select.form-control.selectpicker.dropdownMenuPlugin
+                            option(value='') Category
+                            option(value='recent') Recent
+                            option(value='most-downloaded') Most Downloaded
+                    .col-sm-2
+                        button.btn.btn-block.btn-info(type='submit') Search
+            ul.video-list-section
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-1.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-2.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-3.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-4.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-5.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-6.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-1.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-3.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-4.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-5.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-6.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-1.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-3.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-4.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-5.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-6.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-1.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-3.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-4.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-5.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-6.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-1.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-2.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-3.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-4.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-5.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+              li
+                .item
+                  .thumb
+                    img(src='/assets/img/thumbs/img-6.jpg', alt='Video Thumbnail')
+                  .tools
+                    a(href='#addtolibrary', data-toggle='lightbox', data-remote='//www.youtube.com/embed/b0jqPvpn3sY', data-title='Preview', data-width='800' )
+                      span
+                        em.fa.fa-eye
+                        |  Open
+                    a(href='#addtolibrary', data-toggle='modal')
+                      span
+                        em.fa.fa-plus-circle
+                        |  Add to library
+
+
+
+block append head
+    link(href='/vendor/lightbox/dist/ekko-lightbox.css', rel='stylesheet')
+    link(rel='stylesheet', href='/vendor/bootstrap-select/bootstrap-select.min.css')
+    link(rel='stylesheet', href='/assets/css/library.css')
+
+block append footer
+    .modal.fade(tabindex='-1', role='dialog', id='addtolibrary')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') &times;
+            h4.modal-title Add to library
+          .modal-body
+            form(method='post')
+              .form-group
+                label Select existing folder
+                select.form-control.select2me
+                  option Folder 1
+                  option Folder 2
+              .form-group
+                label or Create a New Folder
+                input.form-control(type='text')
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Close
+            button.btn.btn-info(type='button') Add to library
+
+    script(src='/vendor/lightbox/dist/ekko-lightbox.js')
+    script(src='/vendor/bootstrap-select/bootstrap-select.min.js')
+
+    script.
+        $('.selectpicker').selectpicker();
+
+    script.
+        $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });
+
+

@@ -1,0 +1,64 @@
+#audio-search___modal.modal.modal-theme.fade(tabindex='-1', role='dialog')
+  //- .modal-dialog.modal-full.modal-theme-yellow
+  .modal-dialog.modal-theme-yellow
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true')&times;
+        h4.modal-title SEARCH OUR AUDIO LIBRARIES
+      .modal-body
+        .form-tools
+          .col.col1
+            #search-input
+              .input-group.col-md-12
+                input.form-control#search(type='text', placeholder='Search')
+                span.input-group-btn
+                  button#image-search.btn.btn-info.btn-lg(type='button')
+                    i.glyphicon.glyphicon-search
+            select.form-control.selectpicker#dropdownMenuPlugin(data-width='200px')
+              option(value='') Mood
+            select.form-control.selectpicker#dropdownMenuPlugin(data-width='200px')
+              option(value='') Categories
+            a.btn.btn-info(href='#') Search
+            a.btn.btn-info(href='#audio-start___modal', data-toggle='modal', data-dismiss='modal') Back
+        .search-section
+            .custom-scrollbar
+                .user-audio.audio-search-list
+                    ul
+                      //li
+                        .item
+                          .thumb#music-chart
+                            img(src='images/audio-img.jpg', alt='Audio Thumbnail')
+                          .tools
+                            .col1
+                                span erg
+                            .col2
+                                a(href='#')
+                                  span
+                                    em.fa.fa-cog
+                                a.add_music(data-music-id='0')
+                                  span
+                                    em.fa.fa-plus-circle
+                      each music, i in musics
+                        li
+                          .item
+                            .thumb.music-chart(style='width:100%',id='music-wavesurfer-#{music.id}',data-music-url='/musics/#{music.file_name}')
+                              //img(src='images/audio-img.jpg', alt='Audio Thumbnail')
+                            .tools
+                              .col1
+                                  span #{music.name}
+                              .col2
+                                  a(href='#')
+                                    span
+                                      em.fa.fa-cog
+                                  a.add_music(data-music-id='#{music.id}')
+                                    span
+                                      em.fa.fa-plus-circle
+                            .play-icon(data-music-id='music-wavesurfer-#{music.id}')
+      //- .modal-footer
+        a.btn.btn-info(href='#', data-dismiss='modal')
+            em.fa.fa-angle-left
+            | &nbsp;BACK
+        a.btn.btn-info.confirm-music-static(href='#')
+            | CONFIRM&nbsp;
+            em.fa.fa-angle-right

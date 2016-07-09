@@ -1,0 +1,452 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(name='description', content='')
+    meta(name='keywords', content='app, responsive, jquery, bootstrap, anlavina, dashboard, admin')
+    title Veeroll
+    // =============== VENDOR STYLES ===============
+    // FONT AWESOME
+    link(rel='stylesheet', href='/vendor/fontawesome/css/font-awesome.min.css')
+    // SIMPLE LINE ICONS
+    link(rel='stylesheet', href='/vendor/simple-line-icons/css/simple-line-icons.css')
+    // ANIMATE.CSS
+    link(rel='stylesheet', href='/vendor/animate.css/animate.min.css')
+    // WHIRL (spinners)
+    link(rel='stylesheet', href='/vendor/whirl/dist/whirl.css')
+    // =============== PAGE VENDOR STYLES ===============
+    // DATATABLES
+    link(rel='stylesheet', href='/vendor/datatables-colvis/css/dataTables.colVis.css')
+    link(rel='stylesheet', href='/vendor/datatables/media/css/dataTables.bootstrap.css')
+    link(rel='stylesheet', href='/vendor/dataTables.fontAwesome/index.css')
+    link(rel='stylesheet', href='/vendor/select22/dist/css/select2.css')
+    // =============== BOOTSTRAP STYLES ===============
+    link#bscss(rel='stylesheet', href='/admin/css/bootstrap.css')
+    // =============== APP STYLES ===============
+    link#maincss(rel='stylesheet', href='/admin/css/app.css')
+    link#maincss(rel='stylesheet', href='/admin/css/theme-an.css')
+    link#maincss(rel='stylesheet', href='/admin/css/style-table.css')
+  body
+    // PAGE TOP
+    // /END PAGE TOP
+    .container
+      // Main section
+      section
+        // Page content
+        .content-wrapper
+          .content-heading
+            | My Videos
+            .heading-tools
+              .btn-group
+                a.btn.btn-theme(href='/admin/create-template')
+                  i.icon-plus
+                  |  Add new template
+                //
+                  <a href="videos_grid.html" class="btn btn-default bg-grey">
+                  <i class="icon-grid"></i> Grid View</a>
+            // START Left navbar
+            ul.nav.navbar-nav.side-nav
+              li
+                // Button to show/hide the sidebar on mobile. Visible on mobile only.
+                a.visible-xs.sidebar-toggle(href='#', data-toggle-state='aside-toggled', data-no-persist='true')
+                  span.sr-only Toggle sidebar
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+            // END Left navbar
+          .content-body
+            table#videoTable.table.table-bordered
+              thead
+                tr
+                  th Thumbnail
+                  th Title
+                  th Categorys
+                  th Packages
+                  th Type
+                  th Rigged
+                  th Status
+                  th Date
+                  th Plans
+                  th Errors
+                  th Status
+                  th Actions
+              tbody
+                if(templates)
+                    each template, i in templates
+                      tr
+                        td.thumb
+                          img.img-responsive(src='/templates#{template.cover_photo}', alt='thumb')
+                        td #{template.template_name}
+                        td
+                          span #{template.category_name}
+                          a.categorys(href="#" data-arr="#{template.category_arr}" data-id="#{template.templates_id}") change
+                        td
+                          span #{template.packages}
+                          a.package(href="#" data-arr="#{template.packages_arr}" data-id="#{template.templates_id}") change
+                        td
+                          span #{template.type}
+                        td Rigged example
+                        td #{template.status}
+                        td #{template.date}
+                        td 
+                          span #{template.plans_name}
+                          a.plans(href="#" data-arr="#{template.plans_arr}" data-id="#{template.templates_id}")  change
+                        td n/a
+                        td
+                          span(style="display:none;") #{template.status}
+                          select.templaet_status(data-id="#{template.templates_id}")
+                            option(value="not_done" ,selected=(template.status == "not_done")?true:false ) Not Done
+                            option(value="complete",selected=(template.status == "complete")?true:false) Completed
+                        td
+                          .dropdown
+                            button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                              | Actions
+                              span.caret
+                            ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                              li
+                                //- a(href='/admin/edit-template/#{template.templates_id}') Edit
+                                a.edit-template(href='#' data-id="#{template.templates_id}") Edit
+                              li
+                                a.delete(href='#',data-id="#{template.templates_id}") Delete
+                              if template.child == 0
+                                li
+                                  a.clon_template(href='#',data-id="#{template.templates_id}") Clon
+                                li
+                                  a.child_template(href='#',data-id="#{template.templates_id}") Child
+                              if template.type == 'static'
+                                if(template.aep_file)
+                                  li
+                                    a(href='/templates#{template.aep_file}' download) Download
+                              if template.type == 'dynamic'
+                                li
+                                  a(href='/admin/download-aep-zip/#{template.templates_id}' download) Download
+                              li
+                                a.aep(href='#',data-id="#{template.templates_id}") Aep
+    #modal_delete.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+      .modal-dialog.modal-custom(style="width: 300px")
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') &times;
+            h4.modal-title Delete
+          .modal-body(style="height:150px")
+             h4(style="padding-top:20px;margin-left:12px") Are you sure that you want to delete that template?
+          .modal-footer
+            a.btn.btn-info#yes_delete(href='#')
+                | Yes &nbsp;
+                em.fa.fa-angle-right
+            a.btn.btn-info(data-dismiss='modal') Cancel
+
+    #modal_aep.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog')
+      .modal-dialog.modal-custom
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') &times;
+            h4.modal-title Aep
+          .modal-body.row
+              .col-md-12
+                h4 Static
+              .col-md-12
+                label asd
+                .control-group
+                  .controls
+                    input.form-control(type="text")
+          .modal-footer
+            a.btn.btn-info#update_aep(href='#')
+                | Update &nbsp;
+                em.fa.fa-angle-right
+            a.btn.btn-info(data-dismiss='modal') Cancel
+
+  #plans-modal.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+    .modal-dialog.modal-custom(style="width: 500px")
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          h4.modal-title Add New Plan
+        .modal-body.row
+                label.col-sm-12.control-label Plan Name
+                .col-sm-12
+                    input.form-control(type="text" name="plan")
+                a.btn.btn-info#add_plan(href='#' style="float: right;margin-right: 15px;margin-top: 10px;")
+                  | Add New &nbsp;
+                  em.fa.fa-angle-right
+                each plan, i in plans_all
+                  .plan-list(data-id="#{plan.id}")
+                    .col-sm-12(style="margin: 5px;")
+                      label.col-sm-8.control-label #{plan.name}
+                      .col-sm-4
+                       .dropdown(style="float: right;")
+                          button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false' id="dropdownMenuPlan#{plan.id}")
+                            | Actions
+                            span.caret
+                          ul.dropdown-menu(aria-labelledby='dropdownMenuPlan#{plan.id}')
+                            li
+                              a.upadet_plan(href='#' data-id="#{plan.id}") Edit
+                            li
+                              a.delete_plan(href='#' data-id="#{plan.id}") Delete
+
+  #modal_add_category.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+    .modal-dialog.modal-custom(style="width: 400px")
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          h4.modal-title Add New Category
+        .modal-body.row
+          label.col-sm-12.control-label Category Name
+          .col-sm-12
+              input.form-control(type="text" name="category")
+          a.btn.btn-info#add_category(href='#' style="float: right;margin-right: 15px;margin-top: 10px;")
+            | Add New &nbsp;
+            em.fa.fa-angle-right
+          each categorys, i in category_all
+            .category-list(data-id="#{categorys.id}")
+              .col-sm-12(style="margin: 5px;")
+                label.col-sm-8.control-label #{categorys.name}
+                .col-sm-4
+                  .dropdown(style="float: right;")
+                    button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false' id="dropdownMenuCategory#{categorys.id}")
+                      | Actions
+                      span.caret
+                    ul.dropdown-menu(aria-labelledby='dropdownMenuCategory#{categorys.id}')
+                      li
+                        a.edit_category(href='#' data-id="#{categorys.id}") Edit
+                      li
+                        a.delete_category(href='#' data-id="#{categorys.id}") Delete
+
+  #modal_upadet_plan.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+    .modal-dialog.modal-custom(style="width: 300px")
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          h4.modal-title Upadet
+        .modal-body(style="height:150px")
+           .form-group
+                label.col-sm-12.control-label Plan Name
+                .col-sm-12
+                    input.form-control(type="text" name="name")
+        .modal-footer
+          a.btn.btn-info#yes_update_plan(href='#')
+              | UPDATE &nbsp;
+              em.fa.fa-angle-right
+          a.btn.btn-info(data-dismiss='modal') Cancel
+  #modal_delete_plan_category.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 9999999999;: 300px")
+    .modal-dialog.modal-custom(style="width: 300px")
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          h4.modal-title Delete
+        .modal-body(style="height:150px")
+           h4(style="padding-top:20px;margin-left:12px")
+        .modal-footer
+          a.btn.btn-info#yes_delete_plan_category(href='#')
+              | Yes &nbsp;
+              em.fa.fa-angle-right
+          a.btn.btn-info(data-dismiss='modal') Cancel
+  #modal_package.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog')
+    .modal-dialog.modal-custom
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          h4.modal-title Package
+        .modal-body
+          .row
+            //- .col-md-12
+              .control-group(style="margin-top: 20px;")
+                .controls
+                  button.packages-list Packages List
+            .col-md-12
+              .control-group(style="margin-top: 20px;")
+                .controls
+                  if all_packages
+                    form#packages_form.form-horizontal
+                      each packages, i in all_packages
+                        .form-group
+                          label.col-sm-2.control-label #{packages.name}
+                          .col-sm-8
+                            input#package_price.form-control(type='number', placeholder='Price', name="package[#{packages.id}]",data-id="price-#{packages.id}")
+                          .col-sm-2
+                            input#package_checked.form-control(type='checkbox', name="package_checked[]",data-id="checkbox-#{packages.id}",value="#{packages.id}")
+        .modal-footer
+          a.btn.btn-info#save_package(href='#')
+              | Save &nbsp;
+              em.fa.fa-angle-right
+          a.btn.btn-info(data-dismiss='modal') Cancel
+
+  #modal_add_package.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+    .modal-dialog.modal-custom(style="width: 550px")
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          h4.modal-title Add New Package
+        .modal-body.row
+          a.btn.btn-info#add_package(href='#' style="float: right;margin-right: 15px;margin-top: 10px;")
+            | Add New &nbsp;
+            em.fa.fa-angle-right
+          table.table
+            thead
+              tr
+                th Name
+                th Credits
+                th Link
+                th Actions
+            tbody
+              each packages, i in all_packages
+                tr(data-id="#{packages.id}")
+                  td #{packages.name}
+                  td #{packages.credits}
+                  td
+                    textarea(rows="2" cols="40") #{domain}/signin/#{packages.token}
+                  td
+                    .dropdown
+                        button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false' id="dropdownMenupackages#{packages.id}")
+                          | Actions
+                          span.caret
+                        ul.dropdown-menu(aria-labelledby='dropdownMenupackages#{packages.id}')
+                          li
+                            a.edit_packages(href='#' data-id="#{packages.id}") Edit
+                          li
+                            a.delete_package(href='#' data-id="#{packages.id}") Delete
+                          li
+                            a.copy(href='#' data-id="#{packages.id}") Copy
+
+  #modal_upadet_package.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+    .modal-dialog.modal-custom(style="width: 300px")
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          h4.modal-title Package
+        .modal-body(style="height:150px")
+           .form-group
+                label.col-sm-12.control-label Package Name
+                .col-sm-12
+                    input.form-control(type="text" name="name")
+                label.col-sm-12.control-label Credits
+                .col-sm-12
+                    input.form-control(type="number" name="credits")
+                    input.form-control(type="hidden" name="id")
+        .modal-footer
+          a.btn.btn-info#save_packag(href='#')
+              | SAVE &nbsp;
+              em.fa.fa-angle-right
+          a.btn.btn-info(data-dismiss='modal') Cancel
+
+  #modal_categorys.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog')
+    .modal-dialog.modal-custom
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          h4.modal-title Categorys
+        .modal-body
+          .row
+            //- .col-md-12
+              .control-group(style="margin-top: 20px;")
+                .controls
+                  button.category-list Category List
+            .col-md-12
+              .control-group(style="margin-top: 20px;")
+                .controls
+                  select.col-md-6#categorys_multiple.js-example-basic-multiple.js-states.form-control(multiple='multiple' style="width:100%")
+                    if category_all
+                      each category, i in category_all
+                        option(value='#{category.id}') #{category.name}
+        .modal-footer
+          a.btn.btn-info#save_categorys(href='#')
+              | Save &nbsp;
+              em.fa.fa-angle-right
+          a.btn.btn-info(data-dismiss='modal') Cancel
+
+  #modal_upadet_categorys.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+    .modal-dialog.modal-custom(style="width: 300px")
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          h4.modal-title Upadet
+        .modal-body(style="height:150px")
+           .form-group
+                label.col-sm-12.control-label Category Name
+                .col-sm-12
+                    input.form-control(type="text" name="name")
+        .modal-footer
+          a.btn.btn-info#yes_update_categorys(href='#')
+              | UPDATE &nbsp;
+              em.fa.fa-angle-right
+          a.btn.btn-info(data-dismiss='modal') Cancel
+
+   #modal_plans.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog')
+    .modal-dialog.modal-custom
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          h4.modal-title Categorys
+        .modal-body
+          .row
+            .col-md-12
+              .control-group(style="margin-top: 20px;")
+                .controls
+                  button.plan-list Plan List
+            .col-md-12
+              .control-group(style="margin-top: 20px;")
+                .controls
+                  select.col-md-6#plans_multiple.js-example-basic-multiple.js-states.form-control(multiple='multiple' style="width:100%")
+                    if plans_all
+                      each plans, i in plans_all
+                        option(value='#{plans.id}') #{plans.name}
+        .modal-footer
+          a.btn.btn-info#save_plans(href='#')
+              | Save &nbsp;
+              em.fa.fa-angle-right
+          a.btn.btn-info(data-dismiss='modal') Cancel
+
+    script.
+      window.packages = !{packages};
+      window.all_plans = !{all_plans};
+      window.all_category = !{all_category};
+      window.page = !{page};
+    // =============== VENDOR SCRIPTS ===============
+    // MODERNIZR
+    script(src='/vendor/modernizr/modernizr.js')
+    // MATCHMEDIA POLYFILL
+    script(src='/vendor/matchMedia/matchMedia.js')
+    // JQUERY
+    script(src='/vendor/jquery/dist/jquery.js')
+    // BOOTSTRAP
+    script(src='/vendor/bootstrap/dist/js/bootstrap.js')
+    // STORAGE API
+    script(src='/vendor/jQuery-Storage-API/jquery.storageapi.js')
+    // JQUERY EASING
+    script(src='/vendor/jquery.easing/js/jquery.easing.js')
+    // ANIMO
+    script(src='/vendor/animo.js/animo.js')
+    // SLIMSCROLL
+    script(src='/vendor/slimScroll/jquery.slimscroll.min.js')
+    // SCREENFULL
+    script(src='/vendor/screenfull/dist/screenfull.js')
+    // LOCALIZE
+    script(src='/vendor/jquery-localize-i18n/dist/jquery.localize.js')
+    // RTL demo
+    script(src='/assets/js/demo/demo-rtl.js')
+    // =============== PAGE VENDOR SCRIPTS ===============
+    // DATATABLES
+    script(src='/vendor/datatables/media/js/jquery.dataTables.min.js')
+    //- script(src='/vendor/datatables-colvis/js/dataTables.colVis.js')
+    script(src='/vendor/datatables/media/js/dataTables.bootstrap.js')
+    script(src='/vendor/select22/dist/js/select2.min.js')
+    // BOOTSTRAP SELECT
+    script(type='text/javascript', src='/vendor/bootstrap-select/bootstrap-select.min.js')
+    //- script(type='text/javascript', src='/vendor/jquery-multi-select/jquery.multi-select.js')
+    // =============== APP SCRIPTS ===============
+    script(src='/admin/js/app.js')
+    script(src='/admin/js/template-list.js')
+    script(src='/admin/js/custom.js')

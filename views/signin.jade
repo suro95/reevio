@@ -1,0 +1,53 @@
+extends layout
+block content
+    // Page content
+    main
+        .container.page-content.userform
+            .inner 
+                p.form-title SIGN IN TO CONTINUE.
+                form.mb-lg(role='form',method='post')
+                    .form-group
+                        .input-icon.right
+                            i.fa.fa-envelope
+                            input#exampleInputEmail1.form-control(type='email', placeholder='Email Address',name='email' value="#{email_val ? email_val : ''}")
+                            if email_err
+                                ul.parsley-errors-list.filled
+                                    li.parsley-required #{email_err}
+                    .form-group
+                        .input-icon.right
+                            i.fa.fa-lock
+                            input#exampleInputPassword1.form-control(type='password', placeholder='Password',name='password' value="#{pass_val ? pass_val : ''}")
+                            if pass_err
+                                ul.parsley-errors-list.filled
+                                    li.parsley-required #{pass_err}
+                    .form-group
+                        .input-icon.right
+                            i.fa.fa-lock
+                            input#exampleInputPassword2.form-control(type='password', placeholder='Repeat Password',name='repeat_password' value="#{pass_repeat_val ? pass_repeat_val : ''}")
+                            if pass_err_repeat
+                                ul.parsley-errors-list.filled
+                                    li.parsley-required #{pass_err_repeat}
+                    //- input(type="hidden" value="#{packag_name}")
+                    button.btn.btn-block.btn-info.mt-lg(type='submit') REGISTER
+                hr
+                a.btn.btn-block.btn-default(href='/auth/login') LOGIN!
+block append footer
+    .modal.fade#error(tabindex='-1', role='dialog')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h4.modal-title(style="text-align: center;color: #fff;")
+        script.
+            var error = '!{error}';
+
+            if(error == 'none'){
+              $('#error .modal-content').css('background-color','green');
+              $('#error .modal-title').html('Successful Registration! Now you can log in');
+              $('#error').modal('show');
+              setTimeout(function(){$('#error').modal('hide');}, 4000);
+            }else if(error == 'error'){
+              $('#error .modal-content').css('background-color','red');
+              $('#error .modal-title').html('Failed to get registered. Please try again.');
+              $('#error').modal('show');
+              setTimeout(function(){$('#error').modal('hide');}, 4000);
+            }

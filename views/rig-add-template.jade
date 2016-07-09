@@ -1,0 +1,167 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(name='description', content='')
+    meta(name='keywords', content='app, responsive, jquery, bootstrap, anlavina, dashboard, admin')
+    title Veeroll
+    // =============== VENDOR STYLES ===============
+    // FONT AWESOME
+    link(rel='stylesheet', href='/vendor/fontawesome/css/font-awesome.min.css')
+    // SIMPLE LINE ICONS
+    link(rel='stylesheet', href='/vendor/simple-line-icons/css/simple-line-icons.css')
+    // ANIMATE.CSS
+    link(rel='stylesheet', href='/vendor/animate.css/animate.min.css')
+    // WHIRL (spinners)
+    link(rel='stylesheet', href='/vendor/whirl/dist/whirl.css')
+    // =============== PAGE VENDOR STYLES ===============
+    // DATATABLES
+    link(rel='stylesheet', href='/vendor/datatables-colvis/css/dataTables.colVis.css')
+    link(rel='stylesheet', href='/vendor/datatables/media/css/dataTables.bootstrap.css')
+    link(rel='stylesheet', href='/vendor/dataTables.fontAwesome/index.css')
+    // =============== BOOTSTRAP STYLES ===============
+    link#bscss(rel='stylesheet', href='/rig/css/bootstrap.css')
+    // =============== APP STYLES ===============
+    link#maincss(rel='stylesheet', href='/rig/css/app.css')
+    link#maincss(rel='stylesheet', href='/rig/css/theme-an.css')
+    link#maincss(rel='stylesheet', href='/rig/css/style-table.css')
+  body
+    // PAGE TOP
+    // /END PAGE TOP
+    .container
+      // Main section
+      section
+        // Page content
+        .content-wrapper
+          .content-heading
+            | Add Template
+          .content-body
+            form.form(action='#',enctype="multipart/form-data")
+                h3 Name
+                .row
+                    .col-sm-4
+                        .form-group
+                            label Name
+                            input(type='text',class='form-control',name='name')
+                        .form-group
+                            label Type
+                            select(class='form-control',name='type')
+                                option(value='static') Fixed
+                                option(value='dynamic') Modular
+                        .form-group
+                            label Rigged by
+                            select.add-new-name(class='form-control',name='rigged_by',data-type='rigged_by')
+                                option(value='') Pleas Select
+                                if rigged_by
+                                    each value, i in rigged_by
+                                        option(value='#{value.id}') #{value.name}
+                                option(value='new') Add New
+                        .form-group
+                            label Template Type
+                            select.add-new-name(class='form-control',name='templaet_type',data-type='templaet_type')
+                                option(value='') Pleas Select
+                                if category
+                                    each value, i in category
+                                        option(value='#{value.id}') #{value.name}
+                                option(value='new') Add New
+                        .form-group
+                            label Source
+                            select.add-new-name(class='form-control',name='source',data-type='source')
+                                option(value='') Pleas Select
+                                if source
+                                    each value, i in source
+                                        option(value='#{value.id}') #{value.name}
+                                option(value='new') Add New
+                        .form-group
+                            label Upload AEP File
+                            input(type='file',class='form-control',name='upload_aep_file')
+                        .form-group
+                            label Fonts
+                            select.add-new-name(class='form-control',name='fonts',data-type='fonts')
+                                option(value='') Pleas Select
+                                if fonts
+                                    each value, i in fonts
+                                        option(value='#{value.id}') #{value.name}
+                                option(value='new') Add New
+                    .col-sm-4.all-slides
+                        .row.slide-options(data-slide-id='1')
+                            h4 Slide 1
+                            .form-group
+                                label Duration
+                                input(type='text',class='form-control',name='duration[]')
+                            .form-group
+                                label AEP file
+                                input(type='file',class='form-control',name='slide_aep_1')
+                            .form-group
+                                label Video Placeholder Length
+                                input(type='text',class='form-control',name='video_placeholder_length[]')
+                            .form-group
+                                label Image Dimensions
+                                input(type='text',class='form-control',name='image_dimensions[]')
+                        .row.slide-options(data-slide-id='2')
+                            h4 Slide 2
+                            .form-group
+                                label Duration
+                                input(type='text',class='form-control',name='duration[]')
+                            .form-group
+                                label AEP file
+                                input(type='file',class='form-control',name='slide_aep_2')
+                            .form-group
+                                label Video Placeholder Length
+                                input(type='text',class='form-control',name='video_placeholder_length[]')
+                            .form-group
+                                label Image Dimensions
+                                input(type='text',class='form-control',name='image_dimensions[]')
+                        button#add-one-slide(type='button',class='btn btn-info',style='display:none;') Add Slide
+                    button#add-rig-template(type='button',class='btn btn-info') Save Slide
+#modal_add_name.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+  .modal-dialog.modal-custom(style="width: 300px")
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        h4.modal-title
+      .modal-body(style="height:250px")
+            .form-group
+                .col-sm-12
+                    input.form-control.new-name(type="text" name="new-name")
+      .modal-footer
+        button.btn.btn-info#add_new_name
+            | SAVE &nbsp;
+            em.fa.fa-angle-right
+    // =============== VENDOR SCRIPTS ===============
+    // MODERNIZR
+    script(src='/vendor/modernizr/modernizr.js')
+    // MATCHMEDIA POLYFILL
+    script(src='/vendor/matchMedia/matchMedia.js')
+    // JQUERY
+    script(src='/vendor/jquery/dist/jquery.js')
+    // BOOTSTRAP
+    script(src='/vendor/bootstrap/dist/js/bootstrap.js')
+    // STORAGE API
+    script(src='/vendor/jQuery-Storage-API/jquery.storageapi.js')
+    // JQUERY EASING
+    script(src='/vendor/jquery.easing/js/jquery.easing.js')
+    // ANIMO
+    script(src='/vendor/animo.js/animo.js')
+    // SLIMSCROLL
+    script(src='/vendor/slimScroll/jquery.slimscroll.min.js')
+    // SCREENFULL
+    script(src='/vendor/screenfull/dist/screenfull.js')
+    // LOCALIZE
+    script(src='/vendor/jquery-localize-i18n/dist/jquery.localize.js')
+    // RTL demo
+    script(src='/assets/js/demo/demo-rtl.js')
+    // =============== PAGE VENDOR SCRIPTS ===============
+    // DATATABLES
+    script(src='/vendor/datatables/media/js/jquery.dataTables.min.js')
+    script(src='/vendor/datatables-colvis/js/dataTables.colVis.js')
+    script(src='/vendor/datatables/media/js/dataTables.bootstrap.js')
+    // BOOTSTRAP SELECT
+    script(type='text/javascript', src='/vendor/bootstrap-select/bootstrap-select.min.js')
+    //- script(type='text/javascript', src='/vendor/jquery-multi-select/jquery.multi-select.js')
+    // =============== APP SCRIPTS ===============
+    script(src='/rig/js/app.js')
+    script(src='/rig/js/custom.js')
+    script(src='/rig/js/script-rig.js')

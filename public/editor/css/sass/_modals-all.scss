@@ -1,0 +1,65 @@
+// Modals
+.modal-theme {
+    .modal-dialog {
+        margin: 30px auto 0;
+    }
+}
+
+.modal-dialog {
+    // 2016-04-16  for dropdawn width
+    button.selectpicker.btn {
+        min-width: 150px;
+    }
+}
+
+// #image___crop .modal-dialog,
+// #audio-search___modal .modal-dialog,
+// .modal-custom
+.modal-dialog {
+    width: 90%;
+    max-width: 1300px;
+    // margin: 10px auto 0 !important;
+}
+
+.modal-body {
+    // Needs to be redone
+    .tools-modal {
+        > div {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        #search-input1 {
+            border-radius: 5px;
+            overflow: hidden;
+            input.search1 {
+                height: 32px;
+                border-radius: 5px;
+            }
+        }
+    }
+    .dropzone {
+        display: block;
+        > div {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
+
+@media (max-height: 799px) {
+    .modal-theme {
+        .modal-dialog {
+            margin: 10px auto 0;
+        }
+        .dropzone {
+            height: 85px;
+        }
+    }
+}
+
+// @media (max-height: 700px) {
+//     .dropzone {
+//         height: 85px;
+//     }
+// }

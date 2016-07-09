@@ -1,0 +1,547 @@
+extends layout
+block content
+    // Page content
+    main
+        .page-title-gray.pt-dark
+            .container
+                .title
+                    h4 Video Designer
+                    small
+                    //button.pull-right.btn.btn-large.red#submit-video
+                        i.fa.fa-video-camera
+                        | &nbsp; Video Submit
+        .video-slide
+            .container
+                .loading-editor
+                    i.fa.fa-spinner.fa-spin
+                    |  Please wait while loading the editor....
+            .video-editor#video-editor(data-templateid='#{template_id}')
+                .main-editor
+                    .wrap-editor
+                        form(name='slide-data',enctype="multipart/form-data",method='post').main-slide#slide-data-form
+                            each slide,i in template_data
+                                .video-thumb-m
+                                    .item-img
+                                        a(href='javascript:;', data-input='4', data-img='2')
+                                            img.img-responsive(src='/templates/#{slide.slide}', alt='', onerror='this.style.display="none"')
+                                    .item-form
+                                        if slide.inputs
+                                            each input,inp in slide.inputs
+                                                .field.text.dark-t(style='#{input.style}', data-toggle='tooltip', data-placement='top', title='Add text to this field')
+                                                    a.text-editor(href='#', data-type='#{input.type}', data-pk='#{i}', style="height:100%",
+                                                    data-inputposition="#{inp}",data-inputname="#{input.name}",data-maxlength="#{input.max}",data-name="#{input.name}")
+                                        if slide.images
+                                            each img,index in slide.images
+                                                .field.image___file.empty(style='#{img.position};#{img.size}',data-imgpk='#{index}',data-pk='#{i}', data-toggle='tooltip', data-placement='top', title='Add image to this field' )
+                                                    .btn.add-new-images-input
+                        .tabbable-line.custom-tab.music-tracker
+                            ul.nav.nav-tabs
+                                li.active
+                                    a(href='#tab_15_1', data-toggle='tab')
+                                        em.fa.fa-music
+                                        |  Music
+                                li
+                                    a(href='#tab_15_2', data-toggle='tab')
+                                        em.fa.fa-video-camera
+                                        |  Export / Preview
+                            .tab-content
+                                #tab_15_1.tab-pane.active
+                                    .row
+                                        //.col-md-12
+                                            ul.feeds.playlist
+                                                li
+                                                    .col1
+                                                        .title
+                                                            | A Thousand Years
+                                                        audio(src='/mp3/thousandyears.mp3', preload='auto')
+                                                    .col2
+                                                        a.btn.btn-info.btn-xs.pickme(href='#select') Select
+                                                li
+                                                    .col1
+                                                        .title
+                                                            | All Of Me
+                                                        audio(src='/mp3/allofme.mp3', preload='auto')
+                                                    .col2
+                                                        a.btn.btn-info.btn-xs.pickme(href='#select') Select
+                                                li
+                                                    .col1
+                                                        .title
+                                                            | I Want It That Way
+                                                        audio(src='/mp3/iwantitthatway.mp3', preload='auto')
+                                                    .col2
+                                                        a.btn.btn-info.btn-xs.pickme(href='#select') Select
+                                                li
+                                                    .col1
+                                                        .title
+                                                            | I Want It That Way
+                                                        audio(src='/mp3/iwantitthatway.mp3', preload='auto')
+                                                    .col2
+                                                        a.btn.btn-info.btn-xs.pickme(href='#select') Select
+                                                li
+                                                    .col1
+                                                        .title
+                                                            | I Want It That Way
+                                                        audio(src='/mp3/iwantitthatway.mp3', preload='auto')
+                                                    .col2
+                                                        a.btn.btn-info.btn-xs.pickme(href='#select') Select
+                                                li
+                                                    .col1
+                                                        .title
+                                                            | I Want It That Way
+                                                        audio(src='/mp3/iwantitthatway.mp3', preload='auto')
+                                                    .col2
+                                                        a.btn.btn-info.btn-xs.pickme(href='#select') Select
+                                                li
+                                                    .col1
+                                                        .title
+                                                            | I Want It That Way
+                                                        audio(src='/mp3/iwantitthatway.mp3', preload='auto')
+                                                    .col2
+                                                        a.btn.btn-info.btn-xs.pickme(href='#select') Select
+                                                li
+                                                    .col1
+                                                        .title
+                                                            | I Want It That Way
+                                                        audio(src='/mp3/iwantitthatway.mp3', preload='auto')
+                                                    .col2
+                                                        a.btn.btn-info.btn-xs.pickme(href='#select') Select
+                                                li
+                                                    .col1
+                                                        .title
+                                                            | I Want It That Way
+                                                        audio(src='/mp3/iwantitthatway.mp3', preload='auto')
+                                                    .col2
+                                                        a.btn.btn-info.btn-xs.pickme(href='#select') Select
+                                                li
+                                                    .col1
+                                                        .title
+                                                            | I Want It That Way
+                                                        audio(src='/mp3/iwantitthatway.mp3', preload='auto')
+                                                    .col2
+                                                        a.btn.btn-info.btn-xs.pickme(href='#select') Select
+                                            .playlist-tools
+                                                a.btn.btn-block
+                                                    em.fa.fa-cloud-upload
+                                                    | &nbsp; Upload your music
+                                                a.btn.btn-block
+                                                    em.fa.fa-cloud-upload
+                                                    | &nbsp; Upload voice over
+                                #tab_15_2.tab-pane
+                                    p
+                                        | You can return and edit this project anytime in the future. All your videos and projects will be saved in your dashboard. You can create and export unlimited number of web quality videos for free. We do charge when you want to download your videos in HD quality. Please check our
+                                        a(href='/subscription', target='_blank') subscription plans
+                                        |   if you want to save on HD exports
+                                    .playlist-tools
+                                        a.btn.btn-block#submit-video
+                                            | &nbsp; Export/Preview
+                    .inner
+                        each slide,i in template_data
+                            .video-thumb-s
+                                .item-img
+                                    a(href='javascript:;', data-input='4', data-img='2')
+                                        img.img-responsive(src='/templates/#{slide.slide}', alt='', onerror='this.style.display="none"')
+        // End .editor-container
+        // Modal
+        #image___upload.editor-img___modal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', data-pk='0')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true') &times;
+                        h4#myModalLabel1.modal-title
+                            .em.fa.fa-picture-o
+                            | &nbsp;Select an image file to insert
+                    .modal-body
+                        .modal-section
+                            p.text-center.text-danger.image-error(style='display:none;') The image mush be min. 770x250 px
+                        .modal-section
+                            h1 Currently used in this video
+                            .thumb-section.all_pic
+                                if user_images
+                                    each img,i in user_images
+                                        .thumb-img
+                                            img(src='#{img.path}')
+                        .modal-section
+                            h1 Files yet unused
+                            .thumb-section
+                                form(method='post', id='origin_img_form')
+                                    input(type='file',class='hidden', name='image', id='origin_img')
+                                .thumb-img.thumb-add
+                                    em.fa.fa-plus-square-o
+                                    | Add files
+                    .modal-footer
+                        span.help-block.pull-left
+                            | Click on the thumbnail of an image file to select it, then click NEXT.
+                        .btn-actions.pull-right.get-next
+                            button.btn.btn-info(type='button') NEXT >
+    #image___crop.editor-img___modal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', data-pk='0')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    link(rel='stylesheet', type='text/css', href='/vendor/Lollipop/assets/css/animation.css')
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                    h4#myModalLabel.modal-title
+                        .em.fa.fa-picture-o
+                        | &nbsp;Edit Image
+                .modal-body
+                    #editor.window(ng-controller='PackageController')
+                      .main
+                        img#old
+                        canvas#new
+                        video#video
+                        ul#filters.setting.setting-3
+                            li.item
+                              img.circular(onclick="applyFilter('Original')", src='/vendor/Lollipop/assets/img/filters/Original.jpg')
+                              small.label.label-2 Original
+                            li.item
+                              img.circular(onclick="applyFilter('Charming')", src='/vendor/Lollipop/assets/img/filters/Charming.jpg')
+                              small.label.label-2 Charming
+                            li.item
+                              img.circular(onclick="applyFilter('Gold Orange')", src='/vendor/Lollipop/assets/img/filters/Gold Orange.jpg')
+                              small.label.label-2 Gold Orange
+                            li.item
+                              img.circular(onclick="applyFilter('Hot Desert')", src='/vendor/Lollipop/assets/img/filters/Hot Desert.jpg')
+                              small.label.label-2 Hot Desert
+                            li.item
+                              img.circular(onclick="applyFilter('Lord Kelvin')", src='/vendor/Lollipop/assets/img/filters/Lord Kelvin.jpg')
+                              small.label.label-2 Lord Kelvin
+                            li.item
+                              img.circular(onclick="applyFilter('1977 ')", src='/vendor/Lollipop/assets/img/filters/1977.jpg')
+                              small.label.label-2 1977
+                            li.item
+                              img.circular(onclick="applyFilter('Beautiful')", src='/vendor/Lollipop/assets/img/filters/Beautiful.jpg')
+                              small.label.label-2 Beautiful
+                            li.item
+                              img.circular(onclick="applyFilter('Milky')", src='/vendor/Lollipop/assets/img/filters/Milky.jpg')
+                              small.label.label-2 Milky
+                            li.item
+                              img.circular(onclick="applyFilter('Summertime')", src='/vendor/Lollipop/assets/img/filters/Summertime.jpg')
+                              small.label.label-2 Summertime
+                            li.item
+                              img.circular(onclick="applyFilter('Excited')", src='/vendor/Lollipop/assets/img/filters/Excited.jpg')
+                              small.label.label-2 Excited
+                            li.item
+                              img.circular(onclick="applyFilter('Cold Tibet')", src='/vendor/Lollipop/assets/img/filters/Cold Tibet.jpg')
+                              small.label.label-2 Cold Tibet
+                            li.item
+                              img.circular(onclick="applyFilter('Sunday')", src='/vendor/Lollipop/assets/img/filters/Sunday.jpg')
+                              small.label.label-2 Sunday
+                            li.item
+                              img.circular(onclick="applyFilter('California')", src='/vendor/Lollipop/assets/img/filters/California.jpg')
+                              small.label.label-2 California
+                            li.item
+                              img.circular(onclick="applyFilter('Paris in October')", src='/vendor/Lollipop/assets/img/filters/Paris in October.jpg')
+                              small.label.label-2 Paris October
+                            li.item
+                              img.circular(onclick="applyFilter('August March')", src='/vendor/Lollipop/assets/img/filters/August March.jpg')
+                              small.label.label-2 August
+                            li.item
+                              img.circular(onclick="applyFilter('Nashville')", src='/vendor/Lollipop/assets/img/filters/Nashville.jpg')
+                              small.label.label-2 Nashville
+                            li.item
+                              img.circular(onclick="applyFilter('Brannan')", src='/vendor/Lollipop/assets/img/filters/Brannan.jpg')
+                              small.label.label-2 Brannan
+                            li.item
+                              img.circular(onclick="applyFilter('Blood Orange')", src='/vendor/Lollipop/assets/img/filters/Blood Orange.jpg')
+                              small.label.label-2 Blood Orange
+                            li.item
+                              img.circular(onclick="applyFilter('Hefe')", src='/vendor/Lollipop/assets/img/filters/Hefe.jpg')
+                              small.label.label-2 Hefe
+                            li.item
+                              img.circular(onclick="applyFilter('Gotham')", src='/vendor/Lollipop/assets/img/filters/Gotham.jpg')
+                              small.label.label-2 Gotham
+                            li.item
+                              img.circular(onclick="applyFilter('X-PRO II')", src='/vendor/Lollipop/assets/img/filters/X-PRO II.jpg')
+                              small.label.label-2 X-PRO II
+                            li.item
+                              img.circular(onclick="applyFilter('Forest')", src='/vendor/Lollipop/assets/img/filters/Forest.jpg')
+                              small.label.label-2 Forest
+                            li.item
+                              img.circular(onclick="applyFilter('Moonlight')", src='/vendor/Lollipop/assets/img/filters/Moonlight.jpg')
+                              small.label.label-2 Moonlight
+                            li.item
+                              img.circular(onclick="applyFilter('Angelic')", src='/vendor/Lollipop/assets/img/filters/Angelic.jpg')
+                              small.label.label-2 Angelic
+                        #package.window.theme
+                            .main
+                              form#search-package.search-container
+                                input#search-box.search-box(type='text', ng-model='searchText', ng-keyup='update()', name='q')
+                                label(for='search-box')
+                                  img.search-icon(src='/vendor/Lollipop/assets/img/Search-Find-128.png', width='30px')
+                              ul#package-list.list
+                                li.list-item.slide-top(ng-click='applyFilter(filter)', ng-repeat='filter in filters | filter:searchText | orderBy')
+                                  b {{ filter }}
+                        ul#c-settings.setting.setting-2
+                            li.item
+                              img.circular(onclick="showFilters();$('#undo').hide();$('#c-back').show();$('#c-back').css('height','85px');", src='/vendor/Lollipop/assets/img/Candy-Lollipop2-128.png')
+                              small.label Filters
+                            li.item
+                              img.circular(onclick="showBrightness();$('.back').hide();$('#c-back').show();$('#c-back').css('height','60px');", src='/vendor/Lollipop/assets/img/Display-Brightness-128.png')
+                              small.label Brightness
+                            li.item
+                              img.circular(onclick="showContrast();$('.back').hide();$('#c-back').show();$('#c-back').css('height','60px');", src='/vendor/Lollipop/assets/img/Display-Contrast-128.png')
+                              small.label Contrast
+                            li.item
+                              img.circular(onclick="showSaturation();$('.back').hide();$('#c-back').show();$('#c-back').css('height','60px');", src='/vendor/Lollipop/assets/img/Instrument-Barometer-02-128.png')
+                              small.label Saturation
+                            li.item
+                              img.circular(onclick="showNoise();$('.back').hide();$('#c-back').show();$('#c-back').css('height','60px');", src='/vendor/Lollipop/assets/img/Radio-Access-128.png')
+                              small.label Noise
+                            li.item
+                              img.circular(onclick="showVignette();$('.back').hide();$('#c-back').show();$('#c-back').css('height','60px');", src='/vendor/Lollipop/assets/img/Pointer-128.png')
+                              small.label Vignette
+                            li.item
+                              img.circular(onclick="showEffects();$('.back').hide();$('#c-back').show();$('#c-back').css('height','60px');", src='/vendor/Lollipop/assets/img/Magic-Wand-128.png')
+                              small.label Effects
+                        ul#settings.setting.setting-2
+                            li.item
+                              img.circular(onclick='showRotation()', src='/vendor/Lollipop/assets/img/Rotation-128.png')
+                              small.label Rotation
+                            li.item
+                              img.circular(onclick='showFlip()', src='/vendor/Lollipop/assets/img/Repeat-All-128.png')
+                              small.label Flip
+                            li.item
+                              img.circular(onclick='showBrightness()', src='/vendor/Lollipop/assets/img/Display-Brightness-128.png')
+                              small.label Brightness
+                            li.item
+                              img.circular(onclick='showContrast()', src='/vendor/Lollipop/assets/img/Display-Contrast-128.png')
+                              small.label Contrast
+                            li.item
+                              img.circular(onclick='showSaturation()', src='/vendor/Lollipop/assets/img/Instrument-Barometer-02-128.png')
+                              small.label Saturation
+                            li.item
+                              img.circular(onclick='showNoise()', src='/vendor/Lollipop/assets/img/Radio-Access-128.png')
+                              small.label Noise
+                            li.item
+                              img.circular(onclick='showSharpen()', src='/vendor/Lollipop/assets/img/Road-Sharp-Right-128.png')
+                              small.label Sharpen
+                            li.item
+                              img.circular(onclick='showBlur()', src='/vendor/Lollipop/assets/img/Water-Drop-128.png')
+                              small.label Blur
+                            li.item
+                              img.circular(onclick='showFrameBlur()', src='/vendor/Lollipop/assets/img/Shape53-128.png')
+                              small.label FrameBlur
+                            li.item
+                              img.circular(onclick='showVignette()', src='/vendor/Lollipop/assets/img/Pointer-128.png')
+                              small.label Vignette
+                            li.item
+                              img.circular(onclick='showEffects()', src='/vendor/Lollipop/assets/img/Magic-Wand-128.png')
+                              small.label Effects
+                            li.item
+                              img.circular(onclick='showRgb()', src='/vendor/Lollipop/assets/img/Filter-Edit-128.png')
+                              small.label Rgb
+                            li.item
+                              img.circular(onclick='showCrop()', src='/vendor/Lollipop/assets/img/Crop-128.png')
+                              small.label Crop
+                            li.item
+                              img.circular(onclick='showFrames()', src='/vendor/Lollipop/assets/img/Layers-128.png')
+                              small.label Frames
+                            li.item
+                              img.circular(onclick='showSpecial()', src='/vendor/Lollipop/assets/img/Shape52-128.png')
+                              small.label Special
+                        ul#rotation.setting
+                            .back(onclick='showSettings()')
+                              img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                            input.btn(type='button', onclick='applyRotation()', value='Rotate')
+                        ul#flip.setting
+                            .back(onclick='showSettings()')
+                              img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                            input.btn(type='button', onclick='applyFlipH()', value='Flip')
+                        ul#brightness.setting
+                            .back(onclick='showSettings()')
+                              img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                            input#b-range.range(type='range', min='-100', max='100', value='0', step='1', onchange='applyBrightness(this.value)')
+                        ul#contrast.setting
+                            .back(onclick='showSettings()')
+                              img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                            input#c-range.range(type='range', min='-100', max='100', value='0', step='1', onchange='applyContrast(this.value)')
+                        ul#saturation.setting
+                            .back(onclick='showSettings()')
+                              img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                            input#s-range.range(type='range', min='0', max='2', value='1', step='0.1', onchange='applySaturation(this.value)')
+                        ul#noise.setting
+                            .back(onclick='showSettings()')
+                              img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                            input#n-range.range(type='range', min='0', max='100', value='0', step='1', onchange='applyNoise(this.value)')
+                        ul#sharpen.setting
+                            .back(onclick='showSettings()')
+                              img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                            input#sharpen-range.range(type='range', min='0', max='1', value='0', step='0.01', onchange='applySharpen(this.value);')
+                        ul#blur.setting
+                            .back(onclick='showSettings()')
+                              img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                            input#blur-range.range(type='range', min='0', max='20', value='0', step='1', onchange='effectBlurImage(this.value, true);')
+                        ul#frame-blur.setting
+                            .back(onclick='showSettings()')
+                              img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                            input#cb-range.range(type='range', min='0', max='200', value='0', step='1', onchange='applyFrameBlur(this.value)')
+                        ul#vignette.setting
+                            .back(onclick='showSettings()')
+                              img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                            input.btn(type='button', onclick='applyVignette();vignette=true;', value='Vignette')
+                        ul#effects.setting.toright
+                            li.item
+                              img.square(src='/vendor/Lollipop/assets/img/original-icon.png', onclick="if(!isStreaming)loadCheckPoint();effect='none';")
+                            li.item
+                              img.square(src='/vendor/Lollipop/assets/img/grayscale.png', onclick='applyGrayscale()')
+                            li.item
+                              img.square(src='/vendor/Lollipop/assets/img/sepia.png', onclick='applySepia()')
+                            li.item
+                              img.square(src='/vendor/Lollipop/assets/img/invert.png', onclick='applyInvert()')
+                        ul#rgb.setting
+                            .back(onclick='showSettings()')
+                              img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                            input#rgb-r-range.range(type='range', min='0', max='255', value='0', step='1', onchange='applyR(this.value)')
+                            input#rgb-g-range.range(type='range', min='0', max='255', value='0', step='1', onchange='applyG(this.value)')
+                            input#rgb-b-range.range(type='range', min='0', max='255', value='0', step='1', onchange='applyB(this.value)')
+                        ul#crop.setting.toright
+                            li.item
+                              img.circular(onclick='applyCrop(0)', src='/vendor/Lollipop/assets/img/Rectangle-Selection-128-a.png')
+                            li.item
+                              img.circular(onclick='applyCrop(12)', src='/vendor/Lollipop/assets/img/Rectangle-Selection-128-b.png')
+                            li.item
+                              img.circular(onclick='applyCrop(10)', src='/vendor/Lollipop/assets/img/Rectangle-Selection-128-c.png')
+                            li.item
+                              img.circular(onclick='applyCrop(8)', src='/vendor/Lollipop/assets/img/Rectangle-Selection-128-d.png')
+                            li.item
+                              img.circular(onclick='applyCrop(6)', src='/vendor/Lollipop/assets/img/Rectangle-Selection-128-e.png')
+                            li.item
+                              img.circular(onclick='applyCrop(4)', src='/vendor/Lollipop/assets/img/Rectangle-Selection-128-f.png')
+                        ul#frames.setting.toright
+                            li.item
+                              img.square(onclick='loadCheckPoint()', src='/vendor/Lollipop/assets/img/masks/min/mask0_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('mask1')", src='/vendor/Lollipop/assets/img/masks/min/mask1_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('Grunge_Frames1')", src='/vendor/Lollipop/assets/img/masks/min/Grunge_Frames1_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('Grunge_Frames2')", src='/vendor/Lollipop/assets/img/masks/min/Grunge_Frames2_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('Grunge_Frames3')", src='/vendor/Lollipop/assets/img/masks/min/Grunge_Frames3_min.jpg')
+                            li.item
+                                img.square(onclick="applyFrame('Grunge_Frames4')", src='/vendor/Lollipop/assets/img/masks/min/Grunge_Frames4_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('Grunge_Frames5')", src='/vendor/Lollipop/assets/img/masks/min/Grunge_Frames5_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('Grunge_Frames6')", src='/vendor/Lollipop/assets/img/masks/min/Grunge_Frames6_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('grungeframes1')", src='/vendor/Lollipop/assets/img/masks/min/grungeframes1_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('grungeframes2')", src='/vendor/Lollipop/assets/img/masks/min/grungeframes2_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('grungeframes3')", src='/vendor/Lollipop/assets/img/masks/min/grungeframes3_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('grungeframes4')", src='/vendor/Lollipop/assets/img/masks/min/grungeframes4_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('grungeframes5')", src='/vendor/Lollipop/assets/img/masks/min/grungeframes5_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('grungeframes6')", src='/vendor/Lollipop/assets/img/masks/min/grungeframes6_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('grungeframes7')", src='/vendor/Lollipop/assets/img/masks/min/grungeframes7_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('grungeframes8')", src='/vendor/Lollipop/assets/img/masks/min/grungeframes8_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('grungeframes9')", src='/vendor/Lollipop/assets/img/masks/min/grungeframes9_min.jpg')
+                            li.item
+                              img.square(onclick="applyFrame('grungeframes10')", src='/vendor/Lollipop/assets/img/masks/min/grungeframes10_min.jpg')
+                        ul#special.setting.toright
+                            li.item
+                              img.circular(onclick='loadCheckPoint()', src='/vendor/Lollipop/assets/img/masks/min/mask0_min.jpg')
+                            li.item
+                              img.circular(onclick="applySpecial('2')", src='/vendor/Lollipop/assets/img/Special/min/2_min.jpg')
+                            li.item
+                              img.circular(onclick="applySpecial('3')", src='/vendor/Lollipop/assets/img/Special/min/3_min.jpg')
+                            li.item
+                              img.circular(onclick="applySpecial('4')", src='/vendor/Lollipop/assets/img/Special/min/4_min.jpg')
+                            li.item
+                              img.circular(onclick="applySpecial('6')", src='/vendor/Lollipop/assets/img/Special/min/6_min.jpg')
+                            li.item
+                              img.circular(onclick="applySpecial('grass01')", src='/vendor/Lollipop/assets/img/Special/min/grass01_min.jpg')
+                            li.item
+                              img.circular(onclick="applySpecial('grass02')", src='/vendor/Lollipop/assets/img/Special/min/grass02_min.jpg')
+                            li.item
+                              img.circular(onclick="applySpecial('grass03')", src='/vendor/Lollipop/assets/img/Special/min/grass03_min.jpg')
+                            li.item
+                              img.circular(onclick="applySpecial('grass04')", src='/vendor/Lollipop/assets/img/Special/min/grass04_min.jpg')
+                            li.item
+                              img.circular(onclick="applySpecial('grass05')", src='/vendor/Lollipop/assets/img/Special/min/grass05_min.jpg')
+                            li.item
+                              img.circular(onclick="applySpecial('Colorful_Background_1')", src='/vendor/Lollipop/assets/img/Special/min/Colorful_Background_1_min.jpg')
+                            li.item
+                              img.circular(onclick="applySpecial('Colorful_Background_4')", src='/vendor/Lollipop/assets/img/Special/min/Colorful_Background_4_min.jpg')
+                            li.item
+                              img.circular(onclick="applySpecial('Colorful_Background_5')", src='/vendor/Lollipop/assets/img/Special/min/Colorful_Background_5_min.jpg')
+                        #back.back(onclick='showSettings()')
+                            img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                        #c-back.back(onclick='showCSettings()')
+                            img.back-icon(src='/vendor/Lollipop/assets/img/back.png')
+                          div.footer
+                            .tab.tab-footer
+                                a#filters-icon.interaction(onclick='showFilters()')
+                                    img.lo-pulse(src='/vendor/Lollipop/assets/img/Candy-Lollipop-128.png', width='40px')
+                                a#package-icon.interaction(onclick='showPackage()')
+                                    img.lo-burst(src='/vendor/Lollipop/assets/img/Text-Braille-128.png', width='40px')
+                                a.interaction(onclick='showSettings()')
+                                    img.lo-spin(src='/vendor/Lollipop/assets/img/Settings-01-128.png', width='40px')
+                                a#undo(onclick='loadCheckPoint()')
+                                    img.lo-spin(src='/vendor/Lollipop/assets/img/Reload2-128.png', width='40px')
+                                a#check(onclick='saveCheckPoint()')
+                                    img.lo-burst(src='/vendor/Lollipop/assets/img/Check-128.png', width='40px')
+                .modal-footer
+                    .btn-actions.pull-right.crop-confirm
+                        button.btn.btn-success(type='button') CONFIRM >
+                    .btn-actions.pull-right.get-back
+                        button.btn.btn-info(type='button') < BACK
+
+block append footer
+    script(src='/vendor/slimScroll/jquery.slimscroll.min.js')
+    script(src='/vendor/audiojs/audio.min.js')
+    script(src='/vendor/croppernew/dist/cropper.js')
+    script(src='/vendor/colorpicker/js/colorpicker.js')
+    script(src="/js/editor.js")
+    script(src="/js/youzign.js")
+    script(type='text/javascript', src='/vendor/Lollipop/assets/js/lib/jquery.touchSwipe.min.js')
+    script(type='text/javascript', src='/vendor/Lollipop/assets/js/lib/perfect-scrollbar.jquery.min.js')
+    script(type='text/javascript', src='/vendor/Lollipop/assets/js/lib/angular.min.js')
+    script(type='text/javascript', src='/vendor/Lollipop/assets/js/lib/angular-animate.min.js')
+    script(type='text/javascript', src='/vendor/Lollipop/assets/js/init.js')
+    script(type='text/javascript', src='/vendor/Lollipop/assets/js/filters.js')
+    script(type='text/javascript', src='/vendor/Lollipop/assets/js/app.js')
+    script(type='text/javascript', src='/vendor/Lollipop/assets/js/lib/StackBlur.js')
+    script(type='text/javascript', src='/vendor/Lollipop/assets/js/lib/CompoundBlur.js')
+    script(type='text/javascript', src='/vendor/Lollipop/assets/js/package.js')
+    script(type='text/javascript', src='/vendor/Lollipop/assets/js/api.js')
+    script(type='text/javascript', src='/vendor/Lollipop/assets/js/script.js')
+    script.
+        $('[data-toggle="tooltip"]').tooltip();
+        //audio player
+        audiojs.events.ready(function() { var as = audiojs.createAll(); });
+        $('.playlist').slimScroll({height: '350px'});
+        var TemplateData=!{JSON.stringify(template_data)};
+block append head
+    link(rel='stylesheet', href='/vendor/croppernew/dist/cropper.css')
+    link(rel='stylesheet', href='/vendor/colorpicker/css/colorpicker.css')
+    link(rel='stylesheet', href='/vendor/croppernew/dist/cropper.css')
+    link(rel='stylesheet', href='/vendor/colorpicker/css/colorpicker.css')
+    link(rel='stylesheet', type='text/css', href='/vendor/Lollipop/assets/css/lib/ng-animation.css')
+    link(rel='stylesheet', type='text/css', href='/vendor/Lollipop/assets/css/lib/perfect-scrollbar.min.css')
+    link(rel='stylesheet', type='text/css', href='/vendor/Lollipop/assets/css/style.css')
+    link(rel='stylesheet', type='text/css', href='/vendor/Lollipop/assets/css/theme.css')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

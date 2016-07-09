@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <title>Lollipop</title>
+    <link rel="icon" href="assets/img/icons/lollipop-o.png" />
+    <link rel="stylesheet" type="text/css" href="assets/css/lib/ng-animation.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/lib/perfect-scrollbar.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/animation.css">
+    <script type="text/javascript" src="assets/js/lib/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#loading").css('visibility', 'visible');
+        })
+        $(window).on("load", function () {
+            $("html").css('visibility', 'visible');
+            $("#loading").css('display', 'none');
+        })
+    </script>
+    <script type="text/javascript" src="assets/js/lib/jquery.touchSwipe.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/perfect-scrollbar.jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/angular.min.js"></script>
+    <script type="text/javascript" src="assets/js/lib/angular-animate.min.js"></script>
+    <script type="text/javascript" src="assets/js/init.js"></script>
+    <script type="text/javascript" src="assets/js/filters.js"></script>
+    <script type="text/javascript" src="assets/js/app.js"></script>
+    <script type="text/javascript" src="assets/js/lib/StackBlur.js"></script>
+    <script type="text/javascript" src="assets/js/lib/CompoundBlur.js"></script>
+    <script type="text/javascript" src="assets/js/package.js"></script>
+    <script type="text/javascript" src="assets/js/api.js"></script>
+</head>
+
+<body ng-app="effectshop">
+    <header>
+        <nav>
+            <h4 id="title">HTML5 Image Editor</h4>
+        </nav>
+        <div class="tab tab-header">
+            <div id="gallery-btn" class="nav" style="float: left">
+                <img src="assets/img/New.png" class="size" onclick="upload()" />
+                <input type="file" id="imageUp" accept="image/*" style="display:none" onchange="getImage(this.files)">
+            </div>
+            <div id="take" class="nav" style="float: left; display: none">
+                <img src="assets/img/Data-Import-128.png" class="size" onclick="importImage();showEditor();" />
+            </div>
+            <div id="camera-btn" class="nav" style="float: left; border-left: 1px solid #333; border-right: 1px solid #333;">
+                <img src="assets/img/Camera-01-128.png" class="size" onclick="getCamera()" />
+            </div>
+            <div id="refresh-btn" class="nav" style="float: left;">
+                <img src="assets/img/Command-Refresh-128.png" class="size lo-spin" onclick="restore()" />
+            </div>
+            <a href="#" id="export-btn" class="nav" style="float: right;" download="newImage.jpg">
+                <img id="export" src="assets/img/Data-Export-128.png" />
+            </a>
+            <a href="#" id="save-btn" class="nav" style="float: right; border-right: 1px solid #333; display: none">
+                <img id="save" src="assets/img/Save-128.png" />
+            </a>
+            <a href="#" id="upload-btn" class="nav" style="float: right; border-right: 1px solid #333; display: none">
+                <img src="assets/img/Upload-128.png" />
+            </a>
+        </div>
+    </header>
+    <div id="editor" class="window" ng-controller="PackageController">
+        <div class="main">
+            <img id="old" />
+            <canvas id="new"></canvas>
+            <video id="video"></video>
+        </div>
+        <ul id="filters" class="setting setting-3">
+            <li class="item">
+                <img onclick="applyFilter('Original')" src="assets/img/filters/Original.jpg" class="circular" />
+                <small class="label label-2">Original</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Charming')" src="assets/img/filters/Charming.jpg" class="circular" />
+                <small class="label label-2">Charming</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Gold Orange')" src="assets/img/filters/Gold Orange.jpg" class="circular" />
+                <small class="label label-2">Gold Orange</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Hot Desert')" src="assets/img/filters/Hot Desert.jpg" class="circular" />
+                <small class="label label-2">Hot Desert</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Lord Kelvin')" src="assets/img/filters/Lord Kelvin.jpg" class="circular" />
+                <small class="label label-2">Lord Kelvin</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('1977 ')" src="assets/img/filters/1977.jpg" class="circular" />
+                <small class="label label-2">1977</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Beautiful')" src="assets/img/filters/Beautiful.jpg" class="circular" />
+                <small class="label label-2">Beautiful</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Milky')" src="assets/img/filters/Milky.jpg" class="circular" />
+                <small class="label label-2">Milky</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Summertime')" src="assets/img/filters/Summertime.jpg" class="circular" />
+                <small class="label label-2">Summertime</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Excited')" src="assets/img/filters/Excited.jpg" class="circular" />
+                <small class="label label-2">Excited</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Cold Tibet')" src="assets/img/filters/Cold Tibet.jpg" class="circular" />
+                <small class="label label-2">Cold Tibet</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Sunday')" src="assets/img/filters/Sunday.jpg" class="circular" />
+                <small class="label label-2">Sunday</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('California')" src="assets/img/filters/California.jpg" class="circular" />
+                <small class="label label-2">California</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Paris in October')" src="assets/img/filters/Paris in October.jpg" class="circular" />
+                <small class="label label-2">Paris October</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('August March')" src="assets/img/filters/August March.jpg" class="circular" />
+                <small class="label label-2">August</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Nashville')" src="assets/img/filters/Nashville.jpg" class="circular" />
+                <small class="label label-2">Nashville</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Brannan')" src="assets/img/filters/Brannan.jpg" class="circular" />
+                <small class="label label-2">Brannan</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Blood Orange')" src="assets/img/filters/Blood Orange.jpg" class="circular" />
+                <small class="label label-2">Blood Orange</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Hefe')" src="assets/img/filters/Hefe.jpg" class="circular" />
+                <small class="label label-2">Hefe</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Gotham')" src="assets/img/filters/Gotham.jpg" class="circular" />
+                <small class="label label-2">Gotham</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('X-PRO II')" src="assets/img/filters/X-PRO II.jpg" class="circular" />
+                <small class="label label-2">X-PRO II</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Forest')" src="assets/img/filters/Forest.jpg" class="circular" />
+                <small class="label label-2">Forest</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Moonlight')" src="assets/img/filters/Moonlight.jpg" class="circular" />
+                <small class="label label-2">Moonlight</small>
+            </li>
+            <li class="item">
+                <img onclick="applyFilter('Angelic')" src="assets/img/filters/Angelic.jpg" class="circular" />
+                <small class="label label-2">Angelic</small>
+            </li>
+        </ul>
+        <div id="package" class="window theme">
+            <div class="main">
+                <form id="search-package" class="search-container">
+                    <input id="search-box" type="text" ng-model="searchText" ng-keyup="update()" class="search-box" name="q" />
+                    <label for="search-box">
+                        <img src="assets/img/Search-Find-128.png" width="30px" class="search-icon" />
+                    </label>
+                </form>
+                <ul id="package-list" class="list">
+                    <li ng-click="applyFilter(filter)" class="list-item slide-top" ng-repeat="filter in filters | filter:searchText | orderBy">
+                        <b>{{ filter }}</b>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ul id="c-settings" class="setting setting-2">
+            <li class="item">
+                <img onclick="showFilters();$('#undo').hide();$('#c-back').show();$('#c-back').css('height','85px');" src="assets/img/Candy-Lollipop2-128.png" class="circular" />
+                <small class="label">Filters</small>
+            </li>
+            <li class="item">
+                <img onclick="showBrightness();$('.back').hide();$('#c-back').show();$('#c-back').css('height','60px');" src="assets/img/Display-Brightness-128.png" class="circular" />
+                <small class="label">Brightness</small>
+            </li>
+            <li class="item">
+                <img onclick="showContrast();$('.back').hide();$('#c-back').show();$('#c-back').css('height','60px');" src="assets/img/Display-Contrast-128.png" class="circular" />
+                <small class="label">Contrast</small>
+            </li>
+            <li class="item">
+                <img onclick="showSaturation();$('.back').hide();$('#c-back').show();$('#c-back').css('height','60px');" src="assets/img/Instrument-Barometer-02-128.png" class="circular" />
+                <small class="label">Saturation</small>
+            </li>
+            <li class="item">
+                <img onclick="showNoise();$('.back').hide();$('#c-back').show();$('#c-back').css('height','60px');" src="assets/img/Radio-Access-128.png" class="circular" />
+                <small class="label">Noise</small>
+            </li>
+            <li class="item">
+                <img onclick="showVignette();$('.back').hide();$('#c-back').show();$('#c-back').css('height','60px');" src="assets/img/Pointer-128.png" class="circular" />
+                <small class="label">Vignette</small>
+            </li>
+            <li class="item">
+                <img onclick="showEffects();$('.back').hide();$('#c-back').show();$('#c-back').css('height','60px');" src="assets/img/Magic-Wand-128.png" class="circular" />
+                <small class="label">Effects</small>
+            </li>
+        </ul>
+        <ul id="settings" class="setting setting-2">
+            <li class="item">
+                <img onclick="showRotation()" src="assets/img/Rotation-128.png" class="circular" />
+                <small class="label">Rotation</small>
+            </li>
+            <li class="item">
+                <img onclick="showFlip()" src="assets/img/Repeat-All-128.png" class="circular" />
+                <small class="label">Flip</small>
+            </li>
+            <li class="item">
+                <img onclick="showBrightness()" src="assets/img/Display-Brightness-128.png" class="circular" />
+                <small class="label">Brightness</small>
+            </li>
+            <li class="item">
+                <img onclick="showContrast()" src="assets/img/Display-Contrast-128.png" class="circular" />
+                <small class="label">Contrast</small>
+            </li>
+            <li class="item">
+                <img onclick="showSaturation()" src="assets/img/Instrument-Barometer-02-128.png" class="circular" />
+                <small class="label">Saturation</small>
+            </li>
+            <li class="item">
+                <img onclick="showNoise()" src="assets/img/Radio-Access-128.png" class="circular" />
+                <small class="label">Noise</small>
+            </li>
+            <li class="item">
+                <img onclick="showSharpen()" src="assets/img/Road-Sharp-Right-128.png" class="circular" />
+                <small class="label">Sharpen</small>
+            </li>
+            <li class="item">
+                <img onclick="showBlur()" src="assets/img/Water-Drop-128.png" class="circular" />
+                <small class="label">Blur</small>
+            </li>
+            <li class="item">
+                <img onclick="showFrameBlur()" src="assets/img/Shape53-128.png" class="circular" />
+                <small class="label">FrameBlur</small>
+            </li>
+            <li class="item">
+                <img onclick="showVignette()" src="assets/img/Pointer-128.png" class="circular" />
+                <small class="label">Vignette</small>
+            </li>
+            <li class="item">
+                <img onclick="showEffects()" src="assets/img/Magic-Wand-128.png" class="circular" />
+                <small class="label">Effects</small>
+            </li>
+            <li class="item">
+                <img onclick="showRgb()" src="assets/img/Filter-Edit-128.png" class="circular" />
+                <small class="label">Rgb</small>
+            </li>
+            <li class="item">
+                <img onclick="showCrop()" src="assets/img/Crop-128.png" class="circular" />
+                <small class="label">Crop</small>
+            </li>
+            <li class="item">
+                <img onclick="showFrames()" src="assets/img/Layers-128.png" class="circular" />
+                <small class="label">Frames</small>
+            </li>
+            <li class="item">
+                <img onclick="showSpecial()" src="assets/img/Shape52-128.png" class="circular" />
+                <small class="label">Special</small>
+            </li>
+        </ul>
+        <ul id="rotation" class="setting">
+            <div class="back" onclick="showSettings()">
+                <img src="assets/img/back.png" class="back-icon" />
+            </div>
+            <input type="button" class="btn" onclick="applyRotation()" value="Rotate">
+        </ul>
+        <ul id="flip" class="setting">
+            <div class="back" onclick="showSettings()">
+                <img src="assets/img/back.png" class="back-icon" />
+            </div>
+            <input type="button" class="btn" onclick="applyFlipH()" value="Flip">
+        </ul>
+        <ul id="brightness" class="setting">
+            <div class="back" onclick="showSettings()">
+                <img src="assets/img/back.png" class="back-icon" />
+            </div>
+            <input id="b-range" class="range" type="range" min="-100" max="100" value="0" step="1" onchange="applyBrightness(this.value)" />
+        </ul>
+        <ul id="contrast" class="setting">
+            <div class="back" onclick="showSettings()">
+                <img src="assets/img/back.png" class="back-icon" />
+            </div>
+            <input id="c-range" class="range" type="range" min="-100" max="100" value="0" step="1" onchange="applyContrast(this.value)" />
+        </ul>
+        <ul id="saturation" class="setting">
+            <div class="back" onclick="showSettings()">
+                <img src="assets/img/back.png" class="back-icon" />
+            </div>
+            <input id="s-range" class="range" type="range" min="0" max="2" value="1" step="0.1" onchange="applySaturation(this.value)" />
+        </ul>
+        <ul id="noise" class="setting">
+            <div class="back" onclick="showSettings()">
+                <img src="assets/img/back.png" class="back-icon" />
+            </div>
+            <input id="n-range" class="range" type="range" min="0" max="100" value="0" step="1" onchange="applyNoise(this.value)" />
+        </ul>
+        <ul id="sharpen" class="setting">
+            <div class="back" onclick="showSettings()">
+                <img src="assets/img/back.png" class="back-icon" />
+            </div>
+            <input id="sharpen-range" class="range" type="range" min="0" max="1" value="0" step="0.01" onchange="applySharpen(this.value);" />
+        </ul>
+        <ul id="blur" class="setting">
+            <div class="back" onclick="showSettings()">
+                <img src="assets/img/back.png" class="back-icon" />
+            </div>
+            <input id="blur-range" class="range" type="range" min="0" max="20" value="0" step="1" onchange="effectBlurImage(this.value, true);" />
+        </ul>
+        <ul id="frame-blur" class="setting">
+            <div class="back" onclick="showSettings()">
+                <img src="assets/img/back.png" class="back-icon" />
+            </div>
+            <input id="cb-range" class="range" type="range" min="0" max="200" value="0" step="1" onchange="applyFrameBlur(this.value)" />
+        </ul>
+        <ul id="vignette" class="setting">
+            <div class="back" onclick="showSettings()">
+                <img src="assets/img/back.png" class="back-icon" />
+            </div>
+            <input type="button" class="btn" onclick="applyVignette();vignette=true;" value="Vignette">
+        </ul>
+        <ul id="effects" class="setting toright">
+            <li class="item">
+                <img src="assets/img/original-icon.png" class="square" onclick="if(!isStreaming)loadCheckPoint();effect='none';">
+            </li>
+            <li class="item">
+                <img src="assets/img/grayscale.png" class="square" onclick="applyGrayscale()">
+            </li>
+            <li class="item">
+                <img src="assets/img/sepia.png" class="square" onclick="applySepia()">
+            </li>
+            <li class="item">
+                <img src="assets/img/invert.png" class="square" onclick="applyInvert()">
+            </li>
+        </ul>
+        <ul id="rgb" class="setting">
+            <div class="back" onclick="showSettings()">
+                <img src="assets/img/back.png" class="back-icon" />
+            </div>
+            <input id="rgb-r-range" class="range" type="range" min="0" max="255" value="0" step="1" onchange="applyR(this.value)" />
+            <input id="rgb-g-range" class="range" type="range" min="0" max="255" value="0" step="1" onchange="applyG(this.value)" />
+            <input id="rgb-b-range" class="range" type="range" min="0" max="255" value="0" step="1" onchange="applyB(this.value)" />
+        </ul>
+        <ul id="crop" class="setting toright">
+            <li class="item">
+                <img onclick="applyCrop(0)" src="assets/img/Rectangle-Selection-128-a.png" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applyCrop(12)" src="assets/img/Rectangle-Selection-128-b.png" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applyCrop(10)" src="assets/img/Rectangle-Selection-128-c.png" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applyCrop(8)" src="assets/img/Rectangle-Selection-128-d.png" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applyCrop(6)" src="assets/img/Rectangle-Selection-128-e.png" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applyCrop(4)" src="assets/img/Rectangle-Selection-128-f.png" class="circular" />
+            </li>
+        </ul>
+        <ul id="frames" class="setting toright">
+            <li class="item">
+                <img onclick="loadCheckPoint()" src="assets/img/masks/min/mask0_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('mask1')" src="assets/img/masks/min/mask1_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('Grunge_Frames1')" src="assets/img/masks/min/Grunge_Frames1_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('Grunge_Frames2')" src="assets/img/masks/min/Grunge_Frames2_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('Grunge_Frames3')" src="assets/img/masks/min/Grunge_Frames3_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('Grunge_Frames4')" src="assets/img/masks/min/Grunge_Frames4_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('Grunge_Frames5')" src="assets/img/masks/min/Grunge_Frames5_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('Grunge_Frames6')" src="assets/img/masks/min/Grunge_Frames6_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('grungeframes1')" src="assets/img/masks/min/grungeframes1_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('grungeframes2')" src="assets/img/masks/min/grungeframes2_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('grungeframes3')" src="assets/img/masks/min/grungeframes3_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('grungeframes4')" src="assets/img/masks/min/grungeframes4_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('grungeframes5')" src="assets/img/masks/min/grungeframes5_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('grungeframes6')" src="assets/img/masks/min/grungeframes6_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('grungeframes7')" src="assets/img/masks/min/grungeframes7_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('grungeframes8')" src="assets/img/masks/min/grungeframes8_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('grungeframes9')" src="assets/img/masks/min/grungeframes9_min.jpg" class="square" />
+            </li>
+            <li class="item">
+                <img onclick="applyFrame('grungeframes10')" src="assets/img/masks/min/grungeframes10_min.jpg" class="square" />
+            </li>
+        </ul>
+        <ul id="special" class="setting toright">
+            <li class="item">
+                <img onclick="loadCheckPoint()" src="assets/img/masks/min/mask0_min.jpg" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applySpecial('2')" src="assets/img/Special/min/2_min.jpg" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applySpecial('3')" src="assets/img/Special/min/3_min.jpg" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applySpecial('4')" src="assets/img/Special/min/4_min.jpg" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applySpecial('6')" src="assets/img/Special/min/6_min.jpg" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applySpecial('grass01')" src="assets/img/Special/min/grass01_min.jpg" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applySpecial('grass02')" src="assets/img/Special/min/grass02_min.jpg" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applySpecial('grass03')" src="assets/img/Special/min/grass03_min.jpg" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applySpecial('grass04')" src="assets/img/Special/min/grass04_min.jpg" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applySpecial('grass05')" src="assets/img/Special/min/grass05_min.jpg" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applySpecial('Colorful_Background_1')" src="assets/img/Special/min/Colorful_Background_1_min.jpg" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applySpecial('Colorful_Background_4')" src="assets/img/Special/min/Colorful_Background_4_min.jpg" class="circular" />
+            </li>
+            <li class="item">
+                <img onclick="applySpecial('Colorful_Background_5')" src="assets/img/Special/min/Colorful_Background_5_min.jpg" class="circular" />
+            </li>
+        </ul>
+        <div id="back" class="back" onclick="showSettings()">
+            <img src="assets/img/back.png" class="back-icon" />
+        </div>
+        <div id="c-back" class="back" onclick="showCSettings()">
+            <img src="assets/img/back.png" class="back-icon" />
+        </div>
+        <footer>
+            <div class="tab tab-footer">
+                <a id="filters-icon" class="interaction" onclick="showFilters()">
+                    <img src="assets/img/Candy-Lollipop-128.png" width="40px" class="lo-pulse" />
+                </a>
+                <a id="package-icon" class="interaction" onclick="showPackage()">
+                    <img src="assets/img/Text-Braille-128.png" width="40px" class="lo-burst" />
+                </a>
+                <a class="interaction" onclick="showSettings()">
+                    <img src="assets/img/Settings-01-128.png" width="40px" class="lo-spin" />
+                </a>
+                <a id="undo" onclick="loadCheckPoint()">
+                    <img src="assets/img/Reload2-128.png" width="40px" class="lo-spin" />
+                </a>
+                <a id="check" onclick="saveCheckPoint()">
+                    <img src="assets/img/Check-128.png" width="40px" class="lo-burst" />
+                </a>
+            </div>
+        </footer>
+    </div>
+    <div id="loading" class="uil-ripple-css" style="-webkit-transform:scale(0.6)">
+        <div></div>
+        <div></div>
+    </div>
+    <script type="text/javascript" src="assets/js/script.js"></script>
+</body>
+
+</html>

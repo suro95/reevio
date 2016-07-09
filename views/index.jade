@@ -1,0 +1,688 @@
+doctype html
+head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(rel='icon', href='assets/img/favicon.ico')
+    title Vizeo
+    // Bootstrap core CSS
+    link(href='assets/css/bootstrap.css', rel='stylesheet')
+    // Custom styles for this template
+    link(href='assets/css/custom-animations.css', rel='stylesheet')
+    link(rel='stylesheet', type='text/css', href='assets/css/component.css')
+    link(href='assets/vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    link(href='http://vjs.zencdn.net/5.0/video-js.min.css', rel='stylesheet')
+    link(href='assets/css/style.css', rel='stylesheet')
+    link(href='assets/css/custom.css', rel='stylesheet')
+    script(src='assets/js/modernizr.custom.js')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    script(src='assets/js/ie10-viewport-bug-workaround.js')
+    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+nav.navbar(role='navigation')
+    .container
+        .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#top-navbar-1')
+                span.sr-only Toggle navigation
+                |                             MENU
+            a.navbar-brand(href='/') LOGOHERE
+        // Collect the nav links, forms, and other content for toggling
+        #top-navbar-1.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+                //li
+                    a.scroll-link(href='#features') Features
+                //li
+                    a.scroll-link(href='#how-it-works') How it works
+                //li
+                    a.scroll-link(href='#pricing') Price
+                //li
+                    a.scroll-link(href='#about-us') About
+                li
+                    a.btn.btn-info(href='/auth/login') Login
+// ********** HEADER **********
+#h
+    .container
+        .row
+            .col-md-12.col-sm-12
+
+                h1
+                    | Create Custom Professional Client Videos in 5 Minutes For Less Than $5
+
+        .row
+            .col-md-8.col-sm-8
+                .item
+                    .embed-responsive.embed-responsive-16by9
+                      iframe.embed-responsive-item(src='https://www.youtube-nocookie.com/embed/_gxxo02amuY?autoplay=1')
+                    //data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/embed/ZD91IFY8idk"}] }')
+                        p.vjs-no-js
+                            | To view this video please enable JavaScript, and consider upgrading to a web browser that
+                            a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+                // .promovid
+                  video#preview-player.video-js.center-play.col1.embed___16by9(controls='', preload='auto', poster='assets/social-proof-poster.jpg')
+                    source(src='assets/social-proof.mp4', type='video/mp4')
+                    p.vjs-no-js
+                      | To view this video please enable JavaScript, and consider upgrading to a web browser that
+                      a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+            .col-md-4.col-sm-4
+                ul.v-feature
+                    li
+                        em.fa.fa-check
+                        |  3 step video creation
+                    li
+                        em.fa.fa-check
+                        |  Cloud based platform
+                    li
+                        em.fa.fa-check
+                        |  Professional spokespeople
+                    li
+                        em.fa.fa-check
+                        |  Engaging custom animation
+                    li
+                        em.fa.fa-check
+                        |  Done for you voiceovers
+                    li
+                        em.fa.fa-check
+                        |  On demand delivery
+                    li
+                        em.fa.fa-check
+                        |  Custom Videos under $5
+    // /container
+// /h
+// ********** CONTEXT **********
+//.section.padding-xs.text-center.social-section
+    .container.mtb
+        .title
+            h1(style='font-size: 32px;')
+              | Making Videos is a Total Pain
+              br
+              |  Even With the Right Tools and Skillset
+        .row
+            .col-md-3.col-sm-3
+                .social-logo.fa.fa-tags
+                .p Often Lay down hundreds or thousand-plus dollars, or mess with some fancy software, master the huge learning curve and spend hours crafting designs.
+            .col-md-3.col-sm-3
+                .social-logo.fa.fa-cogs
+                .p Use mid or amateur level software to create OKAY videos that simply won’t wow or excite clients. (You may even turn them off to your service if quality is poor)
+            .col-md-3.col-sm-3
+                .social-logo.fa.fa-user
+                .p Easily fork over between $100 - $500+ every single time you hire a contractor or company to create a custom video for you.
+            .col-md-3.col-sm-3
+                .social-logo.fa.fa-bank
+                .p Risk disappointment, missed deadlines and poor quality by relying on low-quality freelancers.
+//.section.padding-xs.web-marketer.text-center(style='background-color: #E31549')
+    .container.ptb(style='color: white')
+        .title
+            h1(style='text-transform: uppercase') Video is Red Hot Right Now
+            p(style='font-size: 18px; color: white') 71% of companies are planning to increase their video marketing budgets the next year.
+        .row.text-center
+            .col-md-3.col-sm-3
+                .social-logo.fa.fa-twitter
+                .p Introduced videos to their stream
+            .col-md-3.col-sm-3
+                .social-logo.fa.fa-facebook
+                .p Introduced video ads
+            .col-md-3.col-sm-3
+                .social-logo.fa.fa-instagram
+                .p Introduced video functionality
+            .col-md-3.col-sm-3
+                .social-logo.fa.fa-youtube
+                .p Pushing their ads program
+//.section.section-1.text-center#load-vid1
+    .container.mb
+        .row
+            .col-md-12
+                .title(data-effect='slide-top')
+                    h1 
+                        | A Simple New Way of Making Videos
+        .row.step-list(data-effect='slide-left')
+            .col-md-4.col-sm-4.step-item
+                span.step-no 1
+                img.img-responsive(src='assets/img/icons_step1.png')
+                p Choose a video design you like.
+            .col-md-4.col-sm-4.step-item
+                span.step-no 2
+                img.img-responsive(src='assets/img/icons_step2.png')
+                p Easily edit the video design and change the text fields.
+            .col-md-4.col-sm-4.step-item
+                span.step-no 3
+                img.img-responsive(src='assets/img/icons_step3.png')
+                p Use your finished video to wow your clients and grow your business!
+//.section.section-1.bg-gray.text-center#load-vid2
+    .container
+        .row
+            .col-md-offset-1.col-md-10
+                .title
+                    h1 Vizeo is the only 100% automated video creation service for local clients.
+                    p Choose from a wide selection of high-quality video designs made by professional designers. We’re constantly adding more designs, so you’ll never run out of creativity.
+        .row
+            .col-md-offset-1.col-md-10
+                .video-item
+                    .embed-responsive.embed-responsive-16by9.youtube-player(data-id="_gxxo02amuY")
+                    //img.load-youtube.img-responsive(src='http://img.youtube.com/vi/FBV-KdzQ3Es/0.jpg',data-url="https://www.youtube.com/embed/i0XoOHlkEXE?autoplay=1",style="width:100%")
+                    //iframe(width='560', height='315', src='https://img.youtube.com/vi/FBV-KdzQ3Es/4.jpg', frameborder='0', allowfullscreen='')
+                    //data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "videos/"}] }')
+                        p.vjs-no-js
+                            | To view this video please enable JavaScript, and consider upgrading to a web browser that
+                            a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+        .row
+            .col-md-offset-1.col-md-10.mt
+                ul.grid.cs-style-3.thumb-list(data-effect='slide-top')
+        p Now you can create your own studio-quality commercials, video ads and social proof videos in just a few clicks... without any previous design experience, without waiting weeks on your contractor... and without wasting money on the exact same amature designs everyone else is using...
+//.section.section-1.bg-blue.padding-xs.text-center
+    .containerhttp://img.youtube.com/vi/A4a0xZMMlqE/0.jpg  http://img.youtube.com/vi/[video-id]/[thumbnail-number].jpg
+        .row
+            .col-md-12
+                .title.spacer-off(data-effect='slide-top')
+                    h1
+                        | The Only Video Designer Made Exclusively To Wow Local Businesses.
+                    p
+                        | There are Dozens of DIY tools out there now from powerpoint to ... all the rest, that promise to make video creation easier.
+                        br
+                        | Is EASIER really better?  Business owners are discerning and demanding. Even the less particular businesses know the difference between a quality video and a sub par one.
+                        br
+                        | Ametuer video can portray a business as cheap, unprofessional or untrustworthy solely on the production quality.  It's simple, wow them with quality, showcasing their business and you open the door to an easy sale.
+//.section.bg-blue.padding-xs
+    .container.text-center.mtb
+        h1 VIZEO GIVES YOU SUPERPOWERS
+        br
+        p(style='font-size: 16px')
+            | Big brands with deep pockets have been earning big, thanks to the effectiveness of video. Now it's your turn.
+        p(style='font-size: 16px')
+            | Video is the most powerful storytelling medium and with Vizeo it's finally easier and cheaper than ever to produce amazing looking videos. Vizeo gives you the ability to create stunning, professional looking video that is sure to wow your clients.
+
+//.section.section-1
+  .row.nopadding
+    .col-md-5.col-md-offset-1.mt.centered
+      h1 Social Proof Videos
+      p
+        | With Social proof videos you can showcase a specific 5 star review or reviews for your client.  We currently have 5 review/social site templates and are adding more daily. As seen in this video social proof is a key element for any business to grow their clientele.
+      br
+    .col-md-offset-1.col-md-5.nopadding.pull-right.of
+      .item.item-lg(data-effect='slide-right')
+                .video-item
+                    .embed-responsive.embed-responsive-16by9.youtube-player(data-id="sWKmVpfMHDA")
+                    //.embed-responsive.embed-responsive-16by9
+                      iframe.embed-responsive-item(src='https://www.youtube.com/embed/i0XoOHlkEXE')
+                    //img.load-youtube.img-responsive(src='http://img.youtube.com/vi/FBV-KdzQ3Es/0.jpg',data-url="https://www.youtube.com/embed/i0XoOHlkEXE?autoplay=1",style="width:100%")
+                    //iframe(width='560', height='315', src='https://www.youtube.com/embed/FBV-KdzQ3Es', frameborder='0', allowfullscreen='')
+                    //data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "videos/"}] }')
+                        p.vjs-no-js
+                            | To view this video please enable JavaScript, and consider upgrading to a web browser that
+                            a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+    .col-md-12
+        .row.mt
+            .title.centered
+                h2 Social Proof Demos
+            .col-md-3
+              .item
+                .video-item
+                    .embed-responsive.embed-responsive-16by9.youtube-player(data-id="p7D3g-nL9go")
+                    //.embed-responsive.embed-responsive-16by9
+                      iframe.embed-responsive-item(src='https://www.youtube.com/embed/i0XoOHlkEXE')
+                    //img.load-youtube.img-responsive(src='http://img.youtube.com/vi/FBV-KdzQ3Es/0.jpg',data-url="https://www.youtube.com/embed/i0XoOHlkEXE?autoplay=1",style="width:100%")
+                    //iframe(width='560', height='315', src='https://www.youtube.com/embed/FBV-KdzQ3Es', frameborder='0', allowfullscreen='')
+
+                    //data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "videos/"}] }')
+                        p.vjs-no-js
+                            | To view this video please enable JavaScript, and consider upgrading to a web browser that
+                            a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+            .col-md-3
+              .item
+                .video-item
+                    .embed-responsive.embed-responsive-16by9.youtube-player(data-id="c8nOIN_Gj4k")
+                    //.embed-responsive.embed-responsive-16by9
+                      iframe.embed-responsive-item(src='https://www.youtube.com/embed/i0XoOHlkEXE')
+                  //img.load-youtube.img-responsive(src='http://img.youtube.com/vi/FBV-KdzQ3Es/0.jpg',data-url="https://www.youtube.com/embed/i0XoOHlkEXE?autoplay=1",style="width:100%")
+                  //iframe(width='560', height='315', src='https://www.youtube.com/embed/FBV-KdzQ3Es', frameborder='0', allowfullscreen='')
+                    //data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "videos/"}] }')
+                        p.vjs-no-js
+                            | To view this video please enable JavaScript, and consider upgrading to a web browser that
+                            a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+            .col-md-3
+              .item
+                .video-item
+                    .embed-responsive.embed-responsive-16by9.youtube-player(data-id="awzkDypetx8")
+                    //.embed-responsive.embed-responsive-16by9
+                      iframe.embed-responsive-item(src='https://www.youtube.com/embed/i0XoOHlkEXE')
+                  //img.load-youtube.img-responsive(src='http://img.youtube.com/vi/FBV-KdzQ3Es/0.jpg',data-url="https://www.youtube.com/embed/i0XoOHlkEXE?autoplay=1",style="width:100%")
+                  //iframe(width='560', height='315', src='https://www.youtube.com/embed/FBV-KdzQ3Es', frameborder='0', allowfullscreen='')
+                    //data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "videos/"}] }')
+                        p.vjs-no-js
+                            | To view this video please enable JavaScript, and consider upgrading to a web browser that
+                            a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+            .col-md-3
+              .item
+                .video-item
+                    .embed-responsive.embed-responsive-16by9.youtube-player(data-id="T8sx1nNc0oY")
+                    //.embed-responsive.embed-responsive-16by9
+                      iframe.embed-responsive-item(src='https://www.youtube.com/embed/i0XoOHlkEXE')
+                  //img.load-youtube.img-responsive(src='http://img.youtube.com/vi/FBV-KdzQ3Es/0.jpg',data-url="https://www.youtube.com/embed/i0XoOHlkEXE?autoplay=1",style="width:100%")
+                  //iframe(width='560', height='315', src='https://www.youtube.com/embed/FBV-KdzQ3Es', frameborder='0', allowfullscreen='')
+                    //data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "videos/"}] }')
+                        p.vjs-no-js
+                            | To view this video please enable JavaScript, and consider upgrading to a web browser that
+                            a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+//.section.section-1.bg-gray#load-vid3
+    .row.nopadding.text-center
+        .col-md-12
+            .title(data-effect='slide-top')
+                h1(style='text-decoration: underline')
+                    | BUSINESS PROMO DEMOS
+    .row.nopadding
+        .col-md-offset-1.col-md-5.nopadding.pull-left.of
+            // img.img-responsive.alignright(src='assets/img/browse.png', alt='', data-effect='slide-left')
+            .item.item-lg(data-effect='slide-left')
+               .video-item
+                    .embed-responsive.embed-responsive-16by9.youtube-player(data-id="i0XoOHlkEXE")
+                    //.embed-responsive.embed-responsive-16by9
+                      iframe.embed-responsive-item(src='https://www.youtube.com/embed/i0XoOHlkEXE')
+                //img.load-youtube.img-responsive(src='http://img.youtube.com/vi/FBV-KdzQ3Es/0.jpg',data-url="https://www.youtube.com/embed/i0XoOHlkEXE?autoplay=1",style="width:100%")
+                //iframe(width='560', height='315', src='https://www.youtube.com/embed/FBV-KdzQ3Es', frameborder='0', allowfullscreen='')
+                //data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/embed/i0XoOHlkEXE"}] }')
+                    p.vjs-no-js
+                        | To view this video please enable JavaScript, and consider upgrading to a web browser that
+                        a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+        .col-md-5.col-md-offset-1.mt.centered
+            h1 Business Promos
+            p
+                | These template designs are short promo commercials business can use to showcase their brand. You can use our stock images and footage or add specific content from your.  Here is a draft version that can be used for a wedding planner, dress shop or wedding venue.
+//.section.section-1
+    .row.nopadding
+        .col-md-5.col-md-offset-1.mt.centered
+            h1 Dentist Design Template
+            p
+                | This is an idea for a dentist promo video you can brand specifically for your clients. This is not quite finished, but will be ready soon after beta.
+            br
+        .col-md-offset-1.col-md-5.nopadding.pull-right.of
+            .item.item-lg(data-effect='slide-right')
+               .video-item
+                    .embed-responsive.embed-responsive-16by9.youtube-player(data-id="FBV-KdzQ3Es")
+                    //.embed-responsive.embed-responsive-16by9
+                      iframe.embed-responsive-item(src='https://www.youtube.com/embed/i0XoOHlkEXE')
+                //img.load-youtube.img-responsive(src='http://img.youtube.com/vi/FBV-KdzQ3Es/0.jpg',data-url="https://www.youtube.com/embed/i0XoOHlkEXE?autoplay=1",style="width:100%")
+                //iframe(width='560', height='315', src='https://www.youtube.com/embed/FBV-KdzQ3Es', frameborder='0', allowfullscreen='')
+
+                //data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/embed/FBV-KdzQ3Es"}] }')
+                    p.vjs-no-js
+                        | To view this video please enable JavaScript, and consider upgrading to a web browser that
+                        a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+//.section.section-1.bg-gray
+    .row.nopadding
+        .col-md-offset-1.col-md-5.nopadding.pull-left.of
+            // img.img-responsive.alignright(src='assets/img/browse.png', alt='', data-effect='slide-left')
+            .item.item-lg(data-effect='slide-left')
+               .video-item
+                    .embed-responsive.embed-responsive-16by9.youtube-player(data-id="Y9ImBD9AX0g")
+                    //.embed-responsive.embed-responsive-16by9
+                      iframe.embed-responsive-item(src='https://www.youtube.com/embed/i0XoOHlkEXE')
+                //img.load-youtube.img-responsive(src='http://img.youtube.com/vi/FBV-KdzQ3Es/0.jpg',data-url="https://www.youtube.com/embed/i0XoOHlkEXE?autoplay=1",style="width:100%")
+                //iframe(width='560', height='315', src='https://www.youtube.com/embed/FBV-KdzQ3Es', frameborder='0', allowfullscreen='')
+               // data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/embed/Y9ImBD9AX0g"}] }')
+                    p.vjs-no-js
+                        | To view this video please enable JavaScript, and consider upgrading to a web browser that
+                        a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+        .col-md-5.col-md-offset-1.mt.centered
+            h1 Re-Vamped Templates
+            p
+                | We’re adding our previous templates to the system with added features. Now you can customize with your clients business info and logo.
+//.section.section-1.text-center
+    .container.mtb
+        .title(data-effect='slide-top')
+          h1
+            | Here’s Why Vizeo Is The
+            br
+            | #1 Video Software For Your Business
+        .v-software
+            .vitem
+                .icon 
+                    img(src='assets/img/vizeo-hs-1.png')
+                .info
+                    p Get outstanding studio quality ready to sell videos on demand.
+            .vitem
+                .icon
+                    img(src='assets/img/vizeo-hs-2.png')
+                .info
+                    p Make high-class pro-videos to sell more products and services for your clients.
+            .vitem
+                .icon
+                    img(src='assets/img/vizeo-hs-3.png')
+                .info
+                    p Raise your prices and establish yourself as a real professional.
+            .vitem
+                .icon
+                    img(src='assets/img/vizeo-hs-4.png')
+                .info
+                    p Save thousands of dollars in video production fees. Easily turn a profit at any price point.
+            .vitem
+                .icon
+                    img(src='assets/img/vizeo-hs-5.png')
+                .info
+                    p Recurring revenue from clients: many video types and styles keep clients continually ordering from you.
+            .vitem
+                .icon
+                    img(src='assets/img/vizeo-hs-6.png')
+                .info
+                    p Add a lucrative extra revenue stream by selling your videos to any type of client.
+//.section.section-1.text-center(style='background: url(assets/img/geometric.png); background-position: center; background-repeat: no-repeat; background-size: 100%')
+    .container.mt(style='background-position: center')
+        .title(data-effect='slide-top', style='color: black')
+            h1(style='text-decoration: underline') When You Grab Attention, You Make Money.
+            p(style='font-size: 22px; color: black') Easily sell to these types of businesses, with our wide variety of designs.
+            ul.v-checks(style='font-size: 20px')
+                li
+                    em.fa.fa-check
+                    |  Brick & Mortar
+                li
+                    em.fa.fa-check
+                    |  Corporations
+                li
+                    em.fa.fa-check
+                    |  Online Businesses
+                li
+                    em.fa.fa-check
+                    |  Online Shop Owners
+//.section.bg-gray
+    .container.text-center.exactly-section.mtb
+      .title.col-md-12
+          h2 Exactly What You’re Getting With Vizeo…
+      .row.e-item
+        .col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-02.png', alt='Vid Img', width='270')
+          h3
+            | World’s #1 Automated Local Video Creation Platform
+            | Animation Software
+          p
+            | Create pro-quality custom local videos for your clients with professional spokespeople, graphics and animations. No skills or software needed.
+        .col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-03.png', alt='Vid Img', width='270')
+          h3 Designer Template Library
+          p
+            | Choose from our professional selection of top quality templates each designed, tested and approved by a dedicated team of professional animators, marketers and designers.
+        .col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-04.png', alt='Vid Img', width='270')
+          h3 Members Area Training (coming soon)
+          p
+            | Vizeo is built to make your life, your videos and your business as enjoyable, and profitable as possible... Access everything you need in one user-friendly area (including simple set up videos on getting the most from Vizeo).
+      .row.e-item
+        .col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-05.png', alt='Vid Img', width='270')
+          h3 Cloud Hosting
+          p
+            | All the magic happens inside your browser. There is no software to install, so you can get easy access to it whenever you need it...
+        .col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-06.png', alt='Vid Img', width='270')
+          h3 Always Available
+          p
+            | Vizeo is cloud based so there’s no need to wait around for your video software to render your animations. Just choose your animations…and you’ll get an email when they’re ready.
+        .col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-07.png', alt='Vid Img', width='270')
+          h3 Click and Select
+          p
+            | Every design template is ready to go, so there is no need for any previous experience.
+      .row.e-item
+        .col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-08.png', alt='Vid Img', width='270')
+          h3 Easy Customization
+          p
+            | Every design template is preset for you to just add your clients company info … Just click your brand and Vizeo does the rest.
+        .col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-09.png', alt='Vid Img', width='270')
+          h3 No Watermarks
+          p
+            | Vizeo is fully brandable with no watermarks, anywhere… ever. It’s your video, it’s your logo, it’s your profits.
+        .col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-10.png', alt='Vid Img', width='270')
+          h3 Commercial License
+          p Open up a lucrative income streams by selling your custom videos to clients.
+      .row.e-item
+        .col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-11.png', alt='Vid Img', width='270')
+          h3 100% Compatibility
+          p
+            | Vizeo renders all your animations in mp4 file format… so you can use them with any video editor, and any web platform with absolute confidence.
+        .col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-12.png', alt='Vid Img', width='270')
+          h3 Fast Customer Service
+          p
+            | Contact our friendly Vizeo support team 24/7 and you’re guaranteed a response within 1 business day.
+        .col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-13.png', alt='Vid Img', width='270')
+          h3 Lifetime Support
+          p
+            | Vizeo is supported by a team of video producers, designers and developers who are constantly improving the service... Whenever there is a system-wide update you’ll be the first to get it.
+      .row.e-item
+        .col-md-offset-4.col-md-4.col-sm-4
+          img.img-responsive.center-block(src='/img/png/1-14.png', alt='Vid Img', width='270')
+          h3 Unlimited Usage Rights
+          p
+            | Vizeo will never limit the amount of times you can use an animation. Once you’ve rendered it, it’s yours to use in as many videos as you like.
+//.section.section-1.text-center.bg-blue.padding-xs
+    .container.padding-all-sm
+        .title(data-effect='slide-top')
+            h1(style='font-size: 40px; text-decoration: underscore') BOOST YOUR BUSINESS WITH VIDEO
+            p(style='font-size: 18px')
+                | With Vizeo you can make many different kinds of videos. 
+                br
+                br
+                | What they all have in common is that they help you boost your business, whether through better engagement rates on your social media channels, higher conversion rates in your e-commerce store, increasing brand awareness through online videos ads, or attracting passersby to your business location.
+    .container
+        .row
+            .col-md-12
+                .row.feature-list
+                    .col-md-6.col-sm-6(data-effect='slide-left')
+                        .feature-item
+                            img.img-responsive(src='assets/img/icon_video_socialproof.png')
+                            h3 Social Proof
+                            p
+                                | Everyone needs social proof. Any online company will want to highlight their reviews from social networks. This opens up a new massive opportunity for selling custom videos.
+                    .col-md-6.col-sm-6(data-effect='slide-right')
+                        .feature-item
+                            img.img-responsive(src='assets/img/icon_video_ads.png')
+                            h3 Online Video Ads
+                            p
+                                | Online video ads are currently the most effective advertising medium, with 72% of ad agencies saying that online video advertising is more effective than TV advertising.
+                .row.feature-list
+                    .col-md-6.col-sm-6(data-effect='slide-left')
+                        .feature-item
+                            img.img-responsive(src='assets/img/icon_video_corporate.png')
+                            h3 Business Promo
+                            p
+                                | Having video on your site is perfect for capturing the attention of your audience and boosting your conversion rates. Show off your products and events and sell more.
+                    .col-md-6.col-sm-6(data-effect='slide-right')
+                        .feature-item
+                            img.img-responsive(src='assets/img/icon_video_leadgeneration.png')
+                            h3 Lead Gen Videos
+                            p
+                                | Grow your social media following with amazing videos. Video on Facebook has double the organic reach compared to photos and higher engagement metrics.
+//.section.text-center
+    .container.mt
+      .title(data-effect='slide-top')
+        h1 HERE IS HOW VIZEO WORKS
+        p
+          | This is a monthly membership where you are allotted credits each month. Each created video costs 1 credit.
+          br
+          | Videos can be created for less than $4 per video.
+        p
+          | Once created, videos can be automatically published to YouTube or downloaded to your computer.
+//.section.bg-gray.padding-xs.guarantee-section
+    .container(style='max-width: 1200px;')
+        .row.mtb
+            .col-md-3.col-sm-4
+                img.img-responsive(src='assets/img/60_days.png')
+            .col-md-9.col-sm-8.mt
+                h1 60-Day Money-Back Guarantee
+                p
+                    | If you are not pleased with your purchase for any reason, you are entitled to our 60-day, 
+                    br
+                    | no-hassle money-back guarantee. Your account will be credited promptly.
+//.time-offer.bg-blue(style='background-repeat: none;')
+    .col-md-offset-4.col-md-8.col-sm-8.col-xs-12(style='background-color: #005A92')
+        .padding-all-sm.mtb
+            h1(style='text-decoration: underline; text-transform: uppercase;') Limited Time Beta Offer
+            br
+            h3 We have a special offer for early bird beta access.
+                     
+            h5 Here is what is included:
+            br
+            br
+            p(style='font-size: 17px;') 
+                em.fa.fa-check
+                |  Up to 20 Extra Bonus Credits (over $79 value). Bonus credits never expire
+            
+            p(style='font-size: 17px;') 
+                em.fa.fa-check
+                |  Discounted rates on all plans
+            
+            p(style='font-size: 17px;')  
+                em.fa.fa-check
+                |  Discounts on any future upgrades
+            br
+            br
+            h4(style='font-size: 22px;')
+                | Today we have approximately 20-25 templates available. 
+            h4(style='font-size: 22px;') By the end of beta (2 weeks) we should have 50-100 templates and we will continually add new designs and categories.
+//.section.betasection.centered.padding-xs
+    .container.text-center
+       .title
+            h2 This Beta offer will be available until Wed Feb 25. 11:59pm EST. We will then increase price of plans.
+// ********** FIRST **********
+//.section
+    .container.text-center
+        .title
+            h1 
+              | Isn’t it Worth $49/mo to Dominate Video Marketing Sales?
+            p Start Increasing Your Video Sales With Vizeo Today… With Absolutely NO RISK!
+            br
+            h3(style='font-size: 32px')
+              | Take Advantage of Our Exclusive
+              br
+              | Introductory Price & Special Bonuses
+        .col-md-12
+            .row
+                .col-md-6.col-sm-6
+                    .price-table.popular
+                        // <strong class="lbl c-item">Popular<i class="fa fa-caret-down c-item"></i></strong>
+                        .price-box
+                            h2.hd Standard
+                            .price
+                                | $39
+                                small /mo*
+                        // /.price-box
+                        .quick-info
+                            i.fa.fa-caret-up.c-item
+                            p
+                              small 15 Credits per Month
+                            hr
+                            p 
+                                em.fa.fa-star-o
+                                |   10 Bonus Credits
+                        // /.quick-info
+                        ul.detail-info
+                            li
+                                small Access to all Video Designs
+                            li
+                                small Resell Rights
+                            li
+                                small 60 Day Money Back Guarantee
+                            li
+                               small Save Big With Beta Access
+
+                                                    .container.button
+                    a.btn(href='https://www.jvzoo.com/b/0/203876/2')
+                        btn.a(href='https://www.jvzoo.com/b/0/203876/2')
+                        img.img-responsive(src='http://i.jvzoo.com/0/203876/2', alt='Vizeo Video Maker', border='0', style='width: 100%; max-width: 350px')
+
+                        // /.info
+                    // /.price-table
+                // /.column
+                .col-md-6.col-sm-6
+                    .price-table
+                        .price-box
+                            h2.hd Pro
+                            .price
+                              | $49
+                              small /mo*
+                        // /.price-box
+                        .quick-info
+                            i.fa.fa-caret-up.c-item
+                            p
+                              small 20 Credits per Month
+                            hr
+                            p 
+                                em.fa.fa-star-o
+                                |   20 Bonus Credits
+                        // /.quick-info
+                        ul.detail-info
+                            li
+                                small Access to all Video Designs
+                            li
+                                small Resell Rights
+                            li
+                                small 60 Day Money Back Guarantee
+                            li
+                                small Save Big With Beta Access
+
+                        .container.button
+                    a.btn(href='https://www.jvzoo.com/b/0/205558/2')
+                        btn.a(href='https://www.jvzoo.com/b/0/205558/2')
+                        img.img-responsive(src='http://i.jvzoo.com/0/205558/2', alt='Vizeo Video Maker', border='0', style='width: 100%; max-width: 350px')
+                        // /.info
+
+                    // /.price-table
+                // /.column
+//.section.mb.text-center
+
+//.section.bg-gray(style='padding: 50px')
+    .container.faq
+          .title.text-center
+                h1(style='text-decoration: underline') Frequently Asked Questions
+          .row.faqpoints
+                .col-md-6.col-sm-6
+                      h3 Q. How many credits does one video cost?
+                      p Each video costs 1 credit
+                .col-md-6.col-sm-6
+                      h3 Q. Do credits expire?
+                      p Monthly credits rollover every month, bonus credits never expire
+              .row.faqpoints
+                .col-md-6.col-sm-6
+                      h3 Q. Can I resell the videos?
+                      p
+                        | Videos come with commercial rights so you can sell them to your clients. However, the minimum price a video can be sold for is $49.
+                .col-md-6.col-sm-6
+                      h3 Q. What happens if I make a mistake in my order?
+                      p Just re-submit and we will refund your credit.
+//.section.bg-blue.padding-xs
+    .container.text-center
+        .row.mtb
+            .col-md-12
+                h2
+                    | Start benefiting from the power of video now. 
+                    br
+                    | Are you ready to boost your business with video?
+// ********** CREDITS **********
+//#c
+    .container
+        .row
+            .col-md-6.col-md-offset-3.centered
+                p Copyright 2016 | Vizeo.co
+    // /container
+// /C
+//
+  Bootstrap core JavaScript
+  ==================================================
+// Placed at the end of the document so the pages load faster
+script(src='assets/js/jquery.min.js')
+script(src='assets/js/bootstrap.min.js')
+script(src='assets/js/retina-1.1.0.js')
+script(src='assets/js/jquery.unveilEffects.js')
+//script(src='http://vjs.zencdn.net/5.0/video.min.js')
+//script(src='assets/vendor/videojs/video.js')
+//script(src='assets/vendor/videojs/ytd.js')
+script(src='assets/js/toucheffects.js')
+//script(src='/vendor/bower_components/videojs-youtube/dist/Youtube.min.js')
+script(src='/js/scrollspy.js')
+script(src='/js/index.js')

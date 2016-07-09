@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <meta name="description" content="Lollipop is the perfect image editing HTML5 app for quick and straight forward editing">
+   <meta name="keywords" content="canvas,crop,instagram,angular js,html5,image editor,image filters,adjust,customize,online image editor,online photo editor,photo editor,photo effects,transform,perfect">
+   <title>Lollipop</title>
+   <link rel="icon" href="../assets/img/icons/lollipop-o.png" />
+   <link rel="stylesheet" href="css/bootstrap.min.css" media="screen" title="bootstrap" charset="utf-8">
+   <style media="screen">
+      .background {
+         background-image: url('img/Default2.jpg');
+         background-position: center bottom;
+         -webkit-background-size: cover;
+         -moz-background-size: cover;
+         -o-background-size: cover;
+         background-size: cover;
+      }
+   </style>
+   <script src="js/jquery-2.1.4.min.js" charset="utf-8"></script>
+   <script src="js/bootstrap.min.js" charset="utf-8"></script>
+   <script src="../lollipop-integrate.js" charset="utf-8"></script>
+</head>
+
+<body>
+   <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+         <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Documentation</a>
+         </div>
+         <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+               <li><a href="#features">Features</a></li>
+               <li><a href="#integration">Integration</a></li>
+               <li><a href="#events">Callbacks</a></li>
+               <li><a href="#options">Options</a></li>
+               <li><a href="#methods">Methods</a></li>
+               <li><a href="#standalone">Standalone</a></li>
+            </ul>
+         </div>
+      </div>
+   </nav>
+
+   <div class="jumbotron background">
+      <div class="container">
+         <h1>Lollipop - Image Editor</h1>
+         <p>Lollipop is the perfect image editing HTML5 app for quick and straight forward editing</p>
+         <p><a class="btn btn-lg btn-success" href="http://codecanyon.net/item/lollipop-image-editor/12957420" role="button">Purshase at CodeCanyon</a> <a class="btn btn-lg btn-warning" href="http://codecanyon.net/item/lollipop-image-editor/full_screen_preview/12957420" role="button">Demo</a></p>
+      </div>
+   </div>
+
+   <div class="container">
+      <div id="features" class="page-header">
+         <h1>Features</h1>
+      </div>
+      <h3>90+ FILTERS</h3>
+      <p>
+         16 Filters + 7 Guest Filters (Instagram) from filters section, and 70+ filters from package section.
+         <br> Lollipop’s filters are shown real-time while you take a photo with your webcam.
+         <br> Move to next or previous filter by swiping.
+      </p>
+      <h3>15 ADJUSTMENT & CROPPING & TRANSFORMING TOOLS & UNIQUE FRAMES</h3>
+      <p>
+         Use adjustment tools: Brightness, Contrast, Saturation, Noise, Sharpen, Blur, Circle Blur, Vignette, Effects, Customize RGB… to enhance your images to perfection with ease. Transform your photos with rotating and flipping tools. Crop your photos with quick and easy cropping tool...
+      </p>
+
+      <div id="integration" class="page-header">
+         <h1>Integration</h1>
+         <p class="lead">First upload lollipop folder to your server so it is accessible from your existing project.</p>
+      </div>
+      <h3>Include JS</h3>
+      <pre>  <span style="color: #408080; font-style: italic">&lt;!-- Ideally before closing body tag --&gt;</span>
+  <span style="color: #008000; font-weight: bold">&lt;script </span><span style="color: #7D9029">src=</span><span style="color: #BA2121">&quot;lollipop-integrate.js&quot;</span> <span style="color: #7D9029">charset=</span><span style="color: #BA2121">&quot;utf-8&quot;</span><span style="color: #008000; font-weight: bold">&gt;&lt;/script&gt;</span></pre>
+
+      <h3>Initiate and Open Lollipop</h3>
+      <p>
+         Click on one of these images for a demo of the code below (will automatically open images in specified container).
+      </p>
+      <div class="row">
+         <div class="col-xs-6 col-md-3"><a class="thumbnail"><img src="img/Image1.jpg" alt="..."></a></div>
+         <div class="col-xs-6 col-md-3"><a class="thumbnail"><img src="img/Image2.jpg" alt="..."></a></div>
+         <div class="col-xs-6 col-md-3"><a class="thumbnail"><img src="img/Image3.jpg" alt="..."></a></div>
+         <div class="col-xs-6 col-md-3"><a class="thumbnail"><img src="img/Image4.jpg" alt="..."></a></div>
+      </div>
+      <pre>  <span style="color: #008000; font-weight: bold">var</span> imageEditor <span style="color: #666666">=</span> Lollipop.setOptions({
+     path<span style="color: #666666">:</span> <span style="color: #BA2121">&quot;..&quot;</span>, <span style="color: #408080; font-style: italic">//specify the path to lollipop folder</span>
+     appendTo<span style="color: #666666">:</span> <span style="color: #BA2121">&quot;body&quot;</span>
+  });
+  $(<span style="color: #BA2121">&quot;img&quot;</span>).each(<span style="color: #008000; font-weight: bold">function</span>() {
+     $(<span style="color: #008000; font-weight: bold">this</span>).css(<span style="color: #BA2121">&quot;cursor&quot;</span>, <span style="color: #BA2121">&quot;pointer&quot;</span>);
+     $(<span style="color: #008000; font-weight: bold">this</span>).on(<span style="color: #BA2121">&quot;click&quot;</span>, <span style="color: #008000; font-weight: bold">function</span>(e) {
+        imageEditor.open({
+           image_url<span style="color: #666666">:</span> e.target.src,
+        });
+     });
+  });</pre>
+
+      <div id="events" class="page-header">
+         <h1>OnSave Callback</h1>
+      </div>
+      <h3>Example for replacing images with edited ones once user saves.</h3>
+      <pre>  <span style="color: #008000; font-weight: bold">var</span> imageEditor <span style="color: #666666">=</span> Lollipop.setOptions({
+     path<span style="color: #666666">:</span> <span style="color: #BA2121">&quot;..&quot;</span>,
+     appendTo<span style="color: #666666">:</span> <span style="color: #BA2121">&quot;body&quot;</span>,
+     save_icon<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">true</span>,
+     onSave<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">function</span> (data) {
+        Lollipop.image.src <span style="color: #666666">=</span> data;
+     }
+  });
+  $(<span style="color: #BA2121">&quot;img&quot;</span>).each(<span style="color: #008000; font-weight: bold">function</span>() {
+     $(<span style="color: #008000; font-weight: bold">this</span>).css(<span style="color: #BA2121">&quot;cursor&quot;</span>, <span style="color: #BA2121">&quot;pointer&quot;</span>);
+     $(<span style="color: #008000; font-weight: bold">this</span>).on(<span style="color: #BA2121">&quot;click&quot;</span>, <span style="color: #008000; font-weight: bold">function</span>(e) {
+        imageEditor.open({
+           image_url<span style="color: #666666">:</span> e.target.src
+        }, e.target);
+     });
+  });</pre>
+      <h3>Example for saving modified image server-side with PHP.</h3>
+      <pre>  <span style="color: #008000; font-weight: bold">var</span> imageEditor <span style="color: #666666">=</span> Lollipop.setOptions({
+     upload_icon<span style="color: #666666">:</span> true,
+     onSave<span style="color: #666666">:</span> <span style="color: #008000; font-weight: bold">function</span>(data) {
+        $.ajax({
+           type<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;POST&#39;</span>,
+           url<span style="color: #666666">:</span> <span style="color: #BA2121">&#39;/saveImage.php&#39;</span>,
+           data<span style="color: #666666">:</span> { imgData<span style="color: #666666">:</span> data },
+        }).success(<span style="color: #008000; font-weight: bold">function</span>(response) {
+           alert(<span style="color: #BA2121">&#39;image saved successfully!&#39;</span>);
+        });
+     }
+  });</pre>
+      <h4>PHP Code</h4>
+      <pre>  //saveImage.php
+  <span style="color: #BC7A00">&lt;?php</span>
+     <span style="color: #19177C">$data</span> <span style="color: #666666">=</span> <span style="color: #008000">file_get_contents</span>(<span style="color: #19177C">$_REQUEST</span>[<span style="color: #BA2121">&#39;imgData&#39;</span>]);
+     <span style="color: #008000">file_put_contents</span>(<span style="color: #BA2121">&#39;image.jpg&#39;</span>, <span style="color: #19177C">$data</span>);
+  <span style="color: #BC7A00">?&gt;</span></pre>
+
+      <div id="options" class="page-header">
+         <h1>Options</h1>
+      </div>
+      <table class="table table-striped">
+         <thead>
+            <tr><th>Name</th><th>Default</th><th>Description</th></tr>
+         </thead>
+         <tbody>
+            <tr><td>path</td><td>"."</td><td>Path to or the name of lollipop folder on your server.</td></tr>
+            <tr><td>image_url</td><td>""</td><td>Url of image to load into editor. Can be relative or absolute.</td></tr>
+            <tr><td>appendTo</td><td>"body"</td><td>What element lollipop container should be appended to in the DOM. Should be a string that is acceptable by document.querySelector()</td></tr>
+            <tr><td>gallery_icon</td><td>false</td><td>Show/Hide gallery icon (import images from client gallery).</td></tr>
+            <tr><td>camera_icon</td><td>false</td><td>Show/Hide camera icon (take a photo from client webcam).</td></tr>
+            <tr><td>upload_icon</td><td>false</td><td>Show/Hide upload icon (execute .save(data) method).</td></tr>
+            <tr><td>enabledCORS</td><td>false</td><td>Whether or not lollipop should assume that image is cross-domain enabled. With set to false lollipop will execute getFinalImage(url) method to fetch image trough domains which will be slower (unless the image is hosted on the same domain as lollipop).</td></tr>
+         </tbody>
+      </table>
+
+      <div id="methods" class="page-header">
+         <h1>Methods</h1>
+         <p class="lead">
+            All methods should be called on the instance that is ruturned from Lollipop.setOptions({})
+         </p>
+      </div>
+      <table class="table table-striped">
+         <thead>
+            <tr><th>Name</th><th>Description</th></tr>
+         </thead>
+         <tbody>
+            <tr><td>.getParams()</td><td>Get current lollipop parameters.</td></tr>
+            <tr><td>.setOptions(options)</td><td>Set options. Can do it via open(options) as will, but it will open the editor.</td></tr>
+            <tr><td>.open(options)</td><td>Open image editor. Can pass in all options described above.</td></tr>
+            <tr><td>.close()</td><td>Close the editor.</td></tr>
+            <tr><td>.save(data)</td><td>Will trigger onSave callback...</td></tr>
+         </tbody>
+      </table>
+
+      <div id="standalone" class="page-header">
+         <h1>Standalone</h1>
+      </div>
+      <p>
+         Import image from gallery (drag and drop support) or take it from webcam, also you can launch the editor with any image you want by changing “src” parameter (url of image to load into editor, can be relative to init.js or absolute). Example: http://127.0.0.1:38613/index.html?src=*
+      </p>
+      <p><b>Note:</b> you might need to host lollipop on a server to avoid some strict browser restrictions around file:// protocol. Any server will do, there are no requirements for it.</p>
+   </div>
+   <footer class="footer">
+      <div class="container">
+         <p class="text-muted">specialapp 2015</p>
+      </div>
+   </footer>
+   <script src="js/demo.js" charset="utf-8"></script>
+</body>
+
+</html>

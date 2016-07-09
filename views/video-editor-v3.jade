@@ -1,0 +1,497 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Reevio
+        meta(name='description', content='Reevio')
+        meta(name='author', content='Involto')
+        //script(src='/editor/js/modernizr-custom.js')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+        //link(rel='stylesheet', href='/editor/css/font-awesome.min.css')
+        link(type='text/css', rel='stylesheet', href='/editor/css/normalize.css')
+        //link(type='text/css', rel='stylesheet', href='/editor/css/styles.css')
+        link(rel='stylesheet', href='/css/bootstrap.css')
+
+        link(rel='stylesheet', href='/editor/css/style-1.css')
+        link(rel='stylesheet', href='/editor/css/theme-an.css')
+        link(rel='stylesheet', href='/editor/css/bootstrap-theme.min.css')
+        link(rel='stylesheet', href='/vendor/font-awesome-4.5.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/vendor/bootstrap-select/bootstrap-select.min.css')
+        link(rel='stylesheet', type="text/css", href='/vendor/jquery-collagePlus-master/support/collage.css')
+        link(rel='stylesheet', type="text/css", href='/vendor/jquery-collagePlus-master/css/transitions.css')
+
+        link(rel='stylesheet', type="text/css", href='/vendor/jquery-ui-1.12.0/jquery-ui.min.css')
+
+        link(href='/vendor/bootstrap3-editable/css/bootstrap-editable.css', rel='stylesheet')
+        link(rel='stylesheet', href='/vendor/colorpicker/css/colorpicker.css')
+        //link(rel='stylesheet', href='/css/custom.css')
+        <link rel="stylesheet" href="css/main.css">
+
+
+        //if lt IE 9
+          script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+    body
+        #wraper
+            //Modal Window Begin
+            include triming-po-up.jade
+            //Modal Window End
+        .app
+          // Top Bar Start
+          header#app-top.navbar.app-top(role='banner')
+            .container-fluid
+              .navbar-header
+                a.navbar-brand(href='#') reevio
+          // Top Bar End
+          // App Content - middle part  start
+          .app-content.clearfix
+            // Left Sidebar start
+            aside.sidebar-left
+              // Main Tabs Nav Start
+              nav.sidebar-left-nav
+                ul.nav(role='tablist')
+                  li.active(role='presentation')
+                    a.red(href='#libraries', aria-controls='libraries', role='tab', data-toggle='tab')
+                      i.fa.fa-photo
+                      |                             libraries
+                  li(role='presentation')
+                    a.blue(href='#uploads', aria-controls='uploads', role='tab', data-toggle='tab')
+                      i.fa.fa-cloud-upload
+                      |                             uploads
+                  li(role='presentation')
+                    a.yellow(href='#graphics', aria-controls='graphics', role='tab', data-toggle='tab')
+                      i.fa.fa-paint-brush
+                      |                             graphics
+                  li(role='presentation')
+                    a.green(href='#options', aria-controls='options', role='tab', data-toggle='tab')
+                      i.fa.fa-cog
+                      |                             options
+              // Main Tabs Nav End
+              // Main Tabs Content Start
+              .tab-content
+                // Tab 1 Start
+                #libraries.tab-pane.active(role='tabpanel')
+                  nav.sidebar-left-subnav.red-subnav
+                    ul.nav
+                      li.active(role='presentation')
+                        a(href='#images', aria-controls='images', role='tab', data-toggle='tab')
+                          i.fa.fa-photo
+                          |                                     Images
+                      li(role='presentation')
+                        a(href='#audio', aria-controls='audio', role='tab', data-toggle='tab')
+                          i.fa.fa-music
+                          |                                     Audio
+                      li(role='presentation')
+                        a(href='#video', aria-controls='video', role='tab', data-toggle='tab')
+                          i.fa.fa-play
+                          |                                     Video
+                  .tab-content
+                    #images.tab-pane.active(role='tabpanel')
+                      .clearfix
+                        .results
+                          header.left-sidebar-section-title My Images
+                          .results-container
+                            .custom-scrollbar
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              figure.image-tn
+                                img(src='images/image-tn.jpg', alt='tn')
+                              br
+                              // <a href="#" class="btn btn-red btn-block btn-uppercase">upload new image</a>
+                        .filter
+                          header.left-sidebar-section-title
+                            a(href='#', onclick='Utils.Layout.filterToggle()') Search
+                          .filter-container
+                            form.search-form(method='post')
+                              .input-group
+                                input.form-control(type='text', placeholder='Search', id='search')
+                                span.input-group-btn
+                                  button.btn.btn-default(type='button', id='serach-images')
+                                    i.fa.fa-search
+                              .dropdown
+                                button#dropdownMenu1.btn.btn-gray.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                                  | Orientation
+                                  span.caret
+                                ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                                  li
+                                    a(href='#') Orientation
+                                  li
+                                    a(href='#') Orientation
+                                  li
+                                    a(href='#') Orientation
+                              .dropdown
+                                button#dropdownMenu1.btn.btn-gray.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                                  | Category
+                                  span.caret
+                                ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                                  li
+                                    a(href='#') Category
+                                  li
+                                    a(href='#') Category
+                                  li
+                                    a(href='#') Category
+                              .dropdown
+                                button#dropdownMenu1.btn.btn-gray.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                                  | Popular
+                                  span.caret
+                                ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                                  li
+                                    a(href='#') Popular
+                                  li
+                                    a(href='#') Popular
+                                  li
+                                    a(href='#') Popular
+                              .dropdown
+                                button#dropdownMenu1.btn.btn-gray.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                                  | All images
+                                  span.caret
+                                ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                                  li
+                                    a(href='#') Photos
+                                  li
+                                    a(href='#') Vector graphics
+                                  li
+                                    a(href='#') Illustrations
+                              .dropdown
+                                button#dropdownMenu1.btn.btn-gray.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                                  | Color
+                                  span.caret
+                                ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                                  li
+                                    a(href='#') Color
+                                  li
+                                    a(href='#') Color
+                                  li
+                                    a(href='#') Color
+                              .dropdown
+                                button#dropdownMenuPlugin.btn.btn-gray.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true', value='pixabay')
+                                  | Plugin
+                                  span.caret
+                                ul.dropdown-menu(aria-labelledby='dropdownMenuPlugin')
+                                  li(data-val='pixabay')
+                                    a(href='#') Pixabay
+                                  li(data-val='youzing')
+                                    a(href='#') Youzing
+                                  li(data-val='splashbase')
+                                    a(href='#') Splashbase
+                    #audio.tab-pane.subtab(role='tabpanel')
+                      | audio
+                    #video.tab-pane.subtab(role='tabpanel')
+                      .row
+                        .col-sm-6
+                          figure.image-tn
+                            img(src='images/image-tn.jpg', alt='tn')
+                        .col-sm-6
+                          figure.image-tn
+                            img(src='images/image-tn.jpg', alt='tn')
+                        .col-sm-6
+                          figure.image-tn
+                            img(src='images/image-tn.jpg', alt='tn')
+                        .col-sm-6
+                          figure.image-tn
+                            img(src='images/image-tn.jpg', alt='tn')
+                      br
+                      .row
+                        .col-lg-10.col-lg-offset-1
+                          a.btn.btn-primary.btn-block.btn-uppercase.fs18(href='#') upload new video
+                // Tab 1 End
+                // Tab 2 Start
+                #uploads.tab-pane(role='tabpanel')
+                  nav.sidebar-left-subnav.blue-subnav
+                    ul.nav
+                      li(role='presentation')
+                        a(href='#images', aria-controls='images', role='tab', data-toggle='tab')
+                          i.fa.fa-photo
+                          |                                     Images
+                      li(role='presentation')
+                        a(href='#audio', aria-controls='audio', role='tab', data-toggle='tab')
+                          i.fa.fa-music
+                          |                                     Audio
+                      li.active(role='presentation')
+                        a(href='#video', aria-controls='video', role='tab', data-toggle='tab')
+                          i.fa.fa-play
+                          |                                     Video
+                  .tab-content
+                    #images.tab-pane.subtab(role='tabpanel')
+                      | images
+                    #audio.tab-pane.subtab(role='tabpanel')
+                      | audio
+                    #video.tab-pane.active.subtab(role='tabpanel')
+                      .row
+                        .col-sm-6
+                          figure.image-tn
+                            img(src='images/image-tn.jpg', alt='tn')
+                        .col-sm-6
+                          figure.image-tn
+                            img(src='images/image-tn.jpg', alt='tn')
+                        .col-sm-6
+                          figure.image-tn
+                            img(src='images/image-tn.jpg', alt='tn')
+                        .col-sm-6
+                          figure.image-tn
+                            img(src='images/image-tn.jpg', alt='tn')
+                      br
+                      .row
+                        .col-lg-10.col-lg-offset-1
+                          a.btn.btn-primary.btn-block.btn-uppercase.fs18(href='#') upload new video
+                // Tab 2 End
+                // Tab 3 Start
+                #graphics.tab-pane(role='tabpanel')
+                  nav.sidebar-left-subnav.yellow-subnav
+                    ul.nav
+                      li(role='presentation')
+                        a.red(href='#')
+                          i.fa.fa-photo
+                          |                                     Images
+                      li.active(role='presentation')
+                        a.red(href='#')
+                          i.fa.fa-music
+                          |                                     Audio
+                      li(role='presentation')
+                        a.red(href='#')
+                          i.fa.fa-play
+                          |                                     Video
+                // Tab 3 End
+                // Tab 4 Start
+                #options.tab-pane(role='tabpanel')
+                  nav.sidebar-left-subnav.green-subnav
+                    ul.nav
+                      li(role='presentation')
+                        a.red(href='#')
+                          i.fa.fa-photo
+                          |                                     Images
+                      li.active(role='presentation')
+                        a.red(href='#')
+                          i.fa.fa-music
+                          |                                     Audio
+                      li(role='presentation')
+                        a.red(href='#')
+                          i.fa.fa-play
+                          |                                     Video
+                // Tab 4 End
+            // Left Sidebar End
+            // Slide preview start
+            .app-middle
+                each slide, i in template_data
+                    .current-slide(data-id='#{i}')
+                        .figure
+                            img(src='/templates/#{slide.slide}')
+                            .item-form
+                                if slide.inputs
+                                    each inp, j in slide.inputs
+                                        .field.text.dark-t(style='#{inp.style}', data-toggle='tooltip', data-placement='top', title='Add text to this field')
+                                            a.text-editor(href='#', data-type='#{inp.type}', data-pk='#{i}', style="height:100%",
+                                            data-inputposition="#{j}",data-inputname="#{inp.name}",data-maxlength="#{inp.max}",data-name="#{inp.name}")
+                                if slide.images
+                                    each img,index in slide.images
+                                        .field.image___file.empty(style='position:absolute; #{img.position};#{img.size}',data-imgpk='#{index}',data-pk='#{i}', data-toggle='tooltip', data-placement='top', title='Add image to this field' )
+                                            .btn.add-new-images-input
+              //.current-slide
+                //figure
+                  //img(src='images/image.jpg', alt='image')
+            // Slide preview end
+            // Right Sidebar start
+            .sidebar-right
+              ul.nav
+                li.active(role='presentation')
+                  a(href='#images', aria-controls='images', role='tab', data-toggle='tab')
+                    | Slides
+              form.search-form(method='post')
+                .input-group
+                  input.form-control(type='text', placeholder='Search')
+                  span.input-group-btn
+                    button.btn.btn-default(type='button')
+                      i.fa.fa-search
+                .dropdown
+                  button#dropdownMenu1.btn.btn-gray.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                    | Category
+                    span.caret
+                  ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                    li
+                      a(href='#') Category
+                    li
+                      a(href='#') Category
+                    li
+                      a(href='#') Category
+              .draggable
+                ul
+                    li Test
+                    li Test
+                    li Test
+            // Right Sidebar End
+          // App Content - middle part  end
+          // bottom bar start
+          footer.app-footer
+            // Carousel Start
+            .carousel
+              .swiper-container
+                .swiper-wrapper
+                  // Carousel Item Start
+                  each slide,i in template_data
+                        .swiper-slide.image-container(data-id='#{i}')
+                            figure.slide-img
+                                img(src='/templates/#{slide.slide}')
+                                .steps
+                                    span
+                                        i.fa.fa-text-width.circle
+                                        |
+                                        span.validate-inputs 0/#{Object.keys(slide.inputs).length}
+                                    span
+                                        i.fa.fa-file-image-o.circle
+                                        |
+                                        span.validate-imgs 0/#{Object.keys(slide.images).length}
+                                    span.pull-right
+                                        a(href='#')
+                                            i.fa.fa-trash.fa-lg
+                  .swiper-slide
+                    span.drophere-box DROP HERE
+                    .steps
+                      span
+                        i.fa.fa-text-width.circle
+                        |  0/2
+                      span
+                        i.fa.fa-file-image-o.circle
+                        |  0/2
+                      span.pull-right
+                        a(href='#')
+                          i.fa.fa-trash.fa-lg.white-txt
+                  // Carousel Item End
+                  // Carousel Item Start
+                  .swiper-slide
+                    a.add
+                      i.fa.fa-plus-circle
+                  // Carousel Item End
+              // Add Arrows
+              .swiper-button-next
+                i.fa.fa-angle-right
+              .swiper-button-prev
+                i.fa.fa-angle-left
+            // Carousel End
+            .progress-container
+              .content
+                span
+                  strong 12%
+                  |  finished
+                .progress
+                  .progress-bar(role='progressbar', aria-valuenow='11', aria-valuemin='0', aria-valuemax='100', style='width: 11%;')
+
+          // bottom bar end
+
+        // Modal
+        #image___upload.editor-img___modal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', data-pk='0')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-label='Close')
+                            span(aria-hidden='true')&times;
+                        h4#myModalLabel1.modal-title
+                            .em.fa.fa-picture-o
+                            | &nbsp;Select an image file to insert
+                    .modal-body
+                        .modal-section
+                            p.text-center.text-danger.image-error(style='display:none;') The image mush be min. 770x250 px
+                        .modal-section
+                            h1 Currently used in this video
+                            .thumb-section.all_pic
+                                if user_images
+                                    each img,i in user_images
+                                        .thumb-img
+                                            img(src='#{img.path}')
+                        .modal-section
+                            h1 Files yet unused
+                            .thumb-section
+                                form(method='post', id='origin_img_form')
+                                    input(type='file',class='hidden', name='image', id='origin_img')
+                                .thumb-img.thumb-add
+                                    em.fa.fa-plus-square-o
+                                    | Add files
+                    .modal-footer
+                        span.help-block.pull-left
+                            | Click on the thumbnail of an image file to select it, then click NEXT.
+                        .btn-actions.pull-right.get-next
+                            button.btn.btn-info(type='button') NEXT >
+        //script(src='js/jquery-1.10.1.min.js')
+
+   include images-pop-up.jade
+   script(src='js/jquery-1.10.1.min.js')
+   script(src='js/bootstrap.min.js')
+   script(src='/vendor/bootstrap-select/bootstrap-select.min.js')
+   script(src='js/swiper.min.js')
+   script(src='js/jquery.mCustomScrollbar.js')
+   script(src='js/scripts.js')
+   script(src='/editor/js/editor.js')
+   script(src='/vendor/jquery-collagePlus-master/jquery.collagePlus.js')
+   script(src='/vendor/jquery-collagePlus-master/extras/jquery.collageCaption.min.js')
+   script(src='/vendor/jquery-collagePlus-master/extras/jquery.removeWhitespace.min.js')
+
+   //script(src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js')
+   script(src="/js/editor.js")
+   //script(src='/vendor/bootstrap/dist/js/bootstrap.js')
+   script(src='/vendor/croppernew/dist/cropper.js')
+   script(src='/vendor/colorpicker/js/colorpicker.js')
+   script(src='/vendor/jquery-ui-1.12.0/jquery-ui.js')
+   script(src='/editor/js/draggable.js')
+   //script(src='http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.0.min.js')
+   script(src="/js/editor.js")
+   //script(src='/vendor/bootstrap/dist/js/bootstrap.js')
+   script(src='/vendor/croppernew/dist/cropper.js')
+   script(src='/vendor/colorpicker/js/colorpicker.js')
+
+   script(src='/vendor/bootstrap3-editable/js/bootstrap-editable.js')
+   //script.
+       window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\\/script>')
+   script(src='/editor/js/tabs.js')
+   script(type='text/javascript').
+     $('#images-modal select').selectpicker();
+     // All images need to be loaded for this plugin to work so
+     // we end up waiting for the whole window to load in this example
+     $('#images-modal').on('shown.bs.modal', function() {
+     collage();
+     });
+     // Here we apply the actual CollagePlus plugin
+     function collage() {
+     $('.collage').removeWhitespace().collagePlus(
+     {
+     'fadeSpeed'     : 500,
+     'targetHeight'  : 180,
+     'direction'     : 'vertical',
+     'allowPartialLastRow':true
+     }
+     );
+     };
+     // This is just for the case that the browser window is resized
+     var resizeTimer = null;
+     $(window).bind('resize', function() {
+     // hide all the images until we resize them
+     $('.collage .image-wrapper').css("opacity", 0);
+     // set a timer to re-apply the plugin
+     if (resizeTimer) clearTimeout(resizeTimer);
+     resizeTimer = setTimeout(collage, 1000);
+     });

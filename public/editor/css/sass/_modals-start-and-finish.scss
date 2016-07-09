@@ -1,0 +1,75 @@
+$mods-col-bg: #d9d9d9;
+$mods-col-blue: #68bddb;
+$mods-col-blueHover: #009AD0;
+.start-and-finish {
+    .modal-dialog {
+        .modal-content {
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .modal-body {
+            text-align: center;
+            background-color: $mods-col-bg;
+            padding: 15px 25px;
+        }
+        h3 {
+            margin-top: 10px;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            color: #fff;
+            background-color: $mods-col-blue;
+            display: block;
+            margin: 0 auto;
+            max-width: 190px;
+            margin-bottom: 10px;
+            font-size: 14px !important;
+            text-decoration: none;
+            border: none;
+            &:hover {
+                // background-color: $mods-col-blueHover;
+            }
+        }
+    }
+}
+
+#name-your-video {
+    .modal-dialog {
+        max-width: 350px;
+        form {
+            label {
+                font-size: 18px;
+                // line-height: 18px;
+                color: #555;
+                margin-bottom: 17px;
+            }
+            .form-control {
+                background-color: #fff !important;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+#submit-video-modal,#submit-video-error-modal {
+    .modal-dialog {
+        max-width: 470px;
+    }
+    .modal-header {
+        height: 74px;
+        padding: 0;
+        background-color: $mods-col-blue;
+        text-align: center;
+        >div {
+            width: 100%;
+            .fa {
+                color: #fff;
+                font-size: 54px;
+                line-height: 74px;
+            }
+        }
+    }
+}

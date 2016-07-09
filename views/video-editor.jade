@@ -1,0 +1,84 @@
+extends layout
+block content
+  link(rel='stylesheet', href='/vendor/music_upload/style/style.css')
+  link(rel='stylesheet', href='/vendor/player/style.css')
+  // Page content
+  main
+    .page-title-gray.pt-dark
+      .container
+        .title
+          h4 Video Designer
+          small
+          button.pull-right.btn.btn-large.red#submit-video
+            i.fa.fa-video-camera
+            | &nbsp; Video Submit
+    .video-slide
+      .container
+        .loading-editor
+          i.fa.fa-spinner.fa-spin
+          |  Please wait while loading the editor....
+      .video-editor#video-editor(data-templateid='#{template_id}')
+        .main-editor
+          form(name='slide-data',enctype="multipart/form-data",method='post').main-slide#slide-data-form
+            each slide,i in template_data
+              .video-thumb-m
+                .item-img
+                  a(href='javascript:;', data-input='4', data-img='2')
+                    img.img-responsive(src='/templates/#{slide.slide}', alt='', onerror='this.style.display="none"')
+                .item-form
+                  if slide.inputs
+                    each input,inp in slide.inputs
+                      .field.text.dark-t(style='#{input.style}', data-toggle='tooltip', data-placement='top', title='Add text to this field')
+                        a.text-editor(href='#', data-type='#{input.type}', data-pk='1', style="height:100%",
+                        data-inputposition="#{inp}",data-inputname="#{input.name}",data-name="#{input.name}")
+                  if slide.images
+                    each img,i in slide.images
+                      .field.file(style='#{img.position};#{img.size}', data-toggle='tooltip', data-placement='top', title='Add image to this field' )
+                        .fileinput.fileinput-new(data-provides='fileinput')
+                          .fileinput-new.thumbnail.noimage
+                          .fileinput-preview.fileinput-exists.thumbnail
+                          .btn-select-opt
+                            span.btn.default.btn-file.btn-xs
+                              span.fileinput-new
+                              | Select image
+                              span.fileinput-exists
+                              | Change
+                              input(type='file', name='#{img.name}',data-name='#{img.name}').add-new-images-input
+                            a.btn.btn-xs.red.fileinput-exists.btn-remove.fa.fa-remove(href='#', data-dismiss='fileinput',data-name='#{img.name}')
+        .inner
+          each slide,i in template_data
+            .video-thumb-s
+              .item-img
+                a(href='javascript:;', data-input='4', data-img='2')
+                  img.img-responsive(src='/templates/#{slide.slide}', alt='', onerror='this.style.display="none"')
+    #upload-wrapper
+      div(align="center")
+        form(action="/editor/music-upload" name='slide-data',onSubmit="return false",method="post",enctype="multipart/form-data")#MyUploadForm
+          input(type='file',name='music_file')#imageInput
+        div(style="display:none;")#progressbox
+          #progressbar
+          #statustxt 0%
+        #output
+        each music,i in music_data
+          .player
+            div(class='snd_#{music.id}')
+              p.span #{music.music_name}
+              .toggle
+                button.toggle-play
+                 i.fa.fa-play
+                button.toggle-pause
+                 i.fa.fa-pause
+              input(type='range',value='0').time
+              button(data-id='#{music.id}').toggle-delete
+               i.fa.fa-trash-o
+    // End .editor-container
+
+block append footer
+  script(src='/js/editor.js')
+  script(src='/vendor/music_upload/js/jquery.form.min.js')
+  script(src='/vendor/player/snd.min.js')
+  script(src='/js/music.js')
+  script.
+        $('[data-toggle="tooltip"]').tooltip();
+        var music_path=!{JSON.stringify(music_data)};
+  

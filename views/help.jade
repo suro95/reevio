@@ -1,0 +1,78 @@
+extends layout
+block content
+    main.extraBottom
+        .page-title-gray
+            .container
+                h2.accountH3-grey Tutorials
+        .container.page-content
+            .row
+                .col-md-3.col-sm-3
+                    .sidebar-vid
+                        .user-section
+                            .user-img
+                                img(src='/img/logo-icon.png')
+                            .user-name
+                            .user-info
+                        a.user-settings(href='settings')
+                            em.fa.fa-user
+                            |  Account Settings
+                .col-md-9.col-sm-9
+                    .help-section
+                        .row
+                            .col-md-6
+                                .step.box.p0
+                                    .step-title
+                                    .vd-thumb.hold-asp-ratio
+                                        .asp-content.smoll-template-video
+                                          iframe(width="408" height="229" src="https://www.youtube.com/embed/1XqQOjVm-so" frameborder="0" allowfullscreen)
+                            .col-md-6
+                                .step.box.p0
+                                    .step-title
+                                    .vd-thumb.hold-asp-ratio
+                                        .asp-content.smoll-template-video
+                                         iframe(width="408" height="229" src="https://www.youtube.com/embed/z1yCDD3iy9w" frameborder="0" allowfullscreen)
+                        .row
+                            .col-md-6
+                                .step.box.p0
+                                    .step-title
+                                    .vd-thumb.hold-asp-ratio
+                                        .asp-content.smoll-template-video
+                                          iframe(width="408" height="229" src="https://www.youtube.com/embed/QayDzSLWv5k" frameborder="0" allowfullscreen)
+                            .col-md-6
+                                .step.box.p0
+                                    .step-title
+                                    .vd-thumb.hold-asp-ratio
+                                        .asp-content.smoll-template-video
+                                          iframe(width="408" height="229" src="https://www.youtube.com/embed/_mBOeDsRXHU" frameborder="0" allowfullscreen)
+                        .row
+                            .col-md-6
+                                .step.box.p0
+                                    .step-title
+                                    .vd-thumb.hold-asp-ratio
+                                        .asp-content.smoll-template-video
+                                          iframe(width="408" height="229" src="https://www.youtube.com/embed/XETCLtahL-4" frameborder="0" allowfullscreen)
+block append footer
+  script(src='/js/player.js')
+  script(src='/js/grid-space.js')
+  script.
+    $(function() {
+      $('.mg-space-init').mgSpace();
+    });
+  script(src='/js/show_grid.js')
+  script.
+    var options = {
+      valueNames: [
+                'name',
+                'category_id',
+                'newest',
+                { data: ['id']},
+                { name: 'thumb', attr: 'data-count' },
+                { name: 'video_new_id', attr: 'id' },
+                { name: 'video_new', attr: 'poster' },
+                { name: 'source', attr: 'src' },
+                { name: 'link', attr: 'href' }
+              ]
+    };
+    var userVideos = new List('videos-list', options);
+        userVideos.show(0, 16);
+        //- $('.thumb-list li ').show();

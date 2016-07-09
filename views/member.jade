@@ -1,0 +1,113 @@
+extends layout
+block content
+    section
+        // Page content
+        .content-wrapper
+            .content-heading Project
+            .editor-container
+                .row
+                    .col-lg-9.col-md-8
+                        form.order-form(action='#')
+                            .row
+                                .col-sm-6.form-group
+                                    select.form-control(name='', id='')
+                                        option(value='') Create new
+                                        option(value='')  2
+                                        option(value='')  3
+                                .col-sm-6.form-group
+                                    input.btn.btn-primary.btn-block.btn-lg(type='submit', value='Order Video')
+                .panel.panel-default
+                    .panel-body
+                        .row
+                            .col-md-12
+                                .templates-wrapper
+                                    .template-view#template-view(data-id="#{template_id}")
+
+                                        each slide, i in template_data
+                                            .row
+                                                .col-lg-9.col-md-8.template-containter(style="position:relative",data-slidenum='#{i}')
+                                                    img(src='/templates/#{slide.slide}', height='601', width='1099', alt='')
+                                                    each input, y in slide.inputs
+                                                        .form-group
+                                                            input.form-control(type='text', placeholder='#{input.value}',
+                                                            style="#{input.style}",data-position="#{y}",value="#{input.value}")
+
+
+
+                                    .row
+                                        .col-lg-9.col-md-8
+                                            .template-list
+                                                each slide, i in template_data
+                                                  div
+                                                    img(src='/templates/#{slide.slide}', height='601', width='1099', alt='')
+                                // End templates-wrapper
+                .panel.panel-default
+                    .panel-body
+                        .row
+                            .col-md-5
+                                .sound_selector
+                                    ul.nav.nav-pills
+                                        li.active.music
+                                            a(href='#music', data-toggle='pill') Music
+                                        li.voice
+                                            a(href='#voice', data-toggle='pill') Voice Over
+                                        li.audio
+                                            a(href='#my_audio', data-toggle='pill') My Audio
+                                    .tab-content
+                                        #music.tab-pane.fade.in.active
+                                            | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic sequi odio maiores doloribus assumenda possimus nesciunt ipsum dignissimos ullam similique. Eum debitis inventore excepturi magnam assumenda earum ducimus. Fugiat esse, asperiores atque placeat cupiditate ea nam, sint ut rem quas doloribus aliquid itaque dignissimos molestiae fuga modi sapiente est, deleniti iste? Eum commodi doloribus error debitis illum ducimus repudiandae consequatur m? Velit necessitatibus ducimus laboriosam eaque rerum sequi tenetur dolores quae, omnis deleniti fugit magni repellendus fugiat culpa, quia quis odit atque uidem neq sapiente unde eum. Sequi porro vero optio, odio obcaecati vitae iste adipisci fuga explicabo, repudiandae hic eaque, error quibusdam. Explicabo laborum consequatur, reprehenderit sunt, praesentium porro delectus placeat laboriosam sit officiis qui aliquam facilis, ipsam aspernatur velit numquam debitis libero. Itaque nobis sunt dicta consequatur quisquam quidem tempora repellendus fuga commodi velit tenetur, perspiciatis doloribus deserunt. Dolorem iure, odit facilis facere possimus ab sint ipsum excepturi, rerum incidunt a eius nihil dolor quam maxime cumque consequatur pariatur, illo consequuntur esse!
+                                        #voice.tab-pane.fade
+                                        #my_audio.tab-pane.fade
+                                    a#upload_audio_btn.btn.btn-block.btn-primary(href='#my_audio', data-toggle='pill') Upload Audio
+                                // ENd .sound_selector
+                            .col-md-4
+                                .quick_prev.matchHeight
+                                    p.quick_prev_head
+                                        i.fa.fa-play
+                                        |  Project Video
+                                    .video-responsive
+                                        //   iframe(src='https://www.youtube.com/embed/InllW6sb2vM', frameborder='0', allowfullscreen='')
+                                // /.quick_prev
+                                .descript
+                                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea possimus accusamus odio aspernatur amet ratione, officiis vero iusto dolor natus sed fugiat quo dicta explicabo voluptatibus quos rem, in eum.
+                            .col-lg-3.col-md-3.order_btn.matchHeight
+                                form(action='#')
+                                    a.btn.btn-primary.btn-lg#submit-template-data(href='#')
+                                        i.fa.fa-video-camera  Export / Preview
+        // End .editor-container
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+#user-video-modal,
+#example___video {
+    .modal-dialog {
+        max-width: 1000px;
+        video {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+}

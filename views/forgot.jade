@@ -1,0 +1,80 @@
+extends layout
+block content
+    // Page content
+    main
+        .container.page-content.userform
+            .inner 
+                p.form-title CHANGE PASSWORD
+                form.mb-lg(role='form',method='post')
+                    input#token(type="hidden" value="#{token}")
+                    .form-group
+                        .input-icon.right
+                            i.fa.fa-lock
+                            input#exampleInputPassword1.form-control(type='password', placeholder='New Password',name='new-password')
+                    .form-group
+                        .input-icon.right
+                            i.fa.fa-lock
+                            input#exampleInputPassword2.form-control(type='password', placeholder='Repeat Password',name='repeat-password')
+                    button.btn.btn-block.btn-info.mt-lg#confirm(type='button') Confirm
+block append footer
+      .modal.fade#modal-message(tabindex='-1', role='dialog')
+          .modal-dialog
+              .modal-content
+                  .modal-header
+                      h4.modal-title(style="text-align: center;color: #fff;")
+      script.
+        $('#confirm').click(function(){
+          $('.parsley-errors-list').remove();
+          var pass_new = $('#exampleInputPassword1').val().trim(),
+              pass_repeat = $('#exampleInputPassword2').val().trim(),
+              token = $('#token').val(),
+              success = true,
+              pass_new_err = '',
+              pass_repeat_err = '';
+
+          if(!pass_new.length){
+            success = false;
+            pass_new_err = '<ul class="parsley-errors-list filled"><li class="parsley-required">This value is required</li></ul>';
+          }else if(pass_new.length < 8){
+            success = false;
+            pass_new_err = '<ul class="parsley-errors-list filled"><li class="parsley-required">Password must be more than 8 characters length!</li></ul>';
+          }
+
+          if(!pass_repeat.length){
+            success = false;
+            pass_repeat_err = '<ul class="parsley-errors-list filled"><li class="parsley-required">This value is required</li></ul>';
+          }else if(pass_repeat.length < 8){
+            success = false;
+            pass_repeat_err = '<ul class="parsley-errors-list filled"><li class="parsley-required">Password must be more than 8 characters length!</li></ul>';
+          }
+
+          if(pass_new != pass_repeat){
+            success = false;
+            pass_repeat_err = '<ul class="parsley-errors-list filled"><li class="parsley-required">Passwords are not the same.</li></ul>'
+          }
+
+          if(success){
+             $.post( '/auth/change-pass',{token:token,pass_new:pass_new,pass_repeat:pass_repeat}).done(function( data ) {
+                if(data.success){
+                    $('#modal-message .modal-content').css('background-color','green');
+                    $('#modal-message .modal-title').html('Your password has been changed. You can log in with your new password');
+                    $('#modal-message').modal('show');
+                    setTimeout(function(){
+                      $('#modal-message').modal('hide');
+                      window.location.href = '/auth/login';
+                    }, 4000);
+                }else{
+                    $('#modal-message .modal-content').css('background-color','red');
+                    $('#modal-message .modal-title').html('Like your link is not valid or expired.');
+                    $('#modal-message').modal('show');
+                    setTimeout(function(){
+                      $('#modal-message').modal('hide');
+                      window.location.href = '/auth/forgot-password';
+                    }, 4000);
+                }
+              })
+          }else{
+              $('#exampleInputPassword1').after(pass_new_err);
+              $('#exampleInputPassword2').after(pass_repeat_err);
+          }
+        });

@@ -1,0 +1,117 @@
+/* BEDIN REVOLUTION SLIDER */
+.revolution-slider {
+	z-index: 1;
+	position: relative;
+	overflow: hidden;
+}
+
+.fullwidthbanner-container ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	height: 0;
+	overflow: hidden;
+}
+.tp-bannershadow {
+	display: none;
+}
+.tp-bullets.simplebullets.round .bullet {
+	width: 12px;
+	height: 12px;
+	border-radius: 50% !important;
+	background: #d8d8d8;
+}
+.tp-bullets.simplebullets.round .bullet:hover,
+.tp-bullets.simplebullets.round .bullet.selected {
+	background: #919191;
+}
+.tp-leftarrow.default,
+.tp-rightarrow.default{
+	opacity: 0.7;
+}
+.tp-leftarrow.default:hover,
+.tp-rightarrow.default:hover {
+	opacity: 1;
+}
+.revolution-slider .hidearrows {
+	opacity: 0;
+}
+
+
+
+
+.slide-title {
+    font-size: 47px;
+	color: #fff;
+    font-weight: 300;
+	text-transform: uppercase;
+}
+.slide-title-small {
+    font-size: 26px;
+	color: #fff;
+    font-weight: 300;
+	text-transform: uppercase;
+}
+.slide-title-bold {
+	font-weight: 700;
+}
+.slide-title-light{
+	font-weight: 100;
+}
+.slide-title-italic {
+    font-style: italic;
+}
+.slide-title-sub {
+    font-size: 18px;
+    font-weight: 300;
+	color: #fff;
+	text-align: center;
+	text-transform: uppercase;
+}
+.slide-title-sub-bordered {
+    font-size: 18px;
+    font-weight: 300;
+	color: #fff;
+	padding: 5px 10px;
+	text-align: center;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	text-transform: uppercase;
+}
+.slide-colored {
+	z-index: 1;
+	height: 495px !important;
+	position: relative;
+	border-top: solid 1px #eee;
+	border-bottom: solid 1px #eee;
+}
+.slide-title, .slide-title-sub, .slide-desc, .slide-btn{
+	-moz-box-sizing: content-box; 
+	-webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.slide-list-item {
+    font-size: 14px;
+	background: #E84D1C;
+	padding: 5px;
+	color: #fafafa;
+	text-transform: uppercase;
+}
+.slide-desc {
+	color: #7b8793;
+	font-size: 14px;
+	line-height: 25px;
+}
+.slide-desc-bordered {
+	border-left: 3px solid #ddd !important; 
+	padding-left: 5px;
+}
+.slide-btn {
+    font-size: 14px;
+	background: #6fc561;
+	padding: 7px 15px;
+	color: #fff;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+

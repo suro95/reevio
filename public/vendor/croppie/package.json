@@ -1,0 +1,62 @@
+{
+  "name": "croppie",
+  "version": "2.1.0",
+  "description": "A simple javascript image cropper",
+  "main": "croppie.js",
+  "devDependencies": {
+    "mocha": "2.4.5"
+  },
+  "scripts": {
+    "test": "mocha test/unit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Foliotek/Croppie.git"
+  },
+  "keywords": [
+    "crop",
+    "cropper",
+    "image",
+    "cropping"
+  ],
+  "authors": [
+    "Dustin Smith <thedustinsmith@gmail.com>",
+    "Ethan Calvert <calvert1591@gmail.com>"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Foliotek/Croppie/issues"
+  },
+  "homepage": "http://foliotek.github.io/Croppie",
+  "files": [
+    "croppie.css",
+    "croppie.js",
+    "croppie.min.js"
+  ],
+  "gitHead": "e0a04dd9ed6084bcebee48a019acffee2a99d018",
+  "_id": "croppie@2.1.0",
+  "_shasum": "b30300669fcae64fd013a6d3e84feba35e2ca2be",
+  "_from": "croppie@latest",
+  "_npmVersion": "2.14.2",
+  "_nodeVersion": "4.0.0",
+  "_npmUser": {
+    "name": "dbsy9d",
+    "email": "thedustinsmith@gmail.com"
+  },
+  "dist": {
+    "shasum": "b30300669fcae64fd013a6d3e84feba35e2ca2be",
+    "tarball": "https://registry.npmjs.org/croppie/-/croppie-2.1.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "dbsy9d",
+      "email": "thedustinsmith@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/croppie-2.1.0.tgz_1460220606961_0.8727567188907415"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/croppie/-/croppie-2.1.0.tgz"
+}

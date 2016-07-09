@@ -1,0 +1,28 @@
+extends layout
+block content
+	.container
+		table.table
+			thead
+				tr
+					th template_id
+					th project_id
+					th date
+					th user_id
+					th download
+					th upload
+			each video,i in video_all
+				tr(data-id="#{video.id}").user_videos_id
+					td #{video.template_id}
+					td #{video.project_id}
+					td #{video.date}
+					td #{video.user_id}
+					td
+						a(href='/admin/download/#{video.id}')
+							button(type="button").btn.btn-success Download
+					td 
+						form(action="/admin/upload-video",onSubmit="return false",method="post",enctype="multipart/form-data")#MyUploadForm
+							input(type='file',name='upload_video')#upload_video
+						#output
+block append footer
+	script(src='/vendor/music_upload/js/jquery.form.min.js')
+	script(src='/js/upload_video.js')

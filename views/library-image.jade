@@ -1,0 +1,488 @@
+extends layout
+block content
+    // Page content
+    main
+        .container.page-content
+            form.form-horizontal
+                .form-group.form-inner
+                    .col-sm-3
+                        input.form-control(type='text', placeholder='Search')
+                    .col-sm-2
+                        select.form-control.selectpicker.dropdownMenuPlugin
+                          option(value='reevio') Reevio
+                          option(value='pixabay') Pixabay
+                          option(value='youzign') Youzign
+                          //option(value='splashbase') Splashbase
+                          option(value='imgflip') Meme
+                    .col-sm-2
+                        select.form-control.selectpicker.dropdownMenuPlugin
+                            option(value='') Categories
+                    .col-sm-2
+                        select.form-control.selectpicker.dropdownMenuPlugin
+                            option(value='recent') Recent
+                            option(value='most-downloaded') Most Downloaded
+                    .col-sm-1
+                        button.btn.btn-block.btn-info(type='submit') Search
+                    .col-sm-2
+                        select.form-control.selectpicker.dropdownMenuPlugin
+                            option(value='recent') My Media
+                            option(value='media1') Media 1
+                            option(value='media2') Media 2
+            section.image-list-section.collage.effect-parent
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-1.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-1.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-2.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-2.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-3.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-3.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-7.jpg')
+                .tools.tools-sm
+                  a(href='/assets/img/thumbs/img-7.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-4.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-4.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-8.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-8.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-6.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-6.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-1.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-1.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-2.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-2.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-3.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-3.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-7.jpg')
+                .tools.tools-sm
+                  a(href='/assets/img/thumbs/img-7.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-4.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-4.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-8.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-8.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-6.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-6.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-8.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-8.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-6.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-6.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-1.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-1.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-2.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-2.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-3.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-3.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-7.jpg')
+                .tools.tools-sm
+                  a(href='/assets/img/thumbs/img-7.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-4.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-4.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-8.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-8.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-6.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-6.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-8.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-8.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-6.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-6.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-1.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-1.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-2.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-2.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-3.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-3.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-7.jpg')
+                .tools.tools-sm
+                  a(href='/assets/img/thumbs/img-7.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-4.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-4.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-8.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-8.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+              .image-wrapper
+                a
+                  img(src='/assets/img/thumbs/img-6.jpg')
+                .tools
+                  a(href='/assets/img/thumbs/img-6.jpg', data-toggle='lightbox', data-title='Preview' )
+                    span
+                      em.fa.fa-eye
+                      |  Open
+                  a(href='#addtolibrary', data-toggle='modal')
+                    span
+                      em.fa.fa-plus-circle
+                      |  Add to library
+
+block append head
+    link(rel='stylesheet', type='text/css', href='/vendor/jquery-collagePlus-master/support/collage.css', media='all')
+    link(rel='stylesheet', type='text/css', href='/vendor/jquery-collagePlus-master/css/transitions.css', media='all')
+    link(rel='stylesheet', href='/vendor/bootstrap-select/bootstrap-select.min.css')
+    link(href='/vendor/lightbox/dist/ekko-lightbox.css', rel='stylesheet')
+    link(rel='stylesheet', href='/assets/css/library.css')
+
+block append footer
+    .modal.fade(tabindex='-1', role='dialog', id='addtolibrary')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') &times;
+            h4.modal-title Add to library
+          .modal-body
+            form(method='post')
+              .form-group
+                label Select existing folder
+                select.form-control.select2me
+                  option Folder 1
+                  option Folder 2
+              .form-group
+                label or Create a New Folder
+                input.form-control(type='text')
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal') Close
+            button.btn.btn-info(type='button') Add to library
+
+
+    script(src='/vendor/lightbox/dist/ekko-lightbox.js')
+    script(src='/vendor/jquery-collagePlus-master/jquery.collagePlus.js')
+    script(src='/vendor/jquery-collagePlus-master/extras/jquery.removeWhitespace.js')
+    script(src='/vendor/jquery-collagePlus-master/extras/jquery.collageCaption.js')
+    script(src='/vendor/bootstrap-select/bootstrap-select.min.js')
+    script(type='text/javascript').
+      // All images need to be loaded for this plugin to work so
+      // we end up waiting for the whole window to load in this example
+
+      $(window).load(function () {
+          collage();
+      });
+
+      // Here we apply the actual CollagePlus plugin
+      function collage() {
+      $('.collage').collagePlus(
+      {
+      'fadeSpeed'     : 1000,
+      'targetHeight'  : 180,
+      'direction'     : 'vertical',
+      'allowPartialLastRow':true
+      }
+      );
+      };
+      // This is just for the case that the browser window is resized
+      var resizeTimer = null;
+      $(window).bind('resize', function() {
+      // hide all the images until we resize them
+      $('.collage .image-wrapper').css("opacity", 0);
+      // set a timer to re-apply the plugin
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(collage, 1000);
+      });
+
+    script.
+        $('.selectpicker').selectpicker();
+
+    script.
+        $(document).delegate('*[data-toggle="lightbox"]', 'click', function(event) {
+            event.preventDefault();
+            $(this).ekkoLightbox();
+        });

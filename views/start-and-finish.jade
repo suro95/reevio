@@ -1,0 +1,60 @@
+#name-your-video.modal.start-and-finish.fade(tabindex='-1', role='dialog')
+  .modal-dialog
+    .modal-content
+      .modal-body
+        form
+          label(for="projects-name") Give Your Video a Title
+          .form-group.has-warning
+            input#videos-name.form-control(type="text", placeholder="Video name...")
+          input#video-name-submit.btn(type="submit", value="Continue")
+
+#submit-video-modal.modal.start-and-finish.fade(tabindex='-1', role='dialog')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        div
+          span
+            i.fa.fa-check-circle-o
+      .modal-body
+        h3 Success!
+
+        p
+          | Your video has been sent for rendering.
+          br
+          | Please allow 10 min to 4 hours for rendering.
+
+        a#success-link.btn(href="/users/my-videos") Go To Videos
+
+#submit-video-error-modal.modal.start-and-finish.fade(tabindex='-1', role='dialog')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        div
+          span
+            i.fa.fa-exclamation-circle
+      .modal-body
+        h3 Fail!
+
+        p.submit-video-error
+          | Your video has not passed the validation.
+          br
+          | Please fill the required data.
+
+        a#success-link.btn.btn-danger(href="#", data-dismiss='modal') Close
+
+#reload-modal.modal.start-and-finish.fade(tabindex='-1', role='dialog')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        div
+          span
+            i.fa.fa-exclamation-circle
+      .modal-body
+        h3 10
+      .modal-footer
+        .col-md-6
+          a.btn.btn-info(href="#", data-dismiss='modal') Cancel
+        .col-md-6
+          a.btn.btn-danger#reload(href='#') Reload
+
+

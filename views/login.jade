@@ -1,0 +1,29 @@
+extends layout
+block content
+    // Page content
+    main
+        .container.page-content.userform
+            .inner 
+                p.form-title SIGN IN TO CONTINUE.
+                form.mb-lg(role='form',method='post')
+                    .form-group
+                        .input-icon.right
+                            i.fa.fa-envelope
+                            input#exampleInputEmail1.form-control(type='email', placeholder='Email Address',name='email')
+                            if errors
+                                ul.parsley-errors-list.filled
+                                    li.parsley-required #{email_err}
+                    .form-group
+                        .input-icon.right
+                            i.fa.fa-lock
+                            input#exampleInputPassword1.form-control(type='password', placeholder='Password',name='password')
+                            if errors
+                                ul.parsley-errors-list.filled
+                                    li.parsley-required #{pass_err}
+                    button.btn.btn-block.btn-info.mt-lg(type='submit') LOGIN
+                    .form-group.text-center.forgot
+                        a(href='forgot-password') Forgot your password?
+                hr            
+                p.text-center Need to Signup?
+                a.btn.btn-block.btn-default(href='register') Register Now!
+               

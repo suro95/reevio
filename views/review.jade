@@ -1,0 +1,89 @@
+extends layout
+block content
+    main.extraBottom
+        .page-title-gray
+            .container
+                .title
+                    h4 Watch. Listen. Practice. Learn.
+                    span
+                        b You set the pace 
+                        with online learning. Learn what you want, when you want, and practice with the instructor's files while you watch and listen.
+        .container.page-content
+            .row
+                .col-md-3.col-sm-3
+                    .sidebar-vid
+                        .user-section
+                            .user-img
+                                img(src='/img/logo-icon.png')
+                            .user-name
+                                span kiriyo
+                            .user-info
+                                p 7 video/s
+                                p Member since 2016-02-04
+                        a.user-settings(href='settings')
+                            em.fa.fa-user
+                            |  Account Settings
+                .col-md-9.col-sm-9
+                    .help-section
+                        .row
+                            .col-md-6
+                                .step.box
+                                    .step-title
+                                        h4 Step 1
+                                        h1 Find Your Perfect Video Design
+                                    video.video-js.full-video.video-4by3.center-play(id='preview-player', controls='', preload='auto',
+                                    data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/embed/JccZ9WuJcBs"}] }')
+                                        p.vjs-no-js
+                                          | To view this video please enable JavaScript, and consider upgrading to a web browser that 
+                                          a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+                                    .info
+                                        p Want to make a high converting Facebook video ad? A digital signage video for your business? Announcing a sale or product launch? We've got you covered with over 300 video designs that'll suit your needs. Click the cards in the "Video Designs" page to see more!
+                            .col-md-6
+                                .step.box
+                                    .step-title
+                                        h4 Step 2
+                                        h1 Confirm Video Design
+                                    video.video-js.full-video.video-4by3.center-play(id='preview-player-1', controls='', preload='auto',
+                                    data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/embed/JccZ9WuJcBs"}] }')
+                                        p.vjs-no-js
+                                          | To view this video please enable JavaScript, and consider upgrading to a web browser that 
+                                          a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+                                    .info  
+                                        p On the video design page you can watch the sample video (you will change it to include your photos and video clips in the next step!), see how many required photos/video clips it needs, and double check that you like the design and music.
+                        .row
+                            .col-md-6
+                                .step.box
+                                    .step-title
+                                        h4 Step 3
+                                        h1 Make Your Video
+                                    video.video-js.full-video.video-4by3.center-play(id='preview-player-2', controls='', preload='auto',
+                                    data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/embed/JccZ9WuJcBs"}] }')
+                                        p.vjs-no-js
+                                          | To view this video please enable JavaScript, and consider upgrading to a web browser that 
+                                          a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+                                    .info
+                                        p After clicking the "Make My Video" button, you'll get to the video editor. It has a step-by-step tutorial that will guide you through the process. Drag-and-drop your photos and video files, and change the text to your liking.
+                                        p Once you're done, hit the "Finish" button and we'll start the render process and send you your finished video via email in 5-10 minutes.
+                            .col-md-6
+                                .step.box
+                                    .step-title
+                                        h4 Step 4
+                                        h1 Finalize and Share Your Video
+                                    video.video-js.full-video.video-4by3.center-play(id='preview-player-3', controls='', preload='auto',
+                                    data-setup='{ "techOrder": ["youtube"], "sources": [{ "type": "video/youtube", "src": "https://www.youtube.com/embed/JccZ9WuJcBs"}] }')
+                                        p.vjs-no-js
+                                          | To view this video please enable JavaScript, and consider upgrading to a web browser that 
+                                          a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+                                    .info
+                                        p We'll send a link to your finished video to your email, and you can also see it in your "My Videos" page. Watch your video, and see if there is anything you need to go back and edit.
+                                        p Videos made for free will have a Shakr watermark overlayed on them. If you want to download and own a clean version of your video without the watermark, you can purchase the video, or sign up for a monthly subscription. Share your video on your social media channels and website to help grow your business!
+    .footer-sub
+        .container    
+            row.text-center
+                .col-md-offset-2.col-md-8
+                    h1 READY TO LEARN?
+                    p Awesome! Now let's jump into the real thing. Go find some great video designs!
+                    a.btn.btn-info(href='/member/templates') BROWSE VIDEO DESIGNS >
+                                          
+block append footer
+  script(src='http://vjs.zencdn.net/5.6.0/video.js')

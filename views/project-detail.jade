@@ -1,0 +1,106 @@
+extends layout
+block content
+    // Page content
+    main
+        .page-title-gray
+            .container
+              .title
+                h4 Project Detail
+        .container.page-content
+            .delivery_detail
+                form.form-selectp.margin-20(action='#')
+                    .row.form-group
+                        .col-xs-2
+                            label(for='') Project Status
+                        .col-xs-3
+                            select.form-control.select2(name='', id='')
+                                option(value='') Project 1
+                                option(value='') Project 2
+                                option(value='') Project 3
+                        .col-xs-3
+                            button.btn.btn-primary.btn-block Download Info
+                .panel.panel-default
+                    .panel-body
+                        // START video_list
+                        .table-responsive.videos_list
+                            table.table.table-bordered.table-striped.table-hover
+                                thead
+                                    tr
+                                        th Slide
+                                        th Video
+                                        th Text 1
+                                        th Text 2
+                                        th Text 3
+                                        th Text 4
+                                        th Text 5
+                                tbody
+                                    tr
+                                        td 1
+                                        td.video_preview.video_preview_full
+                                            .media_full
+                                                img.img-responsive(src='/img/2.jpg', alt='Image')
+                                        td.w_s_wrap
+                                            p
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea amet quia vel nobis illo distinctio ipsum magni, est quam laborum.
+                                        td.w_s_wrap
+                                            p
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente accusamus suscipit inventore nihil quas minus quis architecto debitis maiores soluta.
+                                        td.w_s_wrap
+                                            p
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, rem, ut. Velit corrupti laudantium iusto ullam similique itaque cumque veritatis?
+                                        td.w_s_wrap
+                                            p
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente accusamus suscipit inventore nihil quas minus quis architecto debitis maiores soluta.
+                                        td.w_s_wrap
+                                            p
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, rem, ut. Velit corrupti laudantium iusto ullam similique itaque cumque veritatis?
+                                    tr
+                                        td 1
+                                        td.video_preview.video_preview_full
+                                            .media_full
+                                                img.img-responsive(src='/img/2.jpg', alt='Image')
+                                        td.w_s_wrap
+                                            p
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea amet quia vel nobis illo distinctio ipsum magni, est quam laborum.
+                                        td.w_s_wrap
+                                            p
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente accusamus suscipit inventore nihil quas minus quis architecto debitis maiores soluta.
+                                        td.w_s_wrap
+                                            p
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, rem, ut. Velit corrupti laudantium iusto ullam similique itaque cumque veritatis?
+                                        td.w_s_wrap
+                                            p
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente accusamus suscipit inventore nihil quas minus quis architecto debitis maiores soluta.
+                                        td.w_s_wrap
+                                            p
+                                                | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam, rem, ut. Velit corrupti laudantium iusto ullam similique itaque cumque veritatis?
+                        // END video_list
+                .row
+                    .col-sm-6
+                        .panel.panel-default
+                            .panel-body
+                                .alert.alert-info
+                                    i.fa.fa-file-photo-o.large
+                                    span.textinfo Attached files
+                                .row
+                                    .col-sm-4
+                                        p Logo
+                                        img.img-responsive(src='/img/2.jpg', alt='')
+                                    .col-sm-4
+                                        p Slide
+                                        img.img-responsive(src='/img/2.jpg', alt='')
+                                    .col-sm-4
+                                        p Slide
+                                        img.img-responsive(src='/img/2.jpg', alt='')
+                    .col-sm-6.completed-video
+                        .panel.panel-default
+                            .panel-body
+                                .alert.alert-info
+                                    i.fa.fa-video-camera.large
+                                    span.textinfo Completed videos
+                                    .fl-right
+                                        input.form-control.filestyle(name='files[]', type='file', data-classbutton='btn btn-default', data-classinput='form-control inline', placeholder='Upload MP4...', multiple='true')
+                                div
+                                    img.img-responsive(src='/img/2.jpg', alt='')
+                    // End completed-video
+            // End .container

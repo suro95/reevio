@@ -1,0 +1,24 @@
+#image___oldCrop.editor-img___modal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', data-pk='0')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                h4#myModalLabel.modal-title
+                    .em.fa.fa-picture-o
+                    | &nbsp;Crop image for video
+            .modal-body
+                .cropped-notify(style="display:none;visibility: hidden;")
+                    p
+                      i.fa.fa-exclamation-triangle
+                      span Zooming in this close may make your image look less clear.
+                #new_crop
+            .modal-footer
+                span.help-block.pull-left
+                    | Click on the thumbnail of an image file to select it, then click BACK.
+                .btn-actions.pull-right.crop-old-confirm
+                    button.btn.btn-success(type='button') CONFIRM >
+                .btn-actions.pull-right.scip
+                    button.btn.btn-success(type='button') SKIP >
+                .btn-actions.pull-right.get-back
+                    button.btn.btn-info(type='button') < BACK

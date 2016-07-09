@@ -1,0 +1,100 @@
+//#image___upload.modal.modal-theme.fade(tabindex='-1', role='dialog')
+  .modal-dialog.modal-custom
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true')&times;
+        h4.modal-title SEARCH OUR PHOTO LIBRARIES OR UPLOAD YOUR OWN
+      .modal-body
+        .inner
+            .tools-modal
+                div
+                    #search-input
+                      .input-group.col-md-12
+                        input.form-control#search(type='text', placeholder='Search')
+                        span.input-group-btn
+                          button#image-search.btn.btn-info.btn-lg(type='button')
+                            i.glyphicon.glyphicon-search
+                div
+                    select.form-control.selectpicker
+                      option(value='') Youzign
+                      option(value='') Memes
+                      option(value='') Add My Images
+                      option(value='') Add Reevio
+                div
+                    select.form-control.selectpicker
+                      option(value='') Category 1
+                      option(value='') Category 2
+                      option(value='') Category 3
+                div
+                    a.btn.btn-info.btn-block(href='#images-search___modal', data-toggle='modal', data-dismiss='modal') SEARCH
+            .user-images
+                h4 User images
+                .start-list-section#user-images-con
+                    .custom-scrollbar
+                        ul
+                          if user_images
+                            each img,i in user_images
+                              li
+                                .item
+                                  .thumb
+                                    img(src='#{img.path}', alt='Image Thumbnail')
+
+
+        form#dropzone.dropzone(action='/editor/slider-origin-upload', enctype="multipart/form-data")
+          input(type="hidden", name="template_id",value='#{template_id}')
+      .modal-footer
+        a#edit-image.btn.btn-info(href='#', data-dismiss='modal')
+            em.fa.fa-angle-left
+            | &nbsp;EDIT
+        a#add-to-canvas.btn.btn-info(href='#')
+            | ADD TO CANVAS&nbsp;
+            em.fa.fa-angle-right
+
+#image___upload.modal.modal-theme.fade(tabindex='-1', role='dialog')
+                     .modal-dialog.modal-custom
+                         .modal-content
+                             .modal-header
+                                 button.close(type='button', data-dismiss='modal', aria-label='Close')
+                                     span(aria-hidden='true')&times;
+                                 h4.modal-title SEARCH OUR PHOTO LIBRARIES OR UPLOAD YOUR OWN
+                             .modal-body
+                                 .inner
+                                     .tools-modal
+                                         div
+                                             #search-input1
+                                                 .input-group.col-md-12
+                                                     input.form-control#search1(type='text', placeholder='Search')
+                                                     span.input-group-btn
+                                                         button#image-search1.btn.btn-info.btn-lg(type='button')
+                                                             i.glyphicon.glyphicon-search
+                                         div
+                                             select.form-control.selectpicker
+                                                 option(value='') Pixabay
+                                                 option(value='') Youzing
+                                                 //option(value='') Splashbase
+                                                 option(value='') Meme
+                                         div
+                                             select.form-control.selectpicker
+                                                 option(value='') Category 1
+                                                 option(value='') Category 2
+                                                 option(value='') Category 3
+                                         div
+                                             a.btn.btn-info.btn-block(href='#') SEARCH
+                                     .user-images(style="overflow:auto")
+                                         h4 User images
+                                         .thumb-section.all_pic#user-images-con
+                                             if user_images
+                                                 each img,i in user_images
+                                                     .thumb-img
+                                                         img(src='#{img.path}')
+
+                                 form#dropzone.dropzone(action='/editor/slider-origin-upload', enctype="multipart/form-data")
+                                      input(type="hidden", name="template_id",value='#{template_id}')
+                             .modal-footer
+                                 span.help-block.pull-left
+                                     | Click on the thumbnail of an image file to select it, then click NEXT.
+                                 .btn-actions.pull-right.get-next
+                                     button#delete-image.btn.delete-img.btn-info(type='button') DELETE
+                                     button#edit-image.btn.edit.btn-info(type='button') EDIT >
+                                     button#add-to-canvas.btn.addToCanvas.btn-info(type='button') ADD TO CANVAS >

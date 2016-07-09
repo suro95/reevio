@@ -1,0 +1,107 @@
+extends layout
+block content
+    main.extraBottom
+        .page-title-gray
+            .container
+                .title
+                    h4 Account Settings
+        .container.page-content
+            .row
+                //.col-md-3.col-sm-3
+                    .sidebar-vid
+                        //.user-section
+                            .user-img
+                                img(src='/img/logo-icon.png')
+                            .user-name
+                                  //span kiriyo
+                            .user-info
+                                   //p 7 video/s
+                               // p Member since 2016-02-04
+                        a.user-settings(href='settings')
+                            em.fa.fa-user
+                            |  Account Settings
+                .col-md-9.col-sm-9
+                    .user-settings-section
+                        .inner
+                            .subtitle User Information
+                            .info
+                                .form-horizontal.form-bordered
+                                    .form-group
+                                        .col-sm-3.control-label Account Email
+                                        .col-sm-4
+                                            span #{user_data.email}
+                                    .form-group
+                                        .col-sm-3.control-label Name
+                                        .col-sm-4
+                                            span #{user_data.name || ""}
+                                    .form-group
+                                        .col-sm-3.control-label Password
+                                        .col-sm-4
+                                            span ********* &nbsp;
+                                            a(href='#')#change-pass Change Password?
+                                    .form-group
+                                        .col-sm-3.control-label Credits
+                                        .col-sm-9
+                                            span.totalCredits #{credits.credits+credits.bonus}
+                                            a.btn.btn-xs.green.pull-right(href='#') EXTEND CREDITS
+                                            .creditsLoader
+                                                .item
+                                                    //.classyLoader
+                                                        canvas(data-classyloader='', data-width='70', data-height='65', data-percentage='30', data-speed='20', data-font-size='14px', data-diameter='30', data-line-color='#d84a38', data-remaining-line-color='rgba(200,200,200,0.4)', data-line-width='3', data-rounded-line='true')
+                                                    span Monthly -
+                                                        b #{credits.credits }
+                                                .item
+                                                    //.classyLoader
+                                                        canvas(data-classyloader='', data-width='70', data-height='65', data-percentage='70', data-speed='20', data-font-size='14px', data-diameter='30', data-line-color='#23b7e5', data-remaining-line-color='rgba(200,200,200,0.4)', data-line-width='3', data-rounded-line='true')
+                                                    span Bonus -
+                                                        b #{ credits.bonus}
+    .modal.fade(tabindex='-1', role='dialog',id="change-pass-modal")
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                    h4.modal-title Modal title
+                .modal-body
+                    form.form-horizontal(method="post",action="")#change-pass-form
+                        .form-group
+                            label.col-sm-3.control-label(for='inputpass') New Password
+                            .col-sm-8
+                                input#inputpass.form-control(type='password', placeholder='New Password',name='pass')
+                        .form-group
+                            label.col-sm-3.control-label(for='inputpassre') Repeat
+                            .col-sm-8
+                                input#inputpassre.form-control(type='password', placeholder='Retype',name='repass')
+
+                        .form-group
+                            .col-sm-offset-2.col-sm-10
+                                button.btn.btn-default(type='submit') Save
+                .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close
+            // /.modal-content
+        // /.modal-dialog
+    // /.modal
+
+block append footer
+    script.
+        $("#change-pass").click(function(e) {
+            e.preventDefault();
+            $("#change-pass-modal").modal();
+        });
+        $("#change-pass-form").submit(function(){
+            var pass=$("#inputpass").val().trim(),
+                    repass=$("#inputpassre").val().trim();
+
+                if(pass.length>=5&&pass==repass){
+                      return true;
+                }else{
+
+                    alert('Passwords must match and must have more than five characters!')
+                }
+
+
+            return false;
+        });
+
+
+

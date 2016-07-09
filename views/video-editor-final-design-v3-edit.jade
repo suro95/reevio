@@ -1,0 +1,758 @@
+//
+   Created by aleksa on 3/23/16.
+
+doctype html
+html(lang='en')
+    head
+        meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Reevio
+        meta(name='description', content='Reevio')
+        meta(name='author', content='Reevio')
+        //- IgorKiev 2016-05-03
+        script(src='/editor/js/modernizr-touch.js')
+        link(rel='stylesheet', type="text/css", href='/vendor/jquery-ui-1.12.0/jquery-ui.min.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+        link(type='text/css', rel='stylesheet', href='/editor/css/normalize.css')
+        link(rel='stylesheet', href='/vendor/font-awesome-4.5.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/vendor/bootstrap-select/bootstrap-select.min.css')
+        link(rel='stylesheet', type="text/css", href='/vendor/jquery-collagePlus-master/support/collage.css')
+        link(rel='stylesheet', type="text/css", href='/vendor/jquery-collagePlus-master/css/transitions.css')
+        link(rel='stylesheet', type="text/css", href='/vendor/cropper/dist/cropper.css')
+
+
+        link(href='//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css', rel='stylesheet')
+        link(rel='stylesheet', href='/editor/css/style-1.css')
+        link(rel='stylesheet', href='/editor/css/theme-an.css')
+        link(href='/vendor/bootstrap3-editable/css/bootstrap-editable.css', rel='stylesheet')
+        link(rel='stylesheet', href='/vendor/colorpicker/css/colorpicker.css')
+        link(rel='stylesheet', href='/editor/css/main.css')
+        link(rel='stylesheet', href='/editor/css/new-main.css')
+        link(rel='stylesheet', href='/css/loaders.css')
+        //- link(rel='stylesheet', href='/vendor/percircle-master/example/style.css')
+        link(rel='stylesheet', href='/vendor/percircle-master/dist/css/percircle.css')
+        link(rel='stylesheet', href='/vendor/croppie/croppie.css')
+        link(rel='stylesheet', href='/vendor/tipped/css/tipped/tipped.css')
+    body
+        //- Start and Finish modals 2016-04-18
+        include start-and-finish.jade
+
+        #loader-wrapper(style='')
+          #loader.loader(style='')
+          p.wow.flash.strong.animated(style='visibility: visible; animation-duration: 2s; animation-iteration-count: 1000; animation-name: flash;', data-wow-duration='2s', data-wow-iteration='1000') Loading...
+
+        #wraper
+            //Modal Window Begin
+            include triming-po-up.jade
+            //Modal Window End
+        #music-wraper
+            //Modal Window Begin
+            include music-trimming-pop-up.jade
+            //Modal Window End
+        .app(data-template-id='#{template_id}')
+            // Top Bar Start
+            header#app-top.navbar.app-top(role='banner')
+                .container-fluid
+                    //- Only for the test REMOVE LATER
+                    //- a.btn(href='#video-search___modal',data-toggle='modal') Test_video-search
+                    //- a.btn(href='#video-start___modal',data-toggle='modal') Test_video-start only
+                    a(href='/video-designs')
+                        button#exit-editor.header-buttons
+                            | Exit
+                            span
+                                i.fa.fa-sign-out
+                    button#submit-video.header-buttons
+                        | Submit Video
+                        span
+                            i.fa.fa-check-circle-o
+
+                    .navbar-header
+                        a.navbar-brand(href='#') reevio
+                    .navbar-header
+                        .navbar-loding(style="display:none") Uploading Media
+                            .loding
+                                div(data-loader="circle-side-uplod")
+            // Top Bar End
+            // App Content - middle part  start
+            .app-content.clearfix
+                // Left Sidebar start
+                aside.sidebar-left
+                    //- Arrow for showing left sidebar on width < 1200px
+                    a#show-sidebar-left
+                        i.fa.fa-arrow-right
+                    // Main Tabs Nav Start
+                    div.sidebar-left-nav
+                        ul.nav(role='tablist')
+                            //- li(role='presentation')
+                                a.blue(href='#main-elements', aria-controls='elements', role='tab', data-toggle='tab')
+                                    i.fa.fa-share-alt
+                                    span Elements
+                            //- li(role='presentation')
+                                a.yellow(href='#main-audio', aria-controls='audio', role='tab', data-toggle='tab')
+                                    i.fa.fa-music
+                                    span Music
+                            li.active(role='presentation')
+                                a.red(href='#main-options', aria-controls='options', role='tab', data-toggle='tab')
+                                    i.fa.fa-cog
+                                    span Options
+                    // Main Tabs Nav End
+                    // Main Tabs Content Start
+                    .tab-content
+                        #main-elements.tab-pane(role='tabpanel')
+                            if graphic == 'true'
+                                .table-tools
+                                    form
+                                        div
+                                            .input-group
+                                                input.form-control(type='text', placeholder='Search')
+                                                span.input-group-btn
+                                                    button.btn(type='button')
+                                                        i.glyphicon.glyphicon-search
+                                        div
+                                            select.selectpicker.icon-group-list
+                                                option(value='0') My lib
+                                                each icon_group,i in icon_groups
+                                                    option(value='#{icon_group.id}') #{icon_group.name}
+                                    form#dropzone_icon.dropzone(action='/target' style="height: 40px;margin-bottom: 10px;margin-top: 10px;")
+
+                                .elements-container
+                                    .custom-scrollbar(style="height: 275px")
+                                        each user_icon,i in user_icons
+                                            figure(style="position: relative;height: 100px;")
+                                                if user_icon.type == 'embed'
+                                                    .icon-element(style="width:100px;height:100px;" data-type="embed",data-src="#{user_icon.path}")
+                                                        embed.icon-img(src='#{user_icon.path}')
+                                                if user_icon.type == 'img'
+                                                    .icon-element(style="width:100px;height:100px;" data-type="img",data-src="#{user_icon.path}")
+                                                        img.icon-img(src='#{user_icon.path}')
+                                                if user_icon.type == 'video'
+                                                    .icon-element(style="width:100px;height:100px;" data-type="video",data-src="#{user_icon.path}")
+                                                        .icon-img(style="border: none;")
+                                                            img.icon-img(src='/img/mov.png')
+                                                        .tools
+                                                            a.open-mov
+                                                                span.fa.fa-eye
+                                                                span Open
+                            else
+                                p(style="text-align: center;color: #fff;") This template doesn't support graphichs
+                            br
+                            //- 2016-04-05 IgorKiev
+                            //- .row
+                                .col-lg-10.col-lg-offset-1
+                                    a.btn.btn-primary.btn-block.btn-uppercase.fs18(href='#') Upload Elements
+                        // Tab 2 End
+                        // Tab 3 Start
+                        #main-audio.tab-pane(role='tabpanel')
+                            //- 2016-05-2016 IgorKiev New music tab
+                            .form-tools
+
+                                //- select.form-control.selectpicker#dropdownMenuPlugin(data-width='200px')
+                                  option(value='') Mood
+                                select.form-control.selectpicker#dropdownMenuPlugin(data-width='50%')
+                                  option(value='') Categories
+                            //- .search-section
+                                .custom-scrollbar
+                                    //- .user-audio.audio-search-list
+                                    .user-audio
+                                        ul
+                                          each music, i in musics
+                                            li
+                                              .item
+                                                //- .music-chart(id='music-wavesurfer-#{music.id}',data-music-url='/musics/#{music.file_name}')
+                                                audio(src='/musics/#{music.file_name}',id="music-wavesurfer-#{music.id}"  preload="none")
+                                                .play-icon-list.play(data-music-id='music-wavesurfer-#{music.id}')
+                                                .mus-name
+                                                  span #{music.name}
+                                                lable.selcet-music.label.label-success(data-music-id='music-wavesurfer-#{music.id}') SELECT
+                            //- ul.nav-buttons
+                            //-     li#audio-search___modal-button(role='presentation')
+                            //-         a.btn.btn-block.red
+                            //-             i.fa.fa-music
+                            //-             |                                   Music
+                            //-     li.active(role='presentation')
+                            //-         a.btn.btn-block.blue(href='#audio-start___modal',data-toggle='modal')
+                            //-             i.fa.fa-microphone
+                            //-             |                                   Voice Over
+                            //-     li(role='presentation')
+                            //-         a.btn.btn-block.green(href='#video-start___modal',data-toggle='modal')
+                            //-             i.fa.fa-commenting
+                            //-             |                                   Text to speech
+                            //-     li(role='presentation')
+                            //-         a.btn.btn-block.yellow(href='#')
+                            //-             i.fa.fa-volume-up
+                            //-             |                                   Sound FX
+                        // Tab 3 End
+                        // Tab 4 Start
+                        #main-options.tab-pane.active(role='tabpanel')
+                            p.labelled
+                                span.font-red Name:
+                                | #{template_name}
+                            p.labelled.labelled-full.duration
+                                span.font-red Duration:
+                                | 20 seconds
+                            ul.nav-buttons
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.example___video(href='#') Example Video
+                                //- li.active(role='presentation')
+                                    a.btn.btn-block.red.bordered(href='#') Start Tutorial
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.reset_image(href='#') Reset Images
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.reset_text(href='#') Reset Text
+                                li(role='presentation')
+                                    select.form-control.translate(data-lang="en")
+                                        option(value='') Translate
+                                        option(value='en') English
+                                        option(value='es') Spanish
+                                        option(value='pt') Portuguese
+                                        option(value='fr') French
+                                        option(value='de') German
+                                        option(value='it') Italian
+                                        option(value='reset') Reset
+                                //li(role='presentation')
+                                    a.btn.btn-block.red(href='#') Help
+                                if music == 'true'
+                                    li#audio-search___modal-button(role='presentation')
+                                        a.btn.btn-block.red Music
+                                li(role='presentation')
+                                    select.form-control.category_tag
+                                        option(value='0') All
+                                        each all_categorys_slide, j in all_categorys_slides
+                                            option(value='#{all_categorys_slide.id}') #{all_categorys_slide.name}
+                        // Tab 4 End
+                // Left Sidebar End
+                // Slide preview start
+                .app-middle
+                    each position, i in InsertedTempladeData
+                        each slide, j in position
+                            .current-slide(data-id='#{i}')
+                                    if slide['slide-background-color']
+                                        .background-slide
+                                            i.fa.fa-tint
+                                    img(src='/templates/#{template_data[j].slide}',style="width:100%;height:100%")
+                                    .item-form
+                                        if template_data[j].inputs
+                                            each inp, index in template_data[j].inputs
+                                                if inp.type == 'text'
+                                                    .field.text.dark-t(style='#{inp.style}', data-toggle='tooltip', data-placement='top', title='Add text to this field')
+                                                        a.text-editor(href='#', data-type='#{inp.type}', data-pk='#{i}',
+                                                        style="height: 100%; width: 100%;white-space: nowrap;position: absolute;#{inp.text_style};display: flex;align-items: center;",
+                                                        data-inputposition="#{index}",data-inputname="#{index}",data-maxlength="#{inp.max}",data-name="#{index}")  #{(slide.inputs && slide.inputs[index])?slide.inputs[index].value:inp.value}
+                                                else
+                                                    .field.text.dark-t(style='#{inp.style}', data-toggle='tooltip', data-placement='top', title='Add text to this field')
+                                                        a.text-editor(href='#', data-type='#{inp.type}', data-pk='#{i}',
+                                                        style="white-space: normal;position: absolute;#{inp.text_style};display: flex;align-items: center;",
+                                                        data-inputposition="#{index}",data-inputname="#{index}",data-maxlength="#{inp.max}",data-name="#{index}")  #{(slide.inputs && slide.inputs[index])?slide.inputs[index].value:inp.value}
+                                        if template_data[j].images
+                                            each img,index in template_data[j].images
+                                                if img.logo == true
+                                                    .field.image___file.empty(style='#{slide.images[index].value? "":"outline:1px solid red;"} position:absolute; #{img.position};#{img.style};#{img.size};#{(slide.images && slide.images[index])?"background-repeat: no-repeat; background-size: 100% 100%;"}',data-imgpk='#{index}',data-pk='#{i}', data-width='#{img.width}', data-height='#{img.height}',data-skip="#{img.skip}",data-logo="#{img.logo}",data-toggle='tooltip',class="#{(slide.images && slide.images[index])?'exist':''}", data-placement='top', title='Add image to this field' )
+                                                        if slide.images[index].value
+                                                            img.canvas-logo(src="#{slide.images[index].value}")
+                                                        else if img.placeholders
+                                                            img.canvas-logo(src="#{img.placeholders}")
+                                                        .btn.add-new-images-input(title='Recomended size is #{img.width}X#{img.width}px')
+                                                else
+                                                    .field.image___file.empty(style='position:absolute; #{img.position};#{img.size};#{img.style};#{(slide.images && slide.images[index])?"background-repeat: no-repeat; background-size: 100% 100%;background-image: url("+slide.images[index].value+")":""}',data-imgpk='#{index}',data-pk='#{i}', data-width='#{img.width}', data-height='#{img.height}',data-skip="#{img.skip}",data-logo="#{img.logo}",data-toggle='tooltip',class="#{(slide.images && slide.images[index])?'exist':''}", data-placement='top', title='Add image to this field' )
+                                                        .btn.add-new-images-input
+                                        if template_data[j].graphs
+                                            each graph,index in template_data[j].graphs
+                                                .field.image___file.empty(style='position:absolute; #{graph.position};#{graph.size};#{graph.style};#{(slide.graphs && slide.graphs[index])?"background-repeat: no-repeat; background-size: 100% 100%;background-image: url("+slide.graphs[index].value+")":""}',data-graphpk='#{index}',data-pk='#{i}', data-width='400', data-height='400', data-toggle='tooltip',class="#{(slide.graphs && slide.graphs[index])?'exist':''}", data-placement='top', title='Add image to this field' )
+                                                    .btn.add-new-graph-input
+                                        if template_data[j].video
+                                            each video,index in template_data[j].video
+                                                .field.video___file.empty(style='position:absolute; #{video.position};#{video.size};#{video.style};',data-vidpk='#{index}',data-pk='#{i}',data-time="#{video.time}" data-toggle='tooltip', data-placement='top', title='Add video to this field' )
+                                                    .btn.add-new-videos-input
+                                        if template_data[j].element
+                                            each element,index in template_data[j].element
+                                                .field.elements___file.empty(style='position:absolute; #{element.position};#{element.size};#{element.style};',data-colorpk='#{index}',data-pk='#{i}', data-width='400', data-height='400', data-toggle='tooltip', data-placement='top', title='Add element to this field',data-color='#{(slide.element && slide.element[index])?""+slide.element[index].color+"":""+element.color+""}')
+                                                    .btn.element-color
+                                                        i.fa.fa-paint-brush(aria-hidden="true")
+                                        if template_data[j].graphics && graphic == 'true'
+                                            each graphic,index in template_data[j].graphics
+                                                .field.icon___file.empty(style='position:absolute; #{graphic.position};#{graphic.size};#{graphic.style};',data-graphicpk='#{index}',data-pk='#{i}', data-toggle='tooltip', data-placement='top', title='Add icon to this field')
+                                                    .btn.icon-color
+                                                        if slide.graphics && slide.graphics[index] && slide.graphics[index].value
+                                                            i.fa.fa-puzzle-piece(aria-hidden="true" style="color:#69BDE6")
+                                                        else
+                                                            i.fa.fa-puzzle-piece(aria-hidden="true")
+                                                    if slide.graphics && slide.graphics[index] && slide.graphics[index].value
+                                                        if slide.graphics[index].type && slide.graphics[index].type == 'img'
+                                                            img.icon-canvas(src="#{slide.graphics[index].value}" style="bottom: 0;right: 0;margin: auto;")
+                                                        if slide.graphics[index].type && slide.graphics[index].type == 'embed'
+                                                            embed.icon-canvas(src="#{slide.graphics[index].value}" style="bottom: 0;right: 0;margin: auto;")
+                                                        if slide.graphics[index].type && slide.graphics[index].type == 'video'
+                                                            img.icon-canvas(src="/img/mov.png" style="bottom: 0;right: 0;margin: auto;")
+                                        if template_data[j]['mixed-media']
+                                            each mixed_media,index in template_data[j]['mixed-media']
+                                                if slide['mixed-media'][index].duration
+                                                    .field.multi___element.empty(style='position:absolute; #{mixed_media.position};#{mixed_media.size};#{mixed_media.style};',data-vidpk='#{index}',data-pk='#{i}',data-time="#{mixed_media.time}" data-toggle='tooltip', data-placement='top', title='Add mixed_media to this field', data-width='#{mixed_media.width}', data-height='#{mixed_media.height}',data-imgpk="#{index}")
+                                                        .btn.add_mixed_media
+                                                           .multi_element_img(style="display:none;" title='Recomended size is #{mixed_media.width}X#{mixed_media.width}px' )
+                                                            .multi_element_img(style="display:none;" title='Recomended size is #{mixed_media.width}X#{mixed_media.width}px' )
+                                                        .multi_element_video(style="display:none")
+                                                else
+                                                    .field.multi___element.empty(style='position:absolute; #{mixed_media.position};#{mixed_media.size};#{mixed_media.style}; background-image: url("#{slide["mixed-media"][index].value}");background-repeat: no-repeat;background-size: 100% 100%;',data-vidpk='#{index}',data-pk='#{i}',data-time="#{mixed_media.time}" data-toggle='tooltip', data-placement='top', title='Add mixed_media to this field', data-width='#{mixed_media.width}', data-height='#{mixed_media.height}',data-imgpk="#{index}")
+                                                        .btn.add_mixed_media
+                                                        .multi_element_img(style="display:none;" title='Recomended size is #{mixed_media.width}X#{mixed_media.width}px' )
+                                                        .multi_element_video(style="display:none")
+                .sidebar-right
+                    //- Arrow for showing right sidebar on width < 1200px
+                    a#show-sidebar-right
+                        i.fa.fa-arrow-left
+                    .slides-container.carousel.right-carousel
+                        ul.nav
+                            li.active(role='presentation')
+                                a(href='#images', aria-controls='images', role='tab', data-toggle='tab')
+                                    em.fa.fa-film
+                                    | &nbsp;Slides
+                        .custom-scrollbar.draggable_slide
+                            each slide_rigth, i in template_data_rigth
+                                if slide_rigth.category_tag
+                                    figure.image-tn(data-id='#{i}',data-slideid='#{i}' data-category="#{slide_rigth.category_tag}")
+                                        .hold-asp-ratio
+                                            .asp-content
+                                                img(src='/templates/#{slide_rigth.cov}', alt='tn')
+                                                if slide_rigth.slide_video
+                                                    .tools
+                                                        a(href='#',style="width:100%;",data-video-url="/templates#{slide_rigth.slide_video}").show-slide-video
+                                                            span
+                                                                i.fa.fa-eye.fa-lg(aria-hidden="true")
+                                else
+                                    figure.image-tn(data-id='#{i}',data-slideid='#{i}' data-category="0")
+                                        .hold-asp-ratio
+                                            .asp-content
+                                                img(src='/templates/#{slide_rigth.cov}', alt='tn')
+                                                if slide_rigth.slide_video
+                                                    .tools
+                                                        a(href='#',style="width:100%;",data-video-url="/templates#{slide_rigth.slide_video}").show-slide-video
+                                                            span
+                                                                i.fa.fa-eye.fa-lg(aria-hidden="true")
+                    //
+                      <form method="post" class="search-form">
+                      <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search">
+                      <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">
+                      <i class="fa fa-search"></i>
+                      </button>
+                      </span>
+                      </div>
+                      <div class="dropdown">
+                      <button class="btn btn-gray dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                      Category
+                      <span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li>
+                      <a href="#">Category</a>
+                      </li>
+                      <li>
+                      <a href="#">Category</a>
+                      </li>
+                      <li>
+                      <a href="#">Category</a>
+                      </li>
+                      </ul>
+                      </div>
+                      </form>
+                // Right Sidebar End
+            // App Content - middle part  end
+            // bottom bar start
+            footer.app-footer
+                .app-status
+                    span.status
+                        | Saved
+                        i.fa.fa-check-circle
+                    span.preview Slide Preview
+                // Carousel Start
+                .carousel
+                    .swiper-container
+                        .swiper-wrapper
+                            // Carousel Item Start
+                            -var order=0;
+                            each position,i in InsertedTempladeData
+                                each slide ,j in position
+                                    .swiper-slide.slide-item.image-container(data-slideid='#{j}',data-id='#{i}')
+                                        figure.slide-img
+                                            .hold-asp-ratio
+                                                .asp-content
+                                                    img(src='/templates/#{template_data[j].cov}')
+                                                    .tools
+                                                        a(href='#').clone_slide
+                                                            span
+                                                                i.fa.fa-clone.fa-lg(aria-hidden="true")
+                                                        a(href='#').delete_slide
+                                                            span
+                                                                i.fa.fa-trash-o.fa-lg(aria-hidden="true")
+                                        .steps
+                                            if template_data[j].inputs
+                                                span
+                                                    i.fa.fa-text-width.circle
+                                                    | 
+                                                    span.validate-inputs #{(slide.inputs) ? Object.keys(slide.inputs).length : 0}/#{Object.keys(template_data[j].inputs).length}
+                                            if template_data[j].images
+                                                span
+                                                    i.fa.fa-file-image-o.circle
+                                                    | 
+                                                    span.validate-imgs #{(slide.images) ? Object.keys(slide.images).length : 0}/#{Object.keys(template_data[j].images).length}
+                                            if template_data[j].video
+                                                span
+                                                    i.fa.fa-file-video-o.circle
+                                                    | 
+                                                    span.validate-video #{(slide.video) ? Object.keys(slide.video).length : 0}/#{Object.keys(template_data[j].video).length}
+                                        //- IgorKiev 2016-04-12
+                                        //- span.pull-right
+                                        //-     a(href='#').delete_slide
+                                        //-         i.fa.fa-trash.fa-lg
+                            .swiper-slide.droppable
+                                span.drophere-box DROP HERE
+
+                            // Carousel Item End
+                            // Carousel Item Start
+                            //.swiper-slide
+                                a.add
+                                    i.fa.fa-plus-circle
+                            // Carousel Item End
+                        // Add Arrows
+                        //.swiper-wrapper
+                            // Carousel Item Start
+                            .swiper-slide
+                                figure.slide-img
+                                    img(src='images/slide-img.jpg', alt='slide')
+                                    .overlay
+                                        span.check
+                                            i.fa.fa-check
+                                .steps
+                                    span
+                                        i.fa.fa-text-width.circle
+                                        |  0/2
+                                    span
+                                        i.fa.fa-file-image-o.circle
+                                        |  0/2
+                                    span.pull-right
+                                        a(href='#')
+                                            i.fa.fa-trash.fa-lg.white-txt
+                            // Carousel Item End
+                            // Carousel Item Start
+                            .swiper-slide
+                                figure.slide-img.active
+                                    img(src='images/slide-img.jpg', alt='slide')
+                                    .overlay
+                                .steps
+                                    span
+                                        i.fa.fa-text-width.circle
+                                        |  0/2
+                                    span
+                                        i.fa.fa-file-image-o.circle
+                                        |  0/2
+                                    span.pull-right
+                                        a(href='#')
+                                            i.fa.fa-trash.fa-lg.white-txt
+                            // Carousel Item End
+                            // Carousel Item Start
+                            .swiper-slide
+                                span.drophere-box DROP HERE
+                                .steps
+                                    span
+                                        i.fa.fa-text-width.circle
+                                        |  0/2
+                                    span
+                                        i.fa.fa-file-image-o.circle
+                                        |  0/2
+                                    span.pull-right
+                                        a(href='#')
+                                            i.fa.fa-trash.fa-lg.white-txt
+                            // Carousel Item End
+                            // Carousel Item Start
+                            .swiper-slide
+                                a.add
+                                    i.fa.fa-plus-circle
+                            // Carousel Item End
+                    // Add Arrows
+                    .swiper-button-next
+                        i.fa.fa-angle-right
+                    .swiper-button-prev
+                        i.fa.fa-angle-left
+                // Carousel End
+                .progress-container
+                    .content
+                        span
+                            strong 0%
+                            |  finished
+                        .progress
+                            .progress-bar(role='progressbar', aria-valuenow='0', aria-valuemin='0', aria-valuemax='100', style='width: 0%;')
+            // bottom bar end
+
+
+
+#image___upload.modal.modal-theme.fade(tabindex='-1', role='dialog')
+    .modal-dialog.modal-custom
+        .modal-content
+            .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true')&times;
+                h4.modal-title SEARCH OUR PHOTO LIBRARIES OR UPLOAD YOUR OWN
+            .modal-body
+                .inner
+                    .tools-modal
+                        .col-xs-4
+                            input.form-control.search1(type='text', placeholder='Search')
+                            //span.input-group-btn
+                                button.image-search1.btn.btn-info.btn-lg(type='button')
+                                    i.glyphicon.glyphicon-search
+                        .col-xs-3
+                            select.form-control.selectpicker.dropdownMenuPlugin
+                                option(value='photofinish') Reevio
+                                //option(value='imgur') Imgur
+                                option(value='pixabay') Pixabay
+                                option(value='youzing') Youzign
+                                //option(value='splashbase') Splashbase
+                                option(value='imgflip') Meme
+                                //option(value='videocloudsuite') Videocloudsuite
+                        //div
+                            select.form-control.selectpicker
+                                option(value='') Category 1
+                                option(value='') Category 2
+                                option(value='') Category 3
+                        .col-xs-2
+                            a.image-search1.btn.btn-info.btn-block(href='#') SEARCH
+                    //-.user-images(style="overflow:auto")
+                    .user-images
+                        h4 User images
+                        .thumb-section.all_pic.start-list-section#user-images-con
+                            .custom-scrollbar.user-images-scrollbar
+                                ul
+                                    if user_images
+                                        each img,i in user_images
+                                            //li
+                                                .item
+                                                    .thumb.thumb-img
+                                                        img(src='#{img.path}', alt='Image Thumbnail',style=' ')
+                                #loader.loader(style='width:100px;height:100px;margin-top: 40px;')
+
+
+                form#dropzone-images-start-modal.dropzone(action='/editor/slider-origin-upload', enctype="multipart/form-data")
+                    input(type="hidden", name="template_id",value='#{template_id}')
+            .modal-footer
+                button#delete-image.btn.delete-img.btn-info(type='button') DELETE
+                a#edit-image.btn.btn-info(href='#')
+                    em.fa.fa-angle-left
+                    | &nbsp;EDIT
+                a#cropper.btn.btn-info(href='#')
+                    | ADD TO CANVAS&nbsp;
+                    em.fa.fa-angle-right
+
+
+#error_modal.modal.modal-theme.fade(tabindex='-1', role='dialog')
+    .modal-dialog.modal-custom
+        .modal-content
+            .modal-header
+                button.close(type='button', data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true')&times;
+                h4.modal-title FINISH
+            .modal-body
+                p.error-message Can't finish this operation because of the validation error.
+            .modal-footer
+                a.btn.btn-primary(data-dismiss='modal') OK
+
+script(src='/editor/js/jquery-1.10.1.min.js')
+//include images-start-modal.jade
+include images-search-modal.jade
+include audio-start-modal.jade
+include audio-search-modal.jade
+include video-start-modal.jade
+include video-search-modal.jade
+//include images-pop-up-1.jade
+//include images-pop-up.jade
+//include lollipop.jade
+include editor-video-po-up.jade
+//script(src='js/jquery-1.10.1.min.js')
+
+include lollipop.jade
+include user-video-modal.jade
+include delete-modal.jade
+include img-crop.jade
+
+
+script(type='text/javascript', src='/vendor/Lollipop/assets/js/lib/jquery.touchSwipe.min.js')
+script(type='text/javascript', src='/vendor/Lollipop/assets/js/lib/perfect-scrollbar.jquery.min.js')
+script(type='text/javascript', src='/vendor/Lollipop/assets/js/lib/angular.min.js')
+script(type='text/javascript', src='/vendor/Lollipop/assets/js/lib/angular-animate.min.js')
+script(type='text/javascript', src='/vendor/Lollipop/assets/js/init.js')
+script(type='text/javascript', src='/vendor/Lollipop/assets/js/filters.js')
+script(type='text/javascript', src='/vendor/Lollipop/assets/js/app.js')
+script(type='text/javascript', src='/vendor/Lollipop/assets/js/lib/StackBlur.js')
+script(type='text/javascript', src='/vendor/Lollipop/assets/js/lib/CompoundBlur.js')
+script(type='text/javascript', src='/vendor/Lollipop/assets/js/package.js')
+script(type='text/javascript', src='/vendor/Lollipop/assets/js/api.js')
+script(type='text/javascript', src='/vendor/Lollipop/assets/js/script.js')
+
+script(src='/js/icon-group.js')
+script(src='/editor/js/bootstrap.min.js')
+script(src='/vendor/bootstrap-select/bootstrap-select.min.js')
+script(src='/editor/js/swiper.min.js')
+script(src='/editor/js/jquery.mCustomScrollbar.js')
+script(src='/editor/js/scripts.js')
+script(src='/editor/js/dropzone.js')
+script(src='/editor/js/editor.js')
+script(src='/js/editor.js')
+script(src='/vendor/jquery-collagePlus-master/jquery.collagePlus.js')
+script(src='/vendor/jquery-collagePlus-master/extras/jquery.collageCaption.min.js')
+script(src='/vendor/jquery-collagePlus-master/extras/jquery.removeWhitespace.min.js')
+
+script(src='/vendor/percircle-master/dist/js/percircle.js')
+
+// voice recording
+script(src='/vendor/francium-voice-master/js/recorder.js')
+script(src='/vendor/francium-voice-master/js/Fr.voice.js')
+script(src='/vendor/tipped/js/tipped/tipped.js')
+
+// music play
+script(src='/vendor/wavesurfer/wavesurfer.js')
+
+script(src='/vendor/croppernew/dist/cropper.js')
+script(src='/vendor/colorpicker/js/colorpicker.js')
+script(src='/vendor/jquery-ui/ui/jquery-ui.js')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js')
+script(src="/js/video_trimming.js")
+script(src="/js/music_trimming.js")
+
+script(src='/editor/js/draggable.js')
+script(src='/editor/js/sortable.js')
+script(src='/vendor/bootstrap3-editable/js/bootstrap-editable.js')
+//script.
+    window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\\/script>')
+script(src='/editor/js/tabs.js')
+script(src='/editor/js/submit-video-edit.js')
+script(src='/js/translate.js')
+script(src='/vendor/croppie/croppie.js')
+script(src='/js/crop-img.js')
+script(type='text/javascript').
+    setTimeout(function() {
+        if($('#loader-wrapper').is(":visible")){
+            $('#reload-modal').modal('show');
+        }
+    }, 10000);
+    $('#reload-modal').on("shown.bs.modal",function(){
+        var _this = this;
+        var set = setInterval(function() {
+            var time = parseInt($(_this).find('.modal-body h3').text())-1;
+            $(_this).find('.modal-body h3').html(time);
+            if(time == 0){
+                clearInterval(set)
+                location.reload();
+            }
+        },1000)
+    });
+
+    $(document).on('click','#reload',function(){
+        location.reload();
+    });
+    var graphic = !{graphic};
+    Dropzone.autoDiscover = false;
+    $('#images-modal select').selectpicker();
+
+    $('html').ready(function() {
+        setTimeout(function() {
+             $('#loader-wrapper').fadeOut();
+        }, 1000);
+      });
+
+    $('.selectpicker').selectpicker();
+
+
+    // All images need to be loaded for this plugin to work so
+    // we end up waiting for the whole window to load in this example
+    $('#images-search___modal').on('shown.bs.modal', function () {
+        collage();
+    });
+    // Here we apply the actual CollagePlus plugin
+    function collage() {
+        $('.collage').removeWhitespace().collagePlus(
+                {
+                    'fadeSpeed': 500,
+                    'targetHeight': 180,
+                    'direction': 'vertical',
+                    'allowPartialLastRow': true
+                }
+        );
+    };
+    // This is just for the case that the browser window is resized
+    var resizeTimer = null;
+    $(window).bind('resize', function () {
+        // hide all the images until we resize them
+        $('.collage .image-wrapper').css("opacity", 0);
+        // set a timer to re-apply the plugin
+        if (resizeTimer) clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(collage, 1000);
+    });
+    var TemplateData=!{JSON.stringify(template_data)};
+    var TemplateDataRigth=!{JSON.stringify(template_data_rigth)};
+    var InsertedTempladeData=!{JSON.stringify(InsertedTempladeData)};
+    var DefaultTemplate=!{JSON.stringify(template_data)};
+    var UserVideosId=!{UserVideosId};
+    var video_name='#{video_name}';
+
+    var TEMPALTE_ID=!{template_id};
+    var max_duration=!{max_duration};
+    var user_videos = !{JSON.stringify(user_videos)};
+    //var video_duration = !{video_duration};
+    var video_duration=0;
+    var myVideoPlayer = document.getElementById('editor_video');
+    myVideoPlayer.addEventListener('loadedmetadata', function() {
+         video_duration=myVideoPlayer.duration
+            $('.duration').html('<span class="font-red">Duration:</span> '+parseInt(video_duration)+' seconds');
+      // alert(video_duration);
+    });
+#livezilla_tracking(style='display:none')
+    script(type='text/javascript').
+      var script = document.createElement("script");script.async=true;script.type="text/javascript";var src = "http://127.0.0.1/LiveZilla/server.php?a=8f16f&rqst=track&output=jcrpt&intgroup=c3VwcG9ydA__&intid=YWRtaW5pc3RyYXRvcg__&pref=dXNlcg__&el=ZW4_&fbpos=10&fbml=0&fbmt=0&fbmr=0&fbmb=0&fbw=39&fbh=137&fbshx=NQ__&fbshy=NQ__&fbshb=NQ__&fbshc=IzY5Njk2OQ__&nse="+Math.random();setTimeout("script.src=src;document.getElementById('livezilla_tracking').appendChild(script)",1);
+    noscript
+      img(src='http://127.0.0.1/LiveZilla/server.php?a=8f16f&rqst=track&output=nojcrpt', width='0', height='0', style='visibility:hidden;', alt='')
+    div(style='display:none;')
+      a.lz_fl(href="javascript:lz_tracking_init_floating_button_selector(new Array(true,false,'','',false,true,true,'','','','','','','','&intgroup=c3VwcG9ydA__&intid=YWRtaW5pc3RyYXRvcg__&pref=dXNlcg__&el=ZW4_'));")
+        img#chat_button_image(src='http://127.0.0.1/LiveZilla/image.php?a=ffec2&id=4&type=overlay', width='39', height='137', style='border:0px;', alt='LiveZilla Live Chat Software')
+//script.
+        var user = !{user};
+        if(user){
+          window.intercomSettings = {
+            app_id: "qivwjpnl",
+            name: user.name, // Full name
+            email: user.email, // Email address
+            created_at: user.date // Signup date as a Unix timestamp
+          };
+
+          (function () {
+            var w = window;
+            var ic = w.Intercom;
+            if (typeof ic === "function") {
+                ic('reattach_activator');
+                ic('update', intercomSettings);
+            } else {
+                var d = document;
+                var i = function () {
+                    i.c(arguments)
+                };
+                i.q = [];
+                i.c = function (args) {
+                    i.q.push(args)
+                };
+                w.Intercom = i;
+                function l() {
+                    var s = d.createElement('script');
+                    s.type = 'text/javascript';
+                    s.async = true;
+                    s.src = 'https://widget.intercom.io/widget/qivwjpnl';
+                    var x = d.getElementsByTagName('script')[0];
+                    x.parentNode.insertBefore(s, x);
+                }
+
+                if (w.attachEvent) {
+                    w.attachEvent('onload', l);
+                } else {
+                    w.addEventListener('load', l, false);
+                }
+            }
+          })()
+        }

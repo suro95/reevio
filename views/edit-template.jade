@@ -1,0 +1,481 @@
+
+doctype html
+html(lang='en')
+    head
+        meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title Reevio
+        meta(name='description', content='Reevio')
+        meta(name='author', content='Reevio')
+        link(rel='stylesheet', type="text/css", href='/vendor/jquery-ui-1.12.0/jquery-ui.min.css')
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+        link(type='text/css', rel='stylesheet', href='/editor/css/normalize.css')
+        link(rel='stylesheet', href='/vendor/font-awesome-4.5.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/vendor/bootstrap-select/bootstrap-select.min.css')
+        link(rel='stylesheet', type="text/css", href='/vendor/jquery-collagePlus-master/support/collage.css')
+        link(rel='stylesheet', type="text/css", href='/vendor/jquery-collagePlus-master/css/transitions.css')
+        link(rel='stylesheet', type="text/css", href='/vendor/cropper/dist/cropper.css')
+
+        link(href='//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css', rel='stylesheet')
+        link(rel='stylesheet', href='/editor/css/style-1.css')
+        link(rel='stylesheet', href='/editor/css/theme-an.css')
+        link(href='/vendor/bootstrap3-editable/css/bootstrap-editable.css', rel='stylesheet')
+        link(rel='stylesheet', href='/vendor/colorpicker/css/colorpicker.css')
+        link(rel='stylesheet', href='/editor/css/main.css')
+        link(rel='stylesheet', href='/editor/css/new-main.css')
+        link(rel='stylesheet', href='/css/loaders.css')
+        //- link(rel='stylesheet', href='/vendor/percircle-master/example/style.css')
+        link(rel='stylesheet', href='/vendor/percircle-master/dist/css/percircle.css')
+
+        link(rel='stylesheet', href='/admin/css/styles.css')
+    body
+
+        #loader-wrapper(style='z-index: 999999999;')
+            #loader.loader(style='')
+            p.wow.flash.strong.animated(style='visibility: visible; animation-duration: 2s; animation-iteration-count: 1000; animation-name: flash;', data-wow-duration='2s', data-wow-iteration='1000') Loading...
+
+        #modal_new.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px",data-backdrop="static" data-keyboard="false")
+          .modal-dialog.modal-custom(style="width:700px !important")
+            .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                    h4.modal-title Edit Template
+                .modal-body(style="height: 100%")
+                    .search-section
+                        form#upload_form.custom-scrollbar.form-group(method="post",enctype="multipart/form-data")
+                            .custom-scrollbar
+                                .col-md-12.template-data
+                                    .control-group
+                                        label(style="color: #FFF;") Name
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            input.form-control(type='text',name='name', placeholder='Name', value='#{name}')
+                                    //- .control-group
+                                        label(style="color: #FFF;") Category
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            select.form-control(name='category' multiple)
+                                                each categorys, i in category_all
+                                                    option(value='#{categorys.id}') #{categorys.name}
+                                    .control-group
+                                        label(style="color: #FFF;") Type
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            select.form-control(name='type')
+                                                option(value='static' ,selected=(type == 'static' )?true:false ) Fixed
+                                                option(value='dynamic',selected=(type == 'dynamic')?true:false ) Modular
+                                    .control-group.aep(style=(type == 'dynamic')?"display:none;":"")
+                                        label(style="color: #FFF;") Aep
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            input.form-control(type='text',name='aep', placeholder='Aep', value='#{aep}')
+                                    .control-group
+                                        label(style="color: #FFF;") Target
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            input.form-control(type='text',name='target', placeholder='Target', value='#{target}')
+                                    .control-group
+                                        label(style="color: #FFF;") Description
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            textarea.form-control(type='text',name='desc') #{description}
+                                    .control-group
+                                        label(style="color: #FFF;") Max Sllide Duration
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            input.form-control(type='text',name='max_duration', placeholder='Max Sllide Duration', value='#{max_duration}')
+                                    .control-group
+                                        label(style="color: #FFF;") Keyword
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            input.form-control(type='text',name='keyword', placeholder='Keyword', value='#{keyword}')
+                                    .control-group
+                                        label(style="color: #FFF;") Notes
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            input.form-control(type='text',name='notes', placeholder='Notes', value='#{notes}')
+                                    //- .control-group
+                                        label(style="color: #FFF;") Plan
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            select.form-control(name='plan' multiple)
+                                                each paln, i in plans_all
+                                                    option(value='#{paln.id}') #{paln.name}
+                                    .control-group
+                                        label(style="color: #FFF;") Price
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            input.form-control(type='number',name='price', placeholder='Price' value="#{price}")
+                                    .control-group
+                                        label(style="color: #FFF;") Music
+                                        .controls.col-sm-12(style="padding: 0px 0 10px 0;")
+                                            input.form-control(type='checkbox',name='music', placeholder='Music',  checked=(music == 'true' ? 'checked' : undefined), style="width: 2em;height: 2em;")
+                                    .control-group
+                                        label(style="color: #FFF;width:100%;") Cover photo
+                                        if cover_photo
+                                            img(src="/templates#{cover_photo}" style="height:100px")
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            input(type="file" name="cover_photo")#cover_photo
+                                            input(type="hidden" name="cover_photo", value='#{file_name}')#cover_photo_hidden
+                                    .control-group
+                                        label(style="color: #FFF;;width:100%;") Video
+                                        if file_name
+                                            video(src="/templates#{file_name}" style="height:150px" controls,preload="metadata")
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            input(type="file" name="video")#video
+                                            input(type="hidden" name="video", value='#{cover_photo}')#video_hidden
+                                    .control-group.aep(style=(type == 'dynamic')?"display:none;":"")
+                                        label(style="color: #FFF;") Aep file
+                                        .controls(style="padding: 10px 0 10px 0;")
+                                            input(type="file" name="aep_file")#aep_file
+                                            input(type="hidden" name="aep_file", value='#{aep_file}')#aep_file_hidden
+                                    .control-group
+                                        label
+                                        .controls(style="padding: 0px 0 10px 0;")
+                                            input(type="hidden" name="template_id", value='#{template_id}')
+                                            button.btn-primary(type='button').edit_template
+                                             | Update
+                .modal-footer
+        .app(data-template-id='')
+            // Top Bar Start
+            header#app-top.navbar.app-top(role='banner')
+                .container-fluid
+                    a(href='/video-designs')
+                        if page
+                            a#exit-editor.header-buttons(href='/admin/templates-list/#{page}')
+                                | Back
+                                span
+                                    i.fa.fa-sign-out
+                        else
+                            a#exit-editor.header-buttons(href='/admin/templates-list')
+                                | Back
+                                span
+                                    i.fa.fa-sign-out
+                    button#submit-template.header-buttons
+                        | Submit Template
+                        span
+                            i.fa.fa-check-circle-o
+
+                    .navbar-header
+                        a.navbar-brand(href='#') reevio
+            // Top Bar End
+            // App Content - middle part  start
+            .app-content.clearfix
+                aside.sidebar-left
+                    div.sidebar-left-nav
+                        ul.nav(role='tablist')
+                            li(role='presentation')
+                                a.blue(href='#main-elements', aria-controls='elements', role='tab', data-toggle='tab')
+                                    i.fa.fa-share-alt
+                                    |                           Elements
+                            li.active(role='presentation')
+                                a.yellow(href='#main-audio', aria-controls='audio', role='tab', data-toggle='tab')
+                                    i.fa.fa-file-code-o
+                                    |                           Inputs
+                            li(role='presentation')
+                                a.red(href='#main-option', aria-controls='options', role='tab', data-toggle='tab')
+                                    i.fa.fa-cog
+                                    |                           Options
+                    .tab-content
+                        #main-audio.tab-pane.active(role='tabpanel')
+                            ul.nav-buttons
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.example___video.add-img(href='#') Images
+                                li.active(role='presentation')
+                                    a.btn.btn-block.red.bordered.add-input(href='#') Text
+                                        i.fa.fa-refresh.fa-lg.change-order(style='float: right;', data-type='inputs')
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.reset_image.add-video(href='#') Video
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.add-element(href='#') Element
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.add-icon(href='#') Graph
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.add-background(href='#') Background
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.add-multi-element(href='#') Multi Element
+                                //- li(role='presentation')
+                                    a.btn.btn-block.red.bordered.add-logo(href='#') Logo
+                        #main-elements.tab-pane(role='tabpanel')
+                            .table-tools
+                                form
+                                    div
+                                        .input-group(style="margin: 0 auto;")
+                                            button.btn.add-new-group(type='button') Add New Group
+                                    div
+                                        .input-group(style="margin: 0 auto;border-radius: 5px !important;color: #777;")
+                                            button.btn.icon-group-list(type='button') Icon group
+                            .elements-container
+                                .custom-scrollbar
+                                    .col-md-12
+                                        .control-group
+                                            label(style="color: #FFF;") Graphic
+                                            .controls(style="padding: 0px 0 10px 0;")
+                                                if graphic == 'true'
+                                                    input.form-control#graphic(style="width: 2em;" type="checkbox" checked)
+                                                else
+                                                    input.form-control#graphic(style="width: 2em;" type="checkbox")
+                        #main-option.tab-pane(role='tabpanel')
+                            ul.nav-buttons
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.example___video.show-all-element(href='#') Naming
+                                //- li(role='presentation')
+                                    a.btn.btn-block.red.bordered.category(href='#') Category
+                                //- li(role='presentation')
+                                    a.btn.btn-block.red.bordered.plan(href='#') Plan
+                                li(role='presentation')
+                                    a.btn.btn-block.red.bordered.placeholder(href='#') Placeholder
+                                // Tab 4 End
+                        // Left Sidebar End
+                        // Slide preview start
+                .app-middle
+                    if(template_data)
+                        each slide,i in template_data
+                            if slide.slide
+                                .current-slide.item-form.slide(data-id='#{i}',style="display:none;")
+                                    .refresh-slide
+                                            i.fa.fa-refresh
+                                    if slide['slide-background-color']
+                                        .background-slide
+                                            i.fa.fa-tint
+                                    img(src='/templates/#{slide.slide}', style='width:100%;height:100%')
+                                    .item-form(style="height:100%")
+                                        if(slide.images)
+                                            each silde_img,j in slide.images
+                                                .field.image___file.empty(data-image-name='#{j}', data-slide-id='#{i}', style='z-index: 999;outline:1px solid #D84A38;position: absolute;#{silde_img.style};#{silde_img.position};#{silde_img.size}')
+                                                    i.fa.fa-times.element-remove(aria-hidden='true', data-slide-id="#{i}",data-type="images",data-element-name="#{j}")
+                                                    i.fa.fa-clone.element-clone(aria-hidden='true',data-type="images")
+                                                    i.element-name(aria-hidden='true',data-element-name='#{j}',data-element-type='images') #{j}
+                                                    .btn.add-new-images-inputs
+                                        if(slide.graphs)
+                                            each silde_graph,j in slide.graphs
+                                                .field.image___graph.empty(data-graph-name='#{j}', data-slide-id='#{i}', style='z-index: 999;outline:1px solid #D84A38;position: absolute;#{silde_graph.style};#{silde_graph.position};#{silde_graph.size}')
+                                                    i.fa.fa-times.element-remove(aria-hidden='true', data-slide-id="#{i}",data-type="graphs",data-element-name="#{j}")
+                                                    i.fa.fa-clone.element-clone(aria-hidden='true',data-type="graphs")
+                                                    i.element-name(aria-hidden='true',data-element-name='#{j}',data-element-type='graphs') #{j}
+                                                    .btn.add-new-graphs-inputs
+                                        if(slide.video)
+                                            each silde_video,j in slide.video
+                                                .field.video___file.empty(data-video-name='#{j}', data-slide-id='#{i}', style='z-index: 999;outline:1px solid #D84A38;position: absolute;#{silde_video.style};#{silde_video.position};#{silde_video.size}')
+                                                    i.fa.fa-times.element-remove(aria-hidden='true', data-slide-id="#{i}",data-type="video",data-element-name="#{j}")
+                                                    i.fa.fa-clone.element-clone(aria-hidden='true',data-type="video")
+                                                    i.element-name(aria-hidden='true',data-element-name='#{j}',data-element-type='video') #{j}
+                                                    .btn.add-new-videos-input
+                                        if(slide.inputs)
+                                            each silde_inp,j in slide.inputs
+                                                if silde_inp.type == 'text'
+                                                    .field.text.dark-t(data-input-name='#{j}', data-slide-id='#{i}', style='white-space: nowrap; z-index: 999;outline:1px solid #D84A38;#{silde_inp.style}')
+                                                        i.fa.fa-times.element-remove(aria-hidden='true', data-slide-id="#{i}",data-type="inputs",data-element-name="#{j}")
+                                                        i.fa.fa-clone.element-clone(aria-hidden='true',data-type="inputs")
+                                                        i.element-name(aria-hidden='true',data-element-name='#{j}',data-element-type='inputs') #{j}
+                                                        a.text-editor.editable.editable-click.editable-empty(style='align-items: center;white-space: nowrap;display: flex;height:100%;#{silde_inp.text_style}', data-slide-id='#{i}', data-input-name='#{j}', data-maxlength='#{silde_inp.max}', data-type='#{silde_inp.type}') #{silde_inp.value}
+                                                else
+                                                    .field.text.dark-t(data-input-name='#{j}', data-slide-id='#{i}', style='white-space: normal; z-index: 999;outline:1px solid #D84A38;#{silde_inp.style}')
+                                                        i.fa.fa-times.element-remove(aria-hidden='true', data-slide-id="#{i}",data-type="inputs",data-element-name="#{j}")
+                                                        i.fa.fa-clone.element-clone(aria-hidden='true',data-type="inputs")
+                                                        i.element-name(aria-hidden='true',data-element-name='#{j}',data-element-type='inputs') #{j}
+                                                        a.text-editor.editable.editable-click.editable-empty(style='align-items: center;white-space: normal;display: flex;#{silde_inp.text_style}', data-slide-id='#{i}', data-input-name='#{j}', data-maxlength='#{silde_inp.max}', data-type='#{silde_inp.type}') #{silde_inp.value}
+                                        if(slide.element)
+                                            each silde_element,j in slide.element
+                                                .field.element___file.empty(data-element-name='#{j}', data-slide-id='#{i}', style='outline:1px solid #D84A38;position: absolute;#{silde_element.style};#{silde_element.position};#{silde_element.size};background-color:##{silde_element.color}')
+                                                    i.fa.fa-times.element-remove(aria-hidden='true', data-slide-id="#{i}",data-type="element",data-element-name="#{j}")
+                                                    i.fa.fa-clone.element-clone(aria-hidden='true',data-type="element")
+                                                    i.fa.fa-paint-brush.element-paint(aria-hidden='true',data-type="element")
+                                                    i.fa.fa-arrows-alt.element-style(aria-hidden='true',data-type="element")
+
+                                                    i.element-name(aria-hidden='true',data-element-name='#{j}',data-element-type='element') #{j}
+                                        if(slide.icon)
+                                            each silde_icon,j in slide.icon
+                                                .field.icon___file.empty(data-element-name='#{j}', data-slide-id='#{i}', style='outline:1px solid #D84A38;position: absolute;#{silde_icon.style};#{silde_icon.position};#{silde_icon.size};')
+
+                                        if(slide.graphics)
+                                            each silde_graphic,j in slide.graphics
+                                                .field.icon___file.empty(data-element-name='#{j}', data-slide-id='#{i}', style='outline:1px solid #D84A38;position: absolute;#{silde_graphic.style};#{silde_graphic.position};#{silde_graphic.size};')
+
+                                                    i.fa.fa-times.element-remove(aria-hidden='true', data-slide-id="#{i}",data-type="graphics",data-element-name="#{j}")
+                                                    i.fa.fa-clone.element-clone(aria-hidden='true',data-type="graphics")
+                                                    i.element-name(aria-hidden='true',data-element-name='#{j}',data-element-type='graphics') #{j}
+                                        if slide['mixed-media']
+                                            each mixed_media,j in slide['mixed-media']
+                                                .field.multi___element.empty(data-multi-element-name='#{j}', data-slide-id='#{i}', style='z-index: 999;outline:1px solid #D84A38;position: absolute;#{mixed_media.style};#{mixed_media.position};#{mixed_media.size}')
+                                                    i.fa.fa-times.element-remove(aria-hidden='true', data-slide-id="#{i}",data-type="mixed-media",data-element-name="#{j}")
+                                                    i.fa.fa-clone.element-clone(aria-hidden='true',data-type="mixed-media")
+                                                    i.element-name(aria-hidden='true',data-element-name='#{j}',data-element-type='mixed-media') #{j}
+                                                    .btn.add_mixed_media
+
+                    .current-slide.upload(data-id="0",style="display:none;")
+                        .span.add_slide.item-form 
+                            .div-center.field.image___file.empty
+                                .btn.add-new-images-input(style="visibility: ;")
+
+                        //.current-slide(data-id='1')
+                            img(src='/templates/',style="width:100%;height:100%")
+                // Right Sidebar start
+                .sidebar-right
+                    //- Arrow for showing right sidebar on width < 1200px
+                    //- a#show-sidebar-right
+                    //-     i.fa.fa-arrow-left
+                    .slides-container
+                        ul.nav
+                            li.active(role='presentation')
+                                a(href='#images', aria-controls='images', role='tab', data-toggle='tab')
+                                    em.fa.fa-film
+                                    | &nbsp;Slides
+                        .custom-scrollbar
+                            figure.image-tn
+                                .hold-asp-ratio
+                                    .asp-content
+                                        if cover_photo
+                                            img(src='/templates#{cover_photo}', alt='tn')
+                                        else
+                                            img(src, alt='tn' style="visibility:hidden")
+                            figure.image-tn
+                                .hold-asp-ratio
+                                    .asp-content
+                                        if file_name
+                                            video(src='/templates#{file_name}',controls,preload="metadata" style="height:auto;width:100%")
+                                        else
+                                            video(controls,preload="metadata" style="height:auto;width:100%;visibility:hidden")
+                // Right Sidebar End
+            // App Content - middle part  end
+            // bottom bar start
+            footer.app-footer
+                .app-status
+                    span.status(style="visibility: hidden;")
+                        i.fa.fa-check-circle
+                    span.preview 
+                // Carousel Start
+                .carousel
+                    .swiper-container
+                        .swiper-wrapper
+                            if(template_data)
+                                each slide,i in template_data
+                                    .swiper-slide.slide-item.image-container.swiper-slide-active(data-id='#{i}', style='margin-right: 16px;')
+                                      figure.slide-img
+                                        .number
+                                            | #{i}
+                                        .hold-asp-ratio
+                                          .asp-content
+                                            img(src='/templates/#{slide.cov}')
+                                            .tools
+                                                a(href='#').slide_data
+                                                    span
+                                                        i.fa.fa-clone.fa-lg(aria-hidden="true")
+                                                a(href='#').delete_slide
+                                                    span
+                                                        i.fa.fa-trash-o.fa-lg(aria-hidden="true")
+
+                            .swiper-slide.droppable
+                                figure.slide-img
+                                    .hold-asp-ratio
+                                        .asp-content
+                                            span.drophere-box.add_cov UPLOAD COV
+                                    .steps(style="visibility:hidden;")
+                                            span
+                                                i.fa.fa-text-width.circle
+                                                |  
+                                                span.validate-inputs 0/0
+                    .swiper-button-next
+                        i.fa.fa-angle-right
+                    .swiper-button-prev
+                        i.fa.fa-angle-left
+                // Carousel End
+                .progress-container
+                    .content
+                        span
+                            strong(style="visibility: hidden;") 0% finished
+                        .progress(style="visibility: hidden;")
+                            .progress-bar(role='progressbar', aria-valuenow='0', aria-valuemin='0', aria-valuemax='100', style='width: 0%;')
+                form#img-upload.dropzone(action='/admin/img-upload' style="display: none;")
+                  input.folder_name(type="hidden", name="folder_name",value='#{folder}')
+                  input.image_type(type="hidden", name="image_type",value='cov')
+                  input.slide_id(type="hidden", name="slide_id",value='1')
+                  input.slide_path(type="hidden", name="slide_path",value='')
+                form#placeholder-upload.dropzone(action='/admin/placeholder-upload' style="display: none;")
+                    input.placeholder(type="file", name="placeholder")
+
+#modal.modal.modal-theme.fade.style-modal(tabindex='-1', role='dialog',style="z-index: 99999999;: 300px")
+  .modal-dialog.modal-custom(style="width: 300px")
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        h4.modal-title STYLE
+      .modal-body(style="height:300px")
+      .modal-footer
+        a.btn.btn-info#save(href='#')
+            | SAVE &nbsp;
+            em.fa.fa-angle-right
+
+include modal-adder.jade
+//- include delete-modal.jade
+
+
+script(src='/editor/js/jquery-1.10.1.min.js')
+
+script(src='/editor/js/bootstrap.min.js')
+script(src='/vendor/bootstrap-select/bootstrap-select.min.js')
+script(src='/editor/js/swiper.min.js')
+script(src='/editor/js/jquery.mCustomScrollbar.js')
+script(src='/editor/js/dropzone.js')
+//- script(src='/editor/js/draggable.js')
+//- script(src='/editor/js/editor.js')
+//- script(src='/js/editor-static.js')
+script(src='/vendor/jquery-collagePlus-master/jquery.collagePlus.js')
+script(src='/vendor/jquery-collagePlus-master/extras/jquery.collageCaption.min.js')
+script(src='/vendor/jquery-collagePlus-master/extras/jquery.removeWhitespace.min.js')
+
+
+script(src='/vendor/colorpicker/js/colorpicker.js')
+script(src='/vendor/jquery-ui/ui/jquery-ui.js')
+script(src='/vendor/jquery.inlinee/jquery.inlineedit.js')
+
+
+script(src='/vendor/bootstrap3-editable/js/bootstrap-editable.js')
+
+script(src='/editor/js/tabs.js')
+script(src='/admin/js/script.js')
+script(src='/editor/js/scripts.js')
+script(src='/admin/js/edit-script.js')
+script(src='/admin/js/sort-table.js')
+script(type='text/javascript').
+    var template_icons = !{template_icons};
+    var folder = '!{folder}';
+    var template_id=!{template_id};
+    var editTmplate=true;
+    Dropzone.autoDiscover = false;
+    addTmplate=!{JSON.stringify(template_data)};
+
+    $('html').ready(function() {
+        setTimeout(function() {
+            $('#loader-wrapper').fadeOut();
+        }, 1000);
+    });
+
+
+    // Here we apply the actual CollagePlus plugin
+    function collage() {
+        $('.collage').removeWhitespace().collagePlus(
+                {
+                    'fadeSpeed': 500,
+                    'targetHeight': 180,
+                    'direction': 'vertical',
+                    'allowPartialLastRow': true
+                }
+        );
+    };
+    // This is just for the case that the browser window is resized
+    var resizeTimer = null;
+    $(window).bind('resize', function () {
+        // hide all the images until we resize them
+        $('.collage .image-wrapper').css("opacity", 0);
+        // set a timer to re-apply the plugin
+        if (resizeTimer) clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(collage, 1000);
+    });
+    $('#modal_new').modal('show');
+    var category_id =!{category};
+    $.each(category_id,function(key,val){
+        $('.category_checkbox[value="'+val+'"]').attr('checked',true);
+    })
+    var plans_id =!{plans_id};
+    $.each(plans_id,function(key,val){
+        $('.plan_checkbox[value="'+val+'"]').attr('checked',true);
+    })
+    var type = '!{type}';
+    var SlideMaxDuration = '!{max_duration}';
+    var category_tag_options = '!{all_categorys_slides}';
+        if(category_tag_options){
+            category_tag_options = JSON.parse(category_tag_options);
+        }
+    //- $('select.form-control').selectpicker({multiple:true});

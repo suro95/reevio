@@ -1,0 +1,74 @@
+extends layout
+block content
+    // Page content
+    main.bg-white
+        .page-title-gray
+            .container
+                h4  Create New Project
+        .container.page-content
+            .row
+                .col-lg-10.col-lg-offset-1
+                    form( role='form', method='post', enctype='multipart/form-data')
+                        .row
+                            // Start Address
+                            .col-sm-6.address
+                                .form-group
+                                    input.form-control(type='text', name='projectName', placeholder='Project Name')
+                                    if errors !== undefined && errors.projectName !== undefined
+                                        ul.parsley-errors-list.filled
+                                            li.parsley-required= errors.projectName.msg
+                                .form-group
+                                    input.form-control(type='text', name='businessName', placeholder='Business Name')
+                                    if errors !== undefined && errors.businessName !== undefined
+                                        ul.parsley-errors-list.filled
+                                            li.parsley-required= errors.businessName.msg
+                                .form-group
+                                    input.form-control(type='number', name='phone', placeholder='Phone Number')
+                                    if errors !== undefined && errors.phone !== undefined
+                                        ul.parsley-errors-list.filled
+                                            li.parsley-required= errors.phone.msg
+                                .form-group
+                                    input.form-control(type='text', name='street', placeholder='Street Address')
+                                    if errors !== undefined && errors.street !== undefined
+                                        ul.parsley-errors-list.filled
+                                            li.parsley-required= errors.street.msg
+                                .form-group
+                                    input.form-control(type='text', name='city', placeholder='City')
+                                    if errors !== undefined && errors.city !== undefined
+                                        ul.parsley-errors-list.filled
+                                            li.parsley-required= errors.city.msg
+                                .form-group
+                                    input.form-control(type='text', name='state', placeholder='State')
+                                    if errors !== undefined && errors.state !== undefined
+                                        ul.parsley-errors-list.filled
+                                            li.parsley-required= errors.state.msg
+                            // End Address
+                            // Start Social
+                            .col-sm-6.social
+                                .form-group
+                                    input.form-control(type='url', name='websiteUrl', placeholder='Website URL')
+                                    if errors !== undefined && errors.websiteUrl !== undefined
+                                        ul.parsley-errors-list.filled
+                                            li.parsley-required= errors.websiteUrl.msg
+                                .form-group
+                                    input.form-control(type='url', name='fbUrl', placeholder='Facebook URL')
+                                    if errors !== undefined && errors.fbUrl !== undefined
+                                        ul.parsley-errors-list.filled
+                                            li.parsley-required= errors.fbUrl.msg
+                                .form-group
+                                    input.form-control(type='url', name='twitterUrl', placeholder='Twitter URL')
+                                    if errors !== undefined && errors.twitterUrl !== undefined
+                                        ul.parsley-errors-list.filled
+                                            li.parsley-required= errors.twitterUrl.msg
+                                .form-group
+                                    input.form-control(type='url', name='linkedinUrl', placeholder='Linkedin URL')
+                                    if errors !== undefined && errors.linkedinUrl !== undefined
+                                        ul.parsley-errors-list.filled
+                                            li.parsley-required= errors.linkedinUrl.msg
+                                .form-group
+                                    input.form-control.filestyle(name='fileLogo', type='file', data-classbutton='btn btn-default', data-classinput='form-control inline', placeholder='Choose logo', multiple='true')
+                                .form-group
+                                    button.btn.btn-block.green(type='submit') Create New Project
+                            // End Social
+                            .col-sm-6.col-sm-offset-6.social
+        // End .editor-container

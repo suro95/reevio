@@ -1,0 +1,58 @@
+.modal-window(style="display: none")
+  .video-trimmer.clearfix
+    span.close-po-up.triming_popu_clos &times;
+      //- a
+            i.fa.fa-times-circle.fa-3x
+    .title
+      h2
+        i.fa.fa-file-video-o
+        |   Trim video
+    .video-container(style="position:relative")
+      .loding(style="position: absolute;top: 0; left: 0;right: 0;bottom: 0;margin:auto;width: 65px;height: 55px")
+        div(data-loader="circle-side")
+    .controls-panel
+      .video-timeline
+        #progressbar
+        #slider(style="top:-12px")
+        //.select-segment
+          i.fa.fa-circle.fa-lg.left
+          i.fa.fa-circle.fa-lg.right
+      .video-controls.clearfix
+        .controls.disable(style="position: absolute;width: 100%;top: 543px;z-index: -1;")
+        .controls
+          span.back_tim_10
+            a
+              i.fa.fa-backward.fa-2x
+            br
+            | -10s
+          span.back_tim_1
+            a
+              i.fa.fa-caret-left.fa-2x
+            br
+            | -1s
+          span.time_position
+            p 0:00:00
+            | TIME POSITION
+          span.next_tim_1
+            a
+              i.fa.fa-caret-right.fa-2x
+            br
+            | +1s
+          span.next_tim_10
+            a
+              i.fa.fa-forward.fa-2x
+            br
+            | +10s
+        .time-position.pull-left
+          p.file_name
+          p
+            span.triming_tim 0:00 / 00:00
+        .buttons.pull-right
+          span(style='background-color: #68bddb; color: #fff;').triming_popu_clos
+            a
+              i.fa.fa-chevron-left   Back
+          span(style='background-color: #68bddb; color: #fff;').continue
+            a
+              | Continue    
+              i.fa.fa-chevron-right
+input(type="file")#video_file.hide

@@ -1,0 +1,170 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(name='description', content='')
+    meta(name='keywords', content='app, responsive, jquery, bootstrap, anlavina, dashboard, admin')
+    title Veeroll
+    // =============== VENDOR STYLES ===============
+    // FONT AWESOME
+    link(rel='stylesheet', href='/vendor/fontawesome/css/font-awesome.min.css')
+    // SIMPLE LINE ICONS
+    link(rel='stylesheet', href='/vendor/simple-line-icons/css/simple-line-icons.css')
+    // ANIMATE.CSS
+    link(rel='stylesheet', href='/vendor/animate.css/animate.min.css')
+    // WHIRL (spinners)
+    link(rel='stylesheet', href='/vendor/whirl/dist/whirl.css')
+    // =============== PAGE VENDOR STYLES ===============
+    // DATATABLES
+    link(rel='stylesheet', href='/vendor/datatables-colvis/css/dataTables.colVis.css')
+    link(rel='stylesheet', href='/vendor/datatables/media/css/dataTables.bootstrap.css')
+    link(rel='stylesheet', href='/vendor/dataTables.fontAwesome/index.css')
+    // =============== BOOTSTRAP STYLES ===============
+    link#bscss(rel='stylesheet', href='/rig/css/bootstrap.css')
+    // =============== APP STYLES ===============
+    link#maincss(rel='stylesheet', href='/rig/css/app.css')
+    link#maincss(rel='stylesheet', href='/rig/css/theme-an.css')
+    link#maincss(rel='stylesheet', href='/rig/css/style-table.css')
+  body
+    // PAGE TOP
+    // /END PAGE TOP
+    .container
+      // Main section
+      section
+        // Page content
+        .content-wrapper
+          .content-heading
+            | Detail
+          .content-body
+            form.form(action='#')
+                h3 Name
+                .row
+                    .col-sm-4
+                        .form-group
+                            label Name
+                            input(type='text',class='form-control',value='#{template.name}',name='name')
+                            input(type='hidden',class='form-control',value='#{template.id}',name='template_id')
+                        .form-group
+                            label Type
+                            select(class='form-control',name='type')
+                                option(value='static' ,selected= (template.status == 'static' )?true:false) Fixed
+                                option(value='dynamic',selected= (template.status == 'dynamic' )?true:false) Modular
+                        .form-group
+                            label Template Type
+                            select(class='form-control',name='templaet_type')
+                                option(selected= (template.type == 'logo' )?true:false) Logo
+                                option(selected= (template.type == 'promo' )?true:false) Promo
+                                option(selected= (template.type == 'social_bumper' )?true:false) Social Bumper
+                                option(selected= (template.type == 'online_ad' )?true:false) Online Ad
+                                option(selected= (template.type == 'whiteboard' )?true:false) Whiteboard
+                                option(selected= (template.type == 'explainer' )?true:false) Explainer
+                                option(selected= (template.type == 'kinetic_text' )?true:false) Kinetic Text
+                    .col-sm-4
+                        .form-group
+                            label Rigged by
+                            select(class='form-control',name='rigged_by')
+                                option(selected= (template.rigged_by == 'laroslav' )?true:false) Laroslav
+                                option(selected= (template.rigged_by == 'lyn' )?true:false) Lyn
+                                option(selected= (template.rigged_by == 'other' )?true:false) Other
+                        .form-group
+                            label Source
+                            select(class='form-control',name='source')
+                                option(selected= (template.source == 'motion_array' )?true:false) Motion Array
+                                option(selected= (template.source == 'dynamic' )?true:false) Modular
+                                option(selected= (template.source == 'video_blocks' )?true:false) Video Blocks
+                                option(selected= (template.source == 'digital_juice' )?true:false) Digital Juice
+                                option(selected= (template.source == 'custom' )?true:false) Custom
+                        .row
+                            .col-sm-6
+                                .form-group
+                                    label Version 1
+                                    .dropdown
+                                     button#dropdownMenu1.btn.btn-default.btn-block.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                                      | Download
+                                      span.caret
+                                     ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                                      li
+                                        a(href='/#') Download Rigged Aep
+                                      li
+                                        a(href='/#') Download Original Aep
+                                      li
+                                        a(href='/#') Download Both
+                            .col-sm-6
+                                .form-group
+                                    label Version 2
+                                    .dropdown
+                                     button#dropdownMenu2.btn.btn-default.btn-block.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                                      | Download
+                                      span.caret
+                                     ul.dropdown-menu(aria-labelledby='dropdownMenu2')
+                                      li
+                                        a(href='/#') Download Rigged Aep
+                                      li
+                                        a(href='/#') Download Original Aep
+                                      li
+                                        a(href='/#') Download Both
+                    .col-sm-4
+                        .form-group
+                            label Upload New Rigged Version
+                            input(type='file')
+                hr
+                h3 AEP Files (Fixed)
+                .row
+                    if template.slides
+                        each slide,i in JSON.parse(template.slides)
+                            .col-sm-4
+                                h4 Slide #{i}
+                                .form-group
+                                    label Duration
+                                    input(type='text',class='form-control', name='duration', value='#{slide.duration}')
+                                .form-group
+                                    label Video Placeholder Length
+                                    input(type='text',class='form-control', name='video_placeholder_length', value='#{slide.video_placeholder_length}')
+                                .form-group
+                                    label Image Dimensions
+                                    input(type='text',class='form-control', name='image_dimensions', value='#{slide.image_dimensions}')
+                                .form-group
+                                    label AEP File Path
+                                    input(type='text',class='form-control', name='aep', value='#{slide.aep}')
+                                .form-group
+                                    label Error
+                                    textarea(class='form-control', name='error', value='#{slide.error}')
+            button.btn.btn-info.update-rig-template Update
+                        
+            
+    // =============== VENDOR SCRIPTS ===============
+    // MODERNIZR
+    script(src='/vendor/modernizr/modernizr.js')
+    // MATCHMEDIA POLYFILL
+    script(src='/vendor/matchMedia/matchMedia.js')
+    // JQUERY
+    script(src='/vendor/jquery/dist/jquery.js')
+    // BOOTSTRAP
+    script(src='/vendor/bootstrap/dist/js/bootstrap.js')
+    // STORAGE API
+    script(src='/vendor/jQuery-Storage-API/jquery.storageapi.js')
+    // JQUERY EASING
+    script(src='/vendor/jquery.easing/js/jquery.easing.js')
+    // ANIMO
+    script(src='/vendor/animo.js/animo.js')
+    // SLIMSCROLL
+    script(src='/vendor/slimScroll/jquery.slimscroll.min.js')
+    // SCREENFULL
+    script(src='/vendor/screenfull/dist/screenfull.js')
+    // LOCALIZE
+    script(src='/vendor/jquery-localize-i18n/dist/jquery.localize.js')
+    // RTL demo
+    script(src='/assets/js/demo/demo-rtl.js')
+    // =============== PAGE VENDOR SCRIPTS ===============
+    // DATATABLES
+    script(src='/vendor/datatables/media/js/jquery.dataTables.min.js')
+    script(src='/vendor/datatables-colvis/js/dataTables.colVis.js')
+    script(src='/vendor/datatables/media/js/dataTables.bootstrap.js')
+    // BOOTSTRAP SELECT
+    script(type='text/javascript', src='/vendor/bootstrap-select/bootstrap-select.min.js')
+    //- script(type='text/javascript', src='/vendor/jquery-multi-select/jquery.multi-select.js')
+    // =============== APP SCRIPTS ===============
+    script(src='/rig/js/app.js')
+    script(src='/rig/js/custom.js')
+    script(src='/rig/js/script-rig.js')

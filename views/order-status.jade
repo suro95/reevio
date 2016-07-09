@@ -1,0 +1,90 @@
+extends layout
+block content
+    // Page content
+    main
+        .page-title-gray
+            .container
+                h4  Order Status
+        .container.page-content
+            // START video_list
+            .row
+              form#choose_project(action='#')
+                .form-group.fl-left.col-xs-4
+                  label
+                    | Select a Project or 
+                    a.text-danger(href='new-project', id='') Create a New Project
+                  select.form-control.select2(name='', id='')
+                    option(value='') Project 1
+                    option(value='') Project 2
+                    option(value='') Project 3
+            .video-thumb-o.project-listing
+              ul.grid.cs-style-3-1.thumb-list(data-effect='slide-top')
+                li
+                  figure
+                    a(data-toggle='modal', data-target='#show-video', href='javascript:void(0);')
+                      .thumb
+                        img.img-responsive(src='/img/2.jpg')
+                        .info
+                          h3
+                            b Project 1
+                          span.text-warning Pending
+                          .extra
+                            a.fa.fa-eye(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                            span Feb 07, 2016
+                    figcaption
+                        .btn-group.btn-group-justified
+                            a.btn.btn-xs.btn-info(href='#') Accept
+                            a.btn.btn-xs.btn-info(href='#') Publish
+                            a.btn.btn-xs.btn-info(href='#') Download
+                li
+                  figure
+                    a(data-toggle='modal', data-target='#show-video', href='javascript:void(0);')
+                      .thumb
+                        img.img-responsive(src='/img/2.jpg')
+                        .info
+                          h3
+                            b Project 2
+                          span.text-info Complete
+                          .extra
+                            a.fa.fa-eye(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                            span Feb 08, 2016
+                    figcaption
+                        .btn-group.btn-group-justified
+                            a.btn.btn-xs.btn-info(href='#') Accept
+                            a.btn.btn-xs.btn-info(href='#') Publish
+                            a.btn.btn-xs.btn-info(href='#') Download
+                li
+                  figure
+                    a(data-toggle='modal', data-target='#show-video', href='javascript:void(0);')
+                      .thumb
+                        img.img-responsive(src='/img/2.jpg')
+                        .info
+                          h3
+                            b Project 3
+                          span.text-info Complete
+                          .extra
+                            a.fa.fa-eye(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                            span Feb 08, 2016
+                    figcaption
+                        .btn-group.btn-group-justified
+                            a.btn.btn-xs.btn-info(href='#') Accept
+                            a.btn.btn-xs.btn-info(href='#') Publish
+                            a.btn.btn-xs.btn-info(href='#') Download
+                li
+                  figure
+                    a(data-toggle='modal', data-target='#show-video', href='javascript:void(0);')
+                      .thumb
+                        img.img-responsive(src='/img/2.jpg')
+                        .info
+                          h3
+                            b Project 4
+                          span.text-warning Pending
+                          .extra
+                            a.fa.fa-eye(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                            span Feb 09, 2016
+                    figcaption
+                        .btn-group.btn-group-justified
+                            a.btn.btn-xs.btn-info(href='#') Accept
+                            a.btn.btn-xs.btn-info(href='#') Publish
+                            a.btn.btn-xs.btn-info(href='#') Download
+            

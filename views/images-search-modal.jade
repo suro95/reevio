@@ -1,0 +1,47 @@
+#images-search___modal.modal.modal-theme.fade(tabindex='-1', role='dialog')
+  .modal-dialog.modal-full
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true')&times;
+        h4.modal-title SEARCH OUR PHOTO LIBRARIES
+      .modal-body
+        .form-tools
+          .col.col1
+            #search-input
+              .input-group.col-md-12
+                input.form-control.search1(type='text', placeholder='Search')
+                span.input-group-btn
+                  button.image-search1.btn.btn-info.btn-lg(type='button')
+                    i.glyphicon.glyphicon-search
+            select.form-control.selectpicker.dropdownMenuPlugin.plugin-type(data-width='200px')
+              //- IgorKiev 2016-04-12 Joel: photofinish => Reevio and make it to be first
+              option(value='photofinish') Reevio
+              option(value='pixabay') Pixabay
+              option(value='youzing') Youzign
+              //option(value='splashbase') Splashbase
+              option(value='imgflip') Meme
+              //- option(value='videocloudsuite') Videocloudsuite
+            select.form-control.selectpicker#pluginsCategory(data-width='200px')
+              option(value='') Categories
+            select.form-control.selectpicker#dropdownMenuPlugin(data-width='150px')
+              option(value='') Newest
+            a.btn.btn-info(href='#images-start___modal', data-toggle='modal', data-target="#image___upload",data-dismiss='modal') Back
+        .search-section
+            .custom-scrollbar
+                section.image-list-section.collage.effect-parent
+                      //.image-wrapper
+                        a
+                          img(src='/assets/img/thumbs/img-1.jpg')
+                        .tools
+                          a(href='#addtolibrary')
+                            span
+                              em.fa.fa-gear
+                              |  Open
+                          a(href='#addtolibrary')
+                            span
+                              em.fa.fa-plus-circle
+                              |  Add to library
+                .loading-icon(style='margin-top: 100px;')
+                  #loader.loader(style='width:100px;height:100px;')
+

@@ -1,0 +1,103 @@
+extends layout
+block content
+    // Page content
+    main
+        .page-title-gray
+            .container
+              .title
+                h4 Project Info
+        .page-top
+            .container
+              .inner
+                .title
+                  a.link-custom.collection-link(href='javascript:;')
+                    em.fa.fa-th-large
+                    |  COLLECTIONS 
+                    em.fa.fa-caret-down
+                .search-form
+                  form(action='#')
+                    .form-group
+                      .input-group-btn
+                        input.form-control(placeholder='Search', type='text')
+                        button.btn.btn-default(type='button')
+                          i.fa.fa-search
+            .mega-menu
+              .container
+                .inner-menu
+                  .inner-title
+                    h1 Browse by Categories
+                  .row
+                    .col-md-3.col-sm-3
+                      ul
+                        li
+                          a(href='#') New & Fresh
+                        li
+                          a(href='#') Best of 2016
+                        li
+                          a(href='#') Kids & Family
+                        li
+                          a(href='#') Mobile & Games
+                        li
+                          a(href='#') Online Ads
+                    .col-md-3.col-sm-3
+                      ul
+                        li
+                          a(href='#') Business & Services
+                        li
+                          a(href='#') Vizeo Subscription
+                        li
+                          a(href='#') Events
+                        li
+                          a(href='#') How-To-Make Videos
+                        li
+                          a(href='#') Travel
+                    .col-md-3.col-sm-3
+                      ul
+                        li
+                          a(href='#') Restaurant
+                        li
+                          a(href='#') Sports & Car
+                        li
+                          a(href='#') Real Estate
+                        li
+                          a(href='#') E-commerce
+                        li
+                          a(href='#') Photo Slideshows
+                    .col-md-3.col-sm-3
+                      ul
+                        li
+                          a(href='#') Digital Signage
+                        li
+                          a(href='#') Instagram
+                        li
+                          a(href='#') Fashion & Apparel
+        .container.page-content
+            .row
+                .col-lg-12
+                    .panel.panel-default
+                        .panel-body
+                            .table-responsive
+                                table#datatable1.table.table-striped.table-hover
+                                    thead
+                                        tr
+                                            th Project
+                                            th Business Name
+                                            th.sort-numeric Total Videos
+                                            th.sort-alpha Website
+                                            th Facebook
+                                            th Youtube
+                                            th Actions
+                                    each proj,i in data
+                                        tr.gradeX
+                                            td #{proj.project_name}
+                                            td #{proj.business_name}
+                                            td #{proj.total_videos}
+                                            td
+                                                a(href='#{proj.project_name}') #{proj.website_url || "X"}
+                                            td #{proj.fb_url || "X"}
+                                            td #{proj.youtube_channel || "X"}
+                                            td
+                                                a.btn.btn-sm.btn-primary(href='#') View
+                                                a.btn.btn-sm.btn-danger(href='#') Delete
+
+                                    // END DATATABLE 1

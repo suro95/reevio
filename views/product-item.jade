@@ -1,0 +1,208 @@
+extends layout
+block content
+    main
+      .page-top.page-tools
+        .container
+          .inner
+            .filter-tabs
+                div
+                    a.link-custom.collection-link(href='javascript:;')
+                        | Categories&nbsp;
+                        em.fa.fa-caret-down
+            .search-form
+                form(action='#')
+                    .form-group
+                        .input-group-btn
+                            input.form-control(placeholder='Search', type='text')
+                            button.btn.btn-default(type='button')
+                                i.fa.fa-search
+        .mega-menu
+          .container
+            .inner-menu
+              .inner-title
+                h1 Browse by Categories
+              .row
+                .col-sm-3
+                  ul
+                    li
+                      a(href='#') Logos
+                    li
+                      a(href='#') Promos
+                .col-sm-3
+                  ul
+                    li
+                      a(href='#') Typography
+                    li
+                      a(href='#') Facebook Ads
+                .col-sm-3
+                  ul
+                    li
+                      a(href='#') Bumpers
+                    li
+                      a(href='#') Slideshow
+                .col-sm-3
+                  ul
+                    li
+                      a(href='#') Whiteboard
+      .container.page-content.pgc-sm
+        .my-video
+          video#preview-player.video-js.center-play.col1(controls='', preload='auto', poster='http://vjs.zencdn.net/v/oceans.png')
+            source(src='http://vjs.zencdn.net/v/oceans.mp4', type='video/mp4')
+            source(src='http://vjs.zencdn.net/v/oceans.webm', type='video/webm')
+            source(src='http://vjs.zencdn.net/v/oceans.ogv', type='video/ogg')
+            p.vjs-no-js
+              | To view this video please enable JavaScript, and consider upgrading to a web browser that 
+              a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+          .col2
+            .title
+              h1 Positive Energy
+              span Vizeo
+            .info
+              span.sub-title
+                em.fa.fa-play
+                |  Original
+              h4 Are you feeling it?
+              p
+                | Get the positive vibes flowing with this family-friendly video style for PSAs, promotions and ads. With rays of summer sunshine built right in, this video will help you promote your kids camp, daycare, school, church or business.
+            .btn-make
+              a.btn.btn-info.btn-block(href='#')
+                em.fa.fa-youtube-play
+                |  MAKE MY VIDEO
+        .video-meta
+          .item.text-center
+            h1 You'll Need
+            .info
+              em.fa.fa-file-image-o
+              span 11
+            .info
+              em.fa.fa-film
+              span 2
+          .item.text-center
+            h1 Video Duration
+            .info
+              span 32s
+          .item.text-center
+            ul.list
+              li.t Released
+              li 2015.08.06
+            ul.list
+              li.t Languages
+              li English
+          .item.text-center
+            .meta-info
+              div
+                span.t Make
+                b FREE
+              div
+                span.t Purchase
+                b $75.00
+            p
+              | Making a video is free, but it will have a watermark on it.
+              br
+              | You can download the video with no watermark when you purchase it.
+        .video-copyright
+          .title
+            em.fa.fa-info-circle
+            |  Copyright Information
+          p
+            | CC-BY Attribute 4.0: Because of content licensing issues, you might not be able to monetize your video and ads might display on it if you upload a video made with this template to YouTube.
+          .info
+            span.type Music
+            label
+              | "The Great"- Broke For Free 
+              a(href='#') [link]
+          .foot
+            | All rights are reserved to their respective owners according to their licenses.
+        .video-variations
+          .title
+            h1 Variations
+            span 1 variation/s
+          .listings
+            .inner
+              .item.active
+                .col1.thumb
+                  img.img-responsive(src='/img/temp/4.jpg')
+                .col2
+                  .title
+                    span Original
+                  .info
+                    span 0:32
+                    .extra
+                      em.fa.fa-file-image-o
+                      span 11
+                      em.fa.fa-film
+                      span 3
+              .item
+                .col1.thumb
+                  img.img-responsive(src='/img/temp/2.jpg')
+                .col2
+                  .title
+                    span Original
+                  .info
+                    span 0:04
+                    .extra
+                      em.fa.fa-file-image-o
+                      span 5
+                      em.fa.fa-film
+                      span 1
+              .item
+                .col1.thumb
+                  img.img-responsive(src='/img/temp/1.jpg')
+                .col2
+                  .title
+                    span Original
+                  .info
+                    span 0:15
+                    .extra
+                      em.fa.fa-file-image-o
+                      span 1
+                      em.fa.fa-film
+                      span 1
+              .item
+                .col1.thumb
+                  img.img-responsive(src='/img/temp/3.jpg')
+                .col2
+                  .title
+                    span Original
+                  .info
+                    span 0:41
+                    .extra
+                      em.fa.fa-file-image-o
+                      span 5
+                      em.fa.fa-film
+                      span 2
+    .category-list
+      .container
+        .title
+          h3 Browse by Categories
+        .inner
+          .row
+            .col-sm-3
+              ul
+                li
+                  a(href='#') Logos
+                li
+                  a(href='#') Promos
+            .col-sm-3
+              ul
+                li
+                  a(href='#') Typography
+                li
+                  a(href='#') Facebook Ads
+            .col-sm-3
+              ul
+                li
+                  a(href='#') Bumpers
+                li
+                  a(href='#') Slideshow
+            .col-sm-3
+              ul
+                li
+                  a(href='#') Whiteboard
+
+block append footer
+  script(src='/vendor/videojs/ie8/1.1.0/videojs-ie8.min.js')
+  script(src='/vendor/videojs/video.js')
+    
+  script.
+    videojs('preview-player', { "fluid": true, plugins: { mux: {} } });

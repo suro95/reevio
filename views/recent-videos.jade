@@ -1,0 +1,344 @@
+extends layout
+block content
+    main.extraBottom
+      //- .page-title
+        .container
+          .title
+            h4 My Videos
+      .page-top.page-tools
+        .container
+          .inner
+            .filter-tabs
+                //div
+                    a.link-custom.collection-link(href='javascript:;')
+                        | Categories&nbsp;
+                        em.fa.fa-caret-down
+                div
+                    .btn-group
+                      a.btn-link.btn.btn-default.dropdown-toggle(data-toggle='dropdown', href='javascript:;')
+                        | All
+                        em.fa.fa-caret-down
+                      ul.dropdown-menu
+                        li
+                          a.filtr_status(href='javascript:;' data-id="0")  All
+                        li
+                          a(href='javascript:;' data-id="3")  Draft
+                        li
+                          a.filtr_status(href='javascript:;' data-id="2")  Pending
+                        li
+                          a.filtr_status(href='javascript:;' data-id="1")  Complete
+                div
+                    select.form-control.selectpicker.dropdownMenuPlugin.sort
+                        option(value='recent') Recent
+                        option(value='most-downloaded') Most Downloaded
+            .search-form
+                form#my-video-kw
+                    .form-group
+                        .input-group-btn
+                            input.form-control(placeholder='Search', type='text' class="search")
+                            button.btn.btn-default.search-my-videos(type='submit')
+                                i.fa.fa-search
+        .mega-menu
+          .container
+            .inner-menu
+              .inner-title
+                h1 Browse by Categories
+              .row
+                each category,i in categorys
+                  .col-sm-3
+                    a.filtr_category(href='#' data-id="#{category.id}") #{category.name}
+      .container.page-content
+        .row
+          //.col-md-3.col-sm-3
+            .sidebar-vid
+              .user-section
+                .user-img
+                  //img(src='/img/logo-icon.png')
+                .user-name
+                 // span kiriyo
+                .user-info
+                 // p 7 video/s
+                 // p Member since 2016-02-04
+              a.user-settings(href='settings')
+                em.fa.fa-user
+                |  Account Settings
+            .sidebar-vid-nav
+              a.side-title.searchEntry(href='javascript:;',data-status='')
+                em.fa.fa-play
+                |  MY VIDEOS
+              ul
+                li
+                  a.searchEntry(href='javascript:;',data-status='Complete') Completed Videos
+                li
+                  a.searchEntry(href='javascript:;',data-status='Pending') Pending Videos
+          //- .col-md-12.col-sm-9 /*IgorKiev 2016-04-21*/
+          .col-md-12.col-sm-12
+            .video-section-listing#video-sections
+              //.row
+                .col-md-7.col-sm-7
+                  .title
+                    h1 My Videos
+                    span 7 video/s
+                .col-md-5.col-sm-5
+                    .filter-tabs
+                        div
+                            a(href='#') All
+                        div
+                            a(href='#') Popular
+                        div
+                            a(href='#') Newest
+                        div
+                            a(href='#') Dynamic
+                        div
+                            a(href='#') Video Holders
+                        div
+                            a(href='#') Length
+                        div
+                            a.link-custom.collection-link(href='javascript:;')
+                                | Categories&nbsp;
+                                em.fa.fa-caret-down
+                    .search-form
+                        form(action='#')
+                            .form-group
+                                .input-group-btn
+                                    input.form-control(placeholder='Search', type='text')
+                                    button.btn.btn-default(type='button')
+                                        i.fa.fa-search
+                  .searchForm.form-group
+                    .input-icon.right
+                        i.fa.fa-search
+                        input.form-control.search(placeholder='Search',type='text')
+                    .btn-group
+                        button.btn.btn-default.btn-block.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+                            | Sort by
+                            span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href='#') Name
+                            li
+                                a(href='#') Status
+                            li
+                                a(href='#') Date
+                            li
+                                a(href='#') Template
+              ul.grid.thumb-list.list#itemContainer(data-effect='slide-top' data-scroll="true")
+                  each video,i in videos
+                    if video.status == 'pending'
+
+                        li.li(data-count="#{i}", data-id="#{video.id}", data-category="#{video.templates_category_id}" )
+                          figure
+                            .thumb
+                                .thumbnail.pending.hold-asp-ratio
+                                  .asp-content
+                                    .classyLoader.customLoader
+                                        canvas(style='background-color:rgba(27,53,83,.5);border:none; border-radius: 50%; overflow:hidden;',data-classyloader='', data-width='80', data-height='80', data-percentage='25', data-speed='20',  data-font-size='16px', data-font-color='rgb(255,255,255)', data-diameter='40', data-line-color='#f3ae00', data-remaining-line-color='rgb(255,255,255)', data-line-width='7', data-rounded-line='true')
+                                        span(style="display: block") #{video.video_name}
+                                          br
+                                          | UNFINISHED
+                                .info
+                                    .inner
+                                        .vtable
+                                            .col.col1
+                                                if(video.video_name)
+                                                  span.vtitle.name.video-name(title="#{video.video_name}") #{video.video_name}
+                                                else
+                                                  span.vtitle.name.video-name(title="#{video.name}") #{video.name}
+                                        .vtable.tools
+                                            .col.col1
+                                                //a.fa.fa-pencil-square-o(style='position: relative; top:2px;', href='/editor/editor/'+video.id) &nbsp;
+                                                a.fa.fa-trash.delet-users-video(href='javascript:void(0);' data-id="#{video.id}") &nbsp;
+                                                .category_id(style="display:none") #{video.templates_category_id}
+                                                .status(style="display:none") 2
+                                                .recent(style="display:none") #{video.date}
+                    else if  video.status == 'not_done'
+
+                        li.li(data-count="#{i}", data-id="#{video.id}", data-category="#{video.templates_category_id}" )
+                            figure
+                                .thumb
+                                    .thumbnail.pending.hold-asp-ratio
+                                        .asp-content
+                                            .classyLoader.customLoader
+                                                canvas(style='background-color:rgba(27,53,83,.5);border:none; border-radius: 50%; overflow:hidden;',data-classyloader='', data-width='80', data-height='80', data-percentage='#{video.percent}', data-speed='20',  data-font-size='16px', data-font-color='rgb(255,255,255)', data-diameter='40', data-line-color='#f3ae00', data-remaining-line-color='rgb(255,255,255)', data-line-width='7', data-rounded-line='true')
+                                                span Unfinished
+                                    .info
+                                        .inner
+                                            .vtable
+                                                .col.col1
+                                                    if(video.video_name)
+                                                        span.vtitle.name.video-name(title="#{video.video_name}") #{video.video_name}
+                                                    else
+                                                        span.vtitle.name.video-name(title="#{video.name}") #{video.name}
+                                            .vtable.tools
+                                                .col.col1
+                                                    //a.fa.fa-pencil-square-o(style='position: relative; top:2px;', href='/editor/editor/' + video.id) &nbsp;
+                                                    a.fa.fa-trash.delet-users-video(href='javascript:void(0);' data-id="#{video.id}") &nbsp;
+                                                    .category_id(style="display:none") #{video.templates_category_id}
+                                                    .status(style="display:none") 2
+                                                    .recent(style="display:none") #{video.date}
+                    else
+                        li.li(data-count="#{i}", data-id="#{video.id}", data-category="#{video.templates_category_id}")
+                          figure
+                            .thumb
+                                .vd-thumb.hold-asp-ratio
+                                  .asp-content
+                                    img.video-spinner(src='/img/loading.gif')
+                                    img.cover-image(src="/#{video.video_cover ? video.video_cover : 'templates/'+video.cover_photo}",data-video-src="#{video.file_location}",data-video-id="preview-player#{video.id}",data-setup='{ "sources": [{ "type": "video/mp4", "src": "#{video.file_location}"}] }',style='width:100%;height:100%;')
+                                    //- video.myvideo-js.center-play(id='preview-player#{i}',poster="/#{video.video_cover ? video.video_cover : 'templates/'+video.cover_photo}" , preload='none',data-setup='{ "sources": [{ "type": "video/mp4", "src": "#{video.file_location}"}] }')
+                                         source(src='#{video.file_location}', type='video/mp4')
+                                    .play_button.play_button_m_v
+                                      span
+                                        i.fa.fa-play
+                                .info
+                                    .inner
+                                        .vtable
+                                            .col.col1
+                                                if(video.video_name)
+                                                  span.vtitle.name.video-name(title="#{video.video_name}") #{video.video_name}
+                                                else
+                                                  span.vtitle.name.video-name(title="#{video.name}") #{video.name}
+                                        .vtable.tools
+                                            .col.col1
+                                                //a.fa.fa-pencil-square-o(style='position: relative; top:1px;', href='/editor/editor/'+video.id) &nbsp;
+                                                a.fa.fa-eye(href='javascript:void(0);') &nbsp;
+                                                a.fa.fa-trash.delet-users-video(href='javascript:void(0);' data-id="#{video.id}") &nbsp;
+                                                .category_id(style="display:none") #{video.templates_category_id}
+                                                .status(style="display:none") 1
+                                                .recent(style="display:none") #{video.date}
+                                            .col.col2
+                                                a.btn.btn-xs(href='#{video.file_location}', title='Download', download)
+                                                    //- em.fa.fa-download
+                                                    span.fa-stack
+                                                      i.fa.fa-circle.fa-stack-2x
+                                                      i.fa.fa-download.fa-stack-1x.fa-inverse
+                                                //a.btn-publish.btn.btn-xs(href='javascript:void(0)', title='Publish via Facebook')
+                                                    //- em.fa.fa-facebook
+                                                    //- span.fa-stack
+                                                      i.fa.fa-circle.fa-stack-2x
+                                                      i.fa.fa-facebook.fa-stack-1x.fa-inverse
+                                                //a.btn-publish.btn.btn-xs.publish-youtube(href='javascript:void(0)')
+                                                    //- em.fa.fa-youtube
+                                                    span.fa-stack
+                                                      i.fa.fa-circle.fa-stack-2x
+                                                      i.fa.fa-youtube-play.fa-stack-1x.fa-inverse
+              .holder.pagination
+
+block append head
+    link(rel='stylesheet', href='/vendor/bootstrap-select/bootstrap-select.min.css')
+block append footer
+    #publish_modal.modal.modal-theme.fade(tabindex='-1', role='dialog')
+        .modal-dialog.modal-custom
+            .modal-content
+                .modal-header
+                  form(method='post' action='/member/youtube-upload-video')
+                          button.close(type='button', data-dismiss='modal', aria-label='Close')
+                              span(aria-hidden='true') &times;
+                          h4.modal-title PUBLISH VIDEO
+                          .modal-body
+                             input.form-control(type='hidden', name='video_name' placeholder='Name')
+                             input.form-control(type='text', name='video_title' placeholder='Title')
+                             input.form-control(type='text', name='video_description' placeholder = 'Description')
+                             select.form-control(name='video_type')
+                                option(value='1') public
+                                option(value='') private
+                          .modal-footer
+                              a.btn.btn-primary(data-dismiss='modal') Close
+                              input.btn.btn-primary(type='submit' value="SUBMIT")
+    #modal-first-time.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                    //h4#myModalLabel.modal-title  Welcome
+                .modal-body
+                    h3(style="margin-top:0;") Hi.
+
+                    p Thank you for purchasing. As mentioned in our sales page this is our beta launch. We would appreciate and welcome any feedback, questions comments and recommendations you have.
+                    p Templates are will be continually added over the next few days and weeks, as well as completing some additional features. Youtube posting will be added momentarily as well as email notification when videos are complete.
+                    p Turnaround time on videos will be 1-3 days right now and will progressively become faster up to about 1-2 hour max turnaround time  Any questions or issues please drop us a line.
+                    a(href="mailto:support@vizeo.co") support@vizeo.co
+                .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close
+    #show-video.modal.modal-theme.fade(tabindex='-1', role='dialog')
+        .modal-dialog.modal-custom(style="width: 1000px")
+            .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') &times;
+                  h4.modal-title VIDEO
+                  .modal-body
+
+    #delete-video.modal.modal-theme.ed_success_mod.fade(tabindex='-1', role='dialog')
+        .modal-dialog.modal-custom
+            .modal-content
+                //- .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                      span(aria-hidden='true') &times;
+                    h4.modal-title
+                .modal-body
+                  div
+                    h3 Delete Video
+                    p This action cannot be undone
+                .modal-footer
+                  a.btn.btn-primary(data-dismiss='modal') Cancel
+                  input.btn.btn-primary.delete-ok(type='button' value="Delete")
+    .modal.fade#success_youtube(tabindex='-1', role='dialog')
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    h4.modal-title(style="text-align: center;color: #fff;")
+    //- script(src='http://vjs.zencdn.net/5.6.0/video.js')
+    script(src='/js/player.js')
+    script(src='/vendor/bootstrap-select/bootstrap-select.min.js')
+
+    script.
+        $('document').ready(function() {
+            var param=getParameterByName('fist-time');
+            if(param){console.log(param)
+                $("#modal-first-time").modal();
+            }
+        })
+
+        $('.selectpicker').selectpicker();
+
+          var my_videos_count =!{my_videos_count};
+           var data = !{JSON.stringify(videos)};
+          var options = {
+            valueNames: [
+                      'category_id',
+                      'status',
+                      'recent',
+                      'name'
+                    ],
+                    i:0
+          };
+          var userVideos = new List('video-sections', options);
+
+        $(document).on('click','.publish-youtube',function(){
+          var src = $(this).parents('.thumb').find('video source').attr('src');
+          $('#publish_modal').find('input[name="video_name"]').val(src);
+            $('#publish_modal').modal('show');
+        })
+              //userVideos.show(1,9);
+        var youtube = '!{youtube}';
+
+        if(youtube == 'true'){
+          $('#success_youtube .modal-content').css('background-color','green');
+          $('#success_youtube .modal-title').html('Your video is published on youtube successfully');
+          $('#success_youtube').modal('show');
+          setTimeout(function(){$('#success_youtube').modal('hide');}, 3000);
+        }else if(youtube == 'err'){
+          $('#success_youtube .modal-content').css('background-color','red');
+          $('#success_youtube .modal-title').html('Failed to publish the video');
+          $('#success_youtube').modal('show');
+          setTimeout(function(){$('#success_youtube').modal('hide');}, 3000);
+        }
+
+        if(window.location.hash){
+          var id = window.location.hash.replace('#play-','');
+            if($('#video-sections ul li[data-id="'+id+'"]').length){
+              var src = $('#video-sections ul li[data-id="'+id+'"]').find('source').attr('src');
+              $('#show-video .modal-body').html('<video  autoplay="true" preload="auto" controls width="100%" height="100%"><source src="'+src+'" type="video/mp4"></video>');
+              $('#show-video').modal('show');
+            }
+        }

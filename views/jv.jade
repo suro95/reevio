@@ -1,0 +1,363 @@
+doctype html
+html(lang='')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='description', content='')
+        meta(name='author', content='')
+        title Reevio
+        link(rel='shortcut icon', href='')
+        link(rel='stylesheet', href='/jv/assets/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/jv/assets/bootstrap/css/bootstrap-theme.min.css')
+        link(rel='stylesheet', href='/jv/assets/vendor/font-awesome-4.5.0/css/font-awesome.min.css')
+        link(rel='stylesheet', href='/jv/assets/css/animate.css')
+
+        //if IE
+          script(src='https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js')
+          script(src='https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js')
+        // CUSTOMZIE STYLES
+        link(href='/vendor/videojs/video-js.css', rel='stylesheet')
+        link(rel='stylesheet', href='/jv/assets/css/style.css')
+        link(rel='stylesheet', href='/jv/assets/css/theme-an.css')
+    body
+
+        // ********** HEADER **********
+        .top-section
+            nav.navbar.navbar-default(role='navigation')
+                .container
+                  // Brand and toggle get grouped for better mobile display
+                  .navbar-header
+                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+                      span.icon-bar
+                      span.icon-bar
+                      span.icon-bar
+                  a.navbar-brand(href='#') 
+                    img(src="/img/reevio-logo.png")
+                  // Collect the nav links, forms, and other content for toggling
+                  nav#bs-example-navbar-collapse-1.navbar-collapse.collapse(role='navigation')
+                    ul.nav.navbar-nav.navbar-right
+                      li
+                        a(href='#') DEMO
+                      li
+                        a(href='#') SWIPES
+                      li
+                        a(href='#') BONUS PAGE
+                      li
+                        a(href='#') FUNNEL
+                      li
+                        a.btn.btn-theme(href='#') LOGIN
+            .container
+                .row
+                    .col-md-offset-2.col-md-8
+                        .inner
+                            h2.caption JOIN US JUNE 6TH FOR THE EXCLUSIVE 7 DAY OPENING LAUNCH OF 
+                                span.title REEVIO VIDEO MAKER
+                            .video-thumb
+                                .vd-thumb.hold-asp-ratio
+                                    .asp-content
+                                      video.video_new.video_new_id(id='preview-player1', data-play='false',preload="none", poster='' )
+                                        source.source(src="http://reevio.com/videos/Demo.mp4" type='video/mp4')
+                                      .play_button.play_button_v_d
+                                        span
+                                          i.fa.fa-play
+                            form
+                                .row
+                                    .col-sm-4
+                                        input.form-control#name(type='text', placeholder='Name')
+                                    .col-sm-4
+                                        input.form-control#email(type='text', placeholder='Email Address')
+                                    .col-sm-4
+                                        button.btn.btn-default.btn-block#join-launch(type='submit') Join Launch
+        .sub-navigation
+            .container
+                .inner
+                    .sub-item
+                        h2 JUNE 6th
+                    .sub-item
+                        h2
+                            | 7 DAY
+                            br
+                            | OPENING LAUNCH
+                    .sub-item
+                        h2
+                            | REEVIO
+                            br
+                            | VIDEO MAKER
+        // START CONTENTS HERE
+        .sub-navigation-1
+            .container
+                .inner
+                    .sub-item.text-left
+                        h2
+                            | GET
+                            br
+                            | AFFILIATE
+                            br
+                            | LINKS
+                    .sub-item
+                        a.text-right(href='#')
+                            img.img-responsive(src='/jv/assets/img/arrow.png')
+        section.section.section-1
+            .container
+                h2.m0 WHAT IS REEVIO?
+        section.section.section-2
+            .col-md-offset-1.col-md-5.col1
+                p.m0
+                    | Reevio is the first ever fully complete web based video making platform created for specifically for internet marketers.  Choose your template from a wide selection for facebook ads, marketing, or basic elements.
+            .col-md-5.col2
+                p.m0
+                    | Creating Videos is a simple 3 step process. Choose template, add your media, customize text and send for processing.  One click publishing to youtube, facebook and more.
+        section.section.section-3.text-center
+            .container
+                .row
+                    .col-md-3.col-sm-6
+                        img.img-responsive.m-auto(src='/jv/assets/img/icon-1.png', style='max-width: 250px;')
+                        h4 PRO VIDEO CREATION
+                        p
+                            | Dead simple video creation. Choose your template and quickly customize to fit your needs.
+                    .col-md-3.col-sm-6
+                        img.img-responsive.m-auto(src='/jv/assets/img/icon-2.png', style='max-width: 250px;')
+                        h4 AD TEMPLATES
+                        p
+                            | Templates specifically designed to sell your products and services whether they are yours or as an affilate.
+                    .col-md-3.col-sm-6
+                        img.img-responsive.m-auto(src='/jv/assets/img/icon-3.png', style='max-width: 250px;')
+                        h4 MARKETING ELEMENTS
+                        p
+                            | Jam packed with all the professional elements you need to make an amazing video to grab attention and drive sales.
+                    .col-md-3.col-sm-6
+                        img.img-responsive.m-auto(src='/jv/assets/img/icon-4.png', style='max-width: 250px;')
+                        h4 MEDIA LIBRARY
+                        p
+                            | Our system offers direct integration with a wide variety of studio quality media. photos, video and graphic elements are ready to drag and drop to your videos.
+        section.section.section-5
+            .container 
+                .row
+                    .col-md-offset-2.col-md-8
+                        h2 WHAT YOU CAN MAKE WITH REEVIO?
+                        p Create virtually any kind of video in a matter of minutes. Cloud based video making is easy as adding your content and choosing your scenes and hit submit.
+        .custom-section
+            ul
+                li
+                    span 1
+                    | Whiteboard
+                li
+                    span 2
+                    | Explainer
+                li
+                    span 3
+                    | Kinetic
+                li
+                    span 4
+                    | Photo/Video Slideshows
+                li
+                    span 5
+                    | FB Ads
+            ul.opp
+                li
+                    span 1
+                    | Video Sales Letter
+                li
+                    span 2
+                    | Explainer
+                li
+                    span 3
+                    | Long Reveals
+                li
+                    span 4
+                    | Stingers
+                li
+                    span 5
+                    | Bumpers
+        section.section.section-6
+            .container 
+                .row
+                    .col-md-offset-2.col-md-8
+                        h2 SALES FUNNEL
+        section.section.section-2
+            .container
+                .col-md-offset-1.col-md-10
+                    .row
+                        .col-md-offset-1.col-md-5.col1
+                            .price-block.pb-2
+                                .price-header
+                                    span FRONT END
+                                    i.fa.fa-caret-down.price-arrow
+                                .price-amount
+                                    span $39 - 49
+                        .col-md-5.col2
+                            .price-block.pb-3
+                                .price-header
+                                    span OTO
+                                    i.fa.fa-caret-down.price-arrow
+                                .price-amount
+                                    span $49
+        section.section.section-5
+            .container 
+                .row
+                    .col-md-offset-2.col-md-8
+                        h2 RESOURCES
+                        p Additional Downloads For Your Promotions
+        section.section.section-3
+            .container 
+                .group-btn.text-center.mb-sm
+                    a.btn.btn-red
+                        img.icon(src="/jv/assets/img/download-icon.png")
+                        | Email Swipes
+                    a.btn.btn-blue
+                        img.icon(src="/jv/assets/img/download-icon.png")
+                        | Graphic Icons
+                    a.btn.btn-yellow
+                        img.icon(src="/jv/assets/img/download-icon.png")
+                        | Bonus
+                .row
+                    .col-sm-6
+                        .video-box
+                            .vb-header
+                                h4 Teaser Video
+                            .vb-body    
+                                .vd-thumb.hold-asp-ratio
+                                    .asp-content
+                                      video.video_new.video_new_id(id='preview-player2', data-play='false',preload="none", poster='/img/sizzle.png')
+                                        source.source(src="http://reevio.com/videos/reevio-sizzle-comp.mp4" type='video/mp4')
+                                      .play_button.play_button_v_d
+                                        span
+                                          i.fa.fa-play
+                            .vb-footer              
+                                a.btn.btn-blue(href='http://reevio.com/videos/reevio-sizzle-comp.mp4',target='_blank',download='http://reevio.com/videos/reevio-sizzle-comp.mp4')
+                                    img.icon(src="/jv/assets/img/download-icon.png")
+                                    | Download
+                    .col-sm-6
+                        .video-box
+                            .vb-header
+                                h4 Demo Video
+                            .vb-body    
+                                .vd-thumb.hold-asp-ratio
+                                    .asp-content
+                                      video.video_new.video_new_id(id='preview-player3', data-play='false',preload="none", poster='/templates/abstract-flat-logo/cov.jpg')
+                                        source.source(src="http://reevio.com/templates/abstract-flat-logo/vid.mp4" type='video/mp4')
+                                      .play_button.play_button_v_d
+                                        span
+                                          i.fa.fa-play
+                            .vb-footer              
+                                a.btn.btn-blue(href='http://reevio.com/templates/abstract-flat-logo/vid.mp4',target='_blank',download='http://reevio.com/templates/abstract-flat-logo/vid.mp4')
+                                    img.icon(src="/jv/assets/img/download-icon.png")
+                                    | Download
+        section.section.section-6
+            .container 
+                .row
+                    .col-md-offset-2.col-md-8
+                        h2 AFFILIATE CONTEST    
+        section.section
+            .container
+                .row
+                    .col-md-offset-2.col-md-8
+                        .affiliate-section
+                            .item
+                                img.icon(src="/jv/assets/img/aff-2.png")
+                                .info
+                                    .title 2nd Place
+                                        .fa.fa-caret-down.arrow
+                                    .meta
+                                        h4 $1000
+                                        span min 150 sales
+                            .item
+                                img.icon(src="/jv/assets/img/aff-1.png")
+                                .info
+                                    .title 1st Place
+                                        .fa.fa-caret-down.arrow
+                                    .meta
+                                        h4 $1000
+                                        span min 150 sales
+                            .item
+                                img.icon(src="/jv/assets/img/aff-3.png")
+                                .info
+                                    .title 3rd Place
+                                        .fa.fa-caret-down.arrow
+                                    .meta
+                                        h4 $1000
+                                        span min 150 sales
+        
+        footer
+            .container
+                .row
+                    .col-md-8.col-sm-8
+                        ul.footer-nav
+                            li
+                                a(href='#') Home
+                            li
+                                a(href='#') Terms of Use
+                            li
+                                a(href='#') Privacy Policy
+                            li
+                                a(href='#') Support
+                            li
+                                a(href='#') Blog
+                            li
+                                a(href='#') support@reevio.com
+                    .col-md-4.col-sm-4
+                        .footer-logo-section
+                            p With love from Los Angeles
+                            p &copy;2016 Reevio                                
+        script(src='/jv/assets/js/jquery-1.11.1.min.js')
+        script(src='/jv/assets/bootstrap/js/bootstrap.min.js')
+        script(src='/jv/assets/js/jquery.backstretch.min.js')
+        script(src='/jv/assets/js/wow.min.js')
+        script(src='/jv/assets/js/retina-1.1.0.min.js')
+        script(src='/jv/assets/js/jquery.magnific-popup.min.js')
+        script(src='/js/player.js')
+        script(src='/jv/custom.js')
+        script.
+
+            window.intercomSettings = {
+                app_id: "bploef7d"
+            };
+
+            (function () {
+                var w = window;
+                var ic = w.Intercom;
+                if (typeof ic === "function") {
+                    ic('reattach_activator');
+                    ic('update', intercomSettings);
+                } else {
+                    var d = document;
+                    var i = function () {
+                        i.c(arguments)
+                    };
+                    i.q = [];
+                    i.c = function (args) {
+                        i.q.push(args)
+                    };
+                    w.Intercom = i;
+                    function l() {
+                        var s = d.createElement('script');
+                        s.type = 'text/javascript';
+                        s.async = true;
+                        s.src = 'https://widget.intercom.io/widget/bploef7d';
+                        var x = d.getElementsByTagName('script')[0];
+                        x.parentNode.insertBefore(s, x);
+                    }
+
+                    if (w.attachEvent) {
+                        w.attachEvent('onload', l);
+                    } else {
+                        w.addEventListener('load', l, false);
+                    }
+                }
+            })()
+        //script.
+            var options = {
+              valueNames: [
+                        'name',
+                        'category_id',
+                        'newest',
+                        { data: ['id']},
+                        { name: 'thumb', attr: 'data-count' },
+                        { name: 'video_new_id', attr: 'id' },
+                        { name: 'video_new', attr: 'poster' },
+                        { name: 'source', attr: 'src' },
+                        { name: 'link', attr: 'href' }
+                      ]
+            };
+            var userVideos = new List('videos-list', options);
+                userVideos.show(1, 12);

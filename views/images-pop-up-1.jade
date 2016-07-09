@@ -1,0 +1,177 @@
+#images-modal.modal.modal-theme.fade(tabindex='-1', role='dialog')
+  .modal-dialog.modal-custom
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        h4.modal-title SEARCH OUR PHOTO LIBRARIES OR UPLOAD YOUR OWN
+      .modal-body
+        .inner
+            .tools-modal
+                div
+                    #search-input
+                      .input-group.col-md-12
+                        input.form-control#search(type='text', placeholder='Search')
+                        span.input-group-btn
+                          button#image-search.btn.btn-info.btn-lg(type='button')
+                            i.glyphicon.glyphicon-search
+                div
+                    select.form-control.selectpicker
+                      option(value='') Pixabay
+                      option(value='') Youzing
+                      //option(value='') Splashbase
+                      option(value='') Meme
+                div
+                    select.form-control.selectpicker
+                      option(value='') Category 1
+                      option(value='') Category 2
+                      option(value='') Category 3
+                div
+                    a.btn.btn-info.btn-block(href='#') SEARCH
+            .user-images
+                h4 User images
+                ul.custom-scrollbar
+                  li
+                    .item
+                      .thumb
+                        img(src='images/image-tn.jpg', alt='Image Thumbnail')
+                      .tools
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-eye
+                            |  Open
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-check-circle
+                            |  Select
+                  li
+                    .item
+                      .thumb
+                        img(src='images/image-tn.jpg', alt='Image Thumbnail')
+                      .tools
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-eye
+                            |  Open
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-check-circle
+                            |  Select
+                  li
+                    .item
+                      .thumb
+                        img(src='images/image-tn.jpg', alt='Image Thumbnail')
+                      .tools
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-eye
+                            |  Open
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-check-circle
+                            |  Select
+                  li
+                    .item
+                      .thumb
+                        img(src='images/image-tn.jpg', alt='Image Thumbnail')
+                      .tools
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-eye
+                            |  Open
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-check-circle
+                            |  Select
+                  li
+                    .item
+                      .thumb
+                        img(src='images/image-tn.jpg', alt='Image Thumbnail')
+                      .tools
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-eye
+                            |  Open
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-check-circle
+                            |  Select
+                  li
+                    .item
+                      .thumb
+                        img(src='images/image-tn.jpg', alt='Image Thumbnail')
+                      .tools
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-eye
+                            |  Open
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-check-circle
+                            |  Select
+                  li
+                    .item
+                      .thumb
+                        img(src='images/image-tn.jpg', alt='Image Thumbnail')
+                      .tools
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-eye
+                            |  Open
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-check-circle
+                            |  Select
+                  li
+                    .item
+                      .thumb
+                        img(src='images/image-tn.jpg', alt='Image Thumbnail')
+                      .tools
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-eye
+                            |  Open
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-check-circle
+                            |  Select
+                  li
+                    .item
+                      .thumb
+                        img(src='images/image-tn.jpg', alt='Image Thumbnail')
+                      .tools
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-eye
+                            |  Open
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-check-circle
+                            |  Select
+                  li
+                    .item
+                      .thumb
+                        img(src='images/image-tn.jpg', alt='Image Thumbnail')
+                      .tools
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-eye
+                            |  Open
+                        a(href='#addtolibrary')
+                          span
+                            em.fa.fa-check-circle
+                            |  Select
+        form#dropzone.dropzone(action='/target')
+      .modal-footer
+        a.btn.btn-info(href='#', data-dismiss='modal')
+            em.fa.fa-angle-left
+            | &nbsp;BACK
+        a.btn.btn-info(href='#')
+            | CONTINUE&nbsp;
+            em.fa.fa-angle-right
+
+
+block append footer
+    script(src='/editor/js/dropzone.js')
+    script.
+      new Dropzone("#dropzone", { dictDefaultMessage: "DROP YOUR IMAGES HERE OR CLICK TO UPLOAD" });

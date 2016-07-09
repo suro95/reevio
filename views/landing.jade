@@ -1,0 +1,487 @@
+doctype html
+html
+    body
+        // Created by alex on 13.6.16..
+        head
+            meta(charset='UTF-8')
+            meta(name='viewport', content='width=device-width, initial-scale=1.0')
+            meta(name='description', content='')
+            meta(name='author', content='')
+            title Reevio
+            link(rel='shortcut icon', href='')
+            // VENDOR STYLES
+            link(rel='stylesheet', href='/sales/assets/vendor/bootstrap/css/bootstrap.min.css', type='text/css')
+            link(rel='stylesheet', href='/sales/assets/vendor/uniform/css/uniform.default.css', type='text/css')
+            link(rel='stylesheet', href='/sales/assets/vendor/bootstrap-switch/css/bootstrap-switch.min.css', type='text/css')
+            link(rel='stylesheet', href='/sales/assets/vendor/font-awesome-4.6.3/css/font-awesome.min.css')
+            link(rel='stylesheet', href='/sales/assets/vendor/simple-line-icons/simple-line-icons.min.css')
+            link(rel='stylesheet', href='/sales/assets/vendor/bootstrap-select/css/bootstrap-select.min.css', type='text/css')
+            link(rel='stylesheet', href='/sales/assets/vendor/fancybox/source/jquery.fancybox.css')
+            link(rel='stylesheet', href='/sales/assets/vendor/_css/components.min.css', type='text/css')
+            //
+              if IEscript(src='https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js')
+              script(src='https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js')
+            // GLOBAL STYLES
+            link(rel='stylesheet', href='/sales/assets/css/animate.css')
+            link(rel='stylesheet', href='/sales/assets/css/style.css')
+        .top-section
+            nav.navbar.navbar-default(role='navigation')
+                .container
+                    // Brand and toggle get grouped for better mobile display
+                    .navbar-header
+                        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1', aria-expanded='false')
+                            span.icon-bar
+                            span.icon-bar
+                            span.icon-bar
+                    a.navbar-brand(href='#')
+                        img(src='/sales/assets/img/reevio-logo.png')
+                    // Collect the nav links, forms, and other content for toggling
+                    nav#bs-example-navbar-collapse-1.navbar-collapse.collapse(role='navigation')
+                        ul.nav.navbar-nav.navbar-right
+                            li
+                                a.btn.btn-theme(href='http://reevio.com/auth/login') LOGIN
+            .container
+                .inner
+                    .caption
+                        h2 WORLD'S SIMPLEST VIDEO MAKER
+                        p Make Animation Completely Online in Minutes
+                        .row
+                            .col-sm-offset-1.col-sm-10
+                                .video-box-demo
+                                    .vb-body
+                                        .vd-thumb.hold-asp-ratio
+                                            .asp-content
+                                                img.video-spinner(src='/img/loading.gif')
+                                                video#preview-player1.video_sales.video_new_id(data-play='true', preload='none', poster='')
+                                                    source.source(src='/videos/Mixed-Music.mp4', type='video/mp4')
+                                                .play_button.play_button_s
+                                                    i.fa.fa-play.pb-large
+        //
+          section.section.sbg-yellow.text-center.container
+              .row
+                  .col-md-offset-2.col-md-8
+                      h4.page-title.pt-dark.pt-single
+                          span
+                              | What is SweatBlock… why should I care…
+                              br
+                              | and do others like me care?
+        section.section.section-video-steps-header.sbg-grey.text-center
+            .container
+                h4.page-title.pt-single A Simple New Way of Making Videos
+        section.section.section-video-steps
+            .container
+                .row
+                    .col-sm-4
+                        .svs-item
+                            span 1
+                            img(src='/sales/assets/img/step-1.png')
+                            h4 Create Your Account
+                            p
+                                | Signup for your Reevio video maker account and you’re all set to create professional animated videos. Reevio is 100% online software and super easy to use.
+                    .col-sm-4
+                        .svs-item
+                            span 2
+                            img(src='/sales/assets/img/step-2.png')
+                            h4 Select Animation Styles
+                            p
+                                | Reevio is packed with broadcast quality animation styles. Simply select the scene styles you’d like in your video and edit.
+                    .col-sm-4
+                        .svs-item
+                            span 3
+                            img(src='/sales/assets/img/step-3.png')
+                            h4 Online Video Maker
+                            p
+                                | Once you’re done just hit submit and your video will be queued for rendering, and you'll receive an email when its ready.  Animation doesn’t get any easier than that.
+        section.section.sbg-light-blue
+            .container
+                h4.page-title.pt-single.text-center MAKE RIDICULOUSLY GOOD LOOKING VIDEOS
+        section.section.sbg-grey.section-intro
+            .container
+                .row
+                    .col-sm-5
+                        img.img-responsive(alt='3dbox', src='/sales/assets/img/3dbox.png')
+                    .col-sm-offset-1.col-sm-6
+                        h4.page-title-1.pt-single.pt-dark
+                            span INTRODUCING REEVIO VIDEO MAKER - KINETIC TYPOGRAHY PACK
+                        p
+                            | Animated videos using kinetic typography are made up of moving text. This type of animation is great for statistics or presenting facts. It’s engaging, fun, grabs views attention and moves them to action.
+                        br
+                        br
+                        h4.page-title-1.pt-single.pt-dark
+                            span HD QUALITY TYPOGRAPHY MP4 VIDEOS
+                        //.row
+                            .col-sm-6
+                                ul
+                                    li Intros/Outros
+                                    li Logo Reveals
+                                    li Segues
+                            .col-sm-6
+                                ul
+                                    li Social Bumpers
+                                    li Calls to Actions
+                                    li Lower Thirds
+        section.section.section-making-videos
+            .container
+                .row
+                    .col-sm-offset-1.col-sm-10
+                        .custom-title
+                            h2 Here's How You Can Make Custom Animations
+                            h4 In Just a Few Minutes
+                        .video-box-demo
+                            .vb-body
+                                .vd-thumb.hold-asp-ratio
+                                    .asp-content
+                                        img.video-spinner(src='/img/loading.gif')
+                                        video#preview-player2.video_sales.video_new_id(data-play='true', preload='none', poster='')
+                                            source.source(src='/videos/middle-demo-optimzed.mp4', type='video/mp4')
+                                        .play_button.play_button_s
+                                            i.fa.fa-play.pb-large
+
+        section.section.section-software
+            .container
+                h4.page-title.text-center
+                    | Here’s Why Reevio Is The
+                    br
+                    | #1 Video Software For Your Business
+                .row
+                    .col-sm-6
+                        .ss-list
+                            ul
+                                li.ssl-yellow
+                                    span 1
+                                    p Get outstanding studio quality ready to sell videos on demand.
+                                li.ssl-red
+                                    span 2
+                                    p Make high-class pro-videos to sell more products and services for your clients.
+                                li.ssl-blue
+                                    span 3
+                                    p Raise your prices and establish yourself as a real professional.
+                    .col-sm-6
+                        .ss-list
+                            ul
+                                li.ssl-blue
+                                    span 4
+                                    p
+                                        | Save thousands of dollars in video production fees. Easily turn a profit at any price point.
+                                li.ssl-yellow
+                                    span 5
+                                    p
+                                        | Recurring revenue from clients: many video types and styles keep clients continually ordering from you.
+                                li.ssl-red
+                                    span 6
+                                    p
+                                        | Add a lucrative extra revenue stream by selling your videos to any type of client.
+        //
+          section.section.sbg-yellow.section-boost.text-center.container
+              .row
+                  .col-md-offset-2.col-md-8
+                      h4.page-title
+                          span BOOST YOUR BUSINESS WITH VIDEO
+                      p
+                          | What they all have in common is that they help you boost your business, whether through better engagement rates on your social media channels, higher conversion rates in your e-commerce store, increasing brand awareness through online videos ads, or attracting passersby to your business location.
+        section.section.sbg-light-blue.text-center
+            .container
+                h4.page-title.pt-single
+                    span DEMO VIDEOS
+        section.section.section-making-videos
+            .container
+                .row
+                    .col-sm-offset-1.col-sm-10
+                        .custom-title
+                            h2 LOREM VIDEO PLACEHOLDER
+                        .video-box-demo
+                            .vb-body
+                                .vd-thumb.hold-asp-ratio
+                                    .asp-content
+                                        img.video-spinner(src='/img/loading.gif')
+                                        video#preview-player3.video_sales.video_new_id(data-play='false', preload='none', poster='img/covers/demo-video.jpg')
+                                            source.source(src='/videos/middle-demo-optimzed.mp4', type='video/mp4')
+                                        .play_button.play_button_s
+                                            i.fa.fa-play.pb-large
+        section.section.sbg-grey.text-center
+            .container
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player4.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/mini-card-stacks/cov.jpg')
+                                    source.source(src='/templates/mini-card-stacks/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Mini Card Stacks
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player199.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/mini-explainer/cov-1.jpg')
+                                    source.source(src='/templates/mini-explainer/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Mini Whiteboard
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player5.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/circle-logo(1)/cov.jpg')
+                                    source.source(src='/templates/circle-logo(1)/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Circles
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player6.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/stars-intro(2)/cov.jpg')
+                                    source.source(src='/templates/stars-intro(2)/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Stars Intro
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player7.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/socialite/cov.jpg')
+                                    source.source(src='/templates/socialite/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Socialite
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player8.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/star-wars/cov.jpg')
+                                    source.source(src='/templates/star-wars/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Stars Wars
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player9.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/colorful-shapes(1)/cov.jpg')
+                                    source.source(src='/templates/colorful-shapes(1)/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Colorful Shapes
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player10.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/basic-template--15-seconds/cov.jpg')
+                                    source.source(src='/templates/basic-template--15-seconds/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Basic Template 15 secunds
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player11.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/graphic-intro/cov.jpg')
+                                    source.source(src='/templates/graphic-intro/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Graphic Intro
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player12.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/ember-open/cov.jpg')
+                                    source.source(src='/templates/ember-open/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Ember Open
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player13.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/dynamic-text-presentation/cov.jpg')
+                                    source.source(src='/templates/dynamic-text-presentation/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Dynamic Text Presentation
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player14.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/vintage-video-maker/cov.jpg')
+                                    source.source(src='/templates/vintage-video-maker/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Vintage Vide Maker
+                .video-box-demo.video-grid
+                    .vb-body
+                        .vd-thumb.hold-asp-ratio
+                            .asp-content
+                                img.video-spinner(src='/img/loading.gif')
+                                video#preview-player15.video_sales.video_new_id(data-play='false', preload='none', poster='/templates/vintage-video-maker/cov.jpg')
+                                    source.source(src='/templates/vintage-video-maker/vid.mp4', type='video/mp4')
+                                .play_button.play_button_s
+                                    i.fa.fa-play.pb-medium
+                    h2.title Vintage Vide Maker
+        section.section.section-making-videos
+            .container
+                .row
+                    .col-sm-offset-1.col-sm-10
+                        .custom-title
+                            h2 LOREM VIDEO PLACEHOLDER
+                        .video-box-demo
+                            .vb-body
+                                .vd-thumb.hold-asp-ratio
+                                    .asp-content
+                                        img.video-spinner(src='/img/loading.gif')
+                                        video#preview-player19.video_sales.video_new_id(data-play='false', preload='none', poster='img/covers/demo-video.jpg')
+                                            source.source(src='/videos/middle-demo-optimzed.mp4', type='video/mp4')
+                                        .play_button.play_button_s
+                                            i.fa.fa-play.pb-large
+        section.section.section-superpower.sbg-blue
+            .container
+                .row
+                    .col-md-offset-5.col-md-7
+                        h4.page-title
+                            span REEVIO
+                            |  GIVES YOU SUPERPOWERS
+                        p
+                            | Fortune 500 companies with deep pockets have been making a killing, and building trust thanks to the effectiveness of video. Now it's your turn.
+                        p
+                            | Video is by far the most powerful and engaging storytelling medium and with Reevio it's easier and cheaper for you to produce amazing looking videos.
+                            | Create stunning, professional looking videos that attract, engage and convert.
+        section.section.sbg-light-blue.text-center
+            .container
+                h4.page-title.pt-single Frequently Asked Questions
+        section.section.section-faq.sbg-grey
+            .container
+                .row
+                    .col-md-offset-1.col-md-10
+                        .row
+                            .col-sm-6
+                                .faq-box
+                                    .icon
+                                        span.numicon ?
+                                    h4.title How Does Reevio Work?
+                                    p
+                                        | Reevio is a cloud based animation program, you simple add your images, video and text to create custom videos. Reevio runs on a
+                                        | render credit system, however most templates are free and require 0 credits. After your animation is complete you can out.
+                                .faq-box
+                                    .icon
+                                        span.numicon ?
+                                    h4.title How Many Animations Can I Make With My 50 Credits?
+                                    p
+                                        | Most logo animations are Free and require 0 credits. Only a handful of render intensive 3d animations require credits. In fact only a handful
+                                        | of these templates require credits. The majority of them are zero credits, so you can create virtually unlimited animations!
+                            .col-sm-6
+                                .faq-box
+                                    .icon
+                                        span.numicon ?
+                                    h4.title Are There Any Monthly Fees?
+                                    p No monthly fees. You have full access to the program with your purchase
+        section.section.section-money-back
+            .container
+                .row
+                    .col-md-offset-1.col-md-10
+                        .row
+                            .col-sm-3
+                                .smb-box
+                                    img.img-responsive(src='/sales/assets/img/guarantee.png')
+                            .col-sm-9
+                                h4
+                                    | Make Awesome Videos or Your Money Back
+                                    br
+                                    | REEVIO MONEY BACK GUARANTEE
+        section.section.sbg-blue.text-center
+            .container
+                h4.page-title.pt-single Start Making More Awesome Videos Today
+        section.section.section-pricing.sbg-grey
+            .container
+                .row
+                    .col-md-offset-4.col-md-4
+                        // .col-sm-6
+                            .pricing-block.pb-yellow
+                                span.title Starter
+                                span.pricing $ 19
+                                ul.details
+                                    li.check 25 Logo Stingers
+                                    li.check 5 Intros/Outros
+                                    li.check 5 Segues
+                                    li.check 1 Lower Third
+                                    li  CTAs
+                                    li  Social Bumpers
+                                .actions
+                                    span.sub-price Only $19.00!
+                                    a.btn.btn-default(href='https://www.jvzoo.com/b/0/223482/2') Buy Now
+                        .col-sm-12
+                            .pricing-block.pb-blue
+                                span.title Maker
+                                span.pricing $ 37
+                                ul.details
+                                    li.check 25  Kinetic Templates
+                                    li.check 100 Render Credits
+                                    li.check 10  Segues
+                                    li.check 10  Lower Thirds
+                                    li.check     CTA's
+                                    li.check     Social Bumpers
+                                .actions
+                                    span.sub-price Only $37.00!
+                                    a.btn.btn-default(href='https://www.jvzoo.com/b/0/223482/2') Buy Now
+        footer
+            .container
+                .row
+                    .col-md-8.col-sm-8
+                        ul.footer-nav
+                            li
+                                a(href='#') Home
+                            li
+                                a(href='#') Terms of Use
+                            li
+                                a(href='#') Privacy Policy
+                            li
+                                a(href='#') Support
+                            li
+                                a(href='#') Blog
+                            li
+                                a(href='#') support@reevio.com
+                    .col-md-4.col-sm-4
+                        .footer-logo-section
+                            p With love from Los Angeles
+                            p ©2016 Reevio
+        // FOOTER SCRIPT/S
+        script(src='/sales/assets/vendor/_js/jquery.min.js', type='text/javascript')
+        script(src='/sales/assets/vendor/bootstrap/js/bootstrap.min.js')
+        script(src='/sales/assets/vendor/_js/jquery.blockui.min.js', type='text/javascript')
+        script(src='/sales/assets/vendor/bootstrap-select/js/bootstrap-select.min.js', type='text/javascript')
+        script(src='/sales/assets/vendor/zoom/jquery.zoom.min.js', type='text/javascript')
+        // product zoom
+        script(src='/sales/assets/vendor/fancybox/source/jquery.fancybox.pack.js', type='text/javascript')
+        // pop up
+        script(src='/sales/assets/js/player.js')
+        // CUSTOMIZE SCRIPT/S
+        script(src='/sales/assets/js/wow.min.js')
+        script.
+            $(document).ready(function() {
+                $('.fancybox').fancybox({
+                    padding   : 0,
+                    maxWidth  : '100%',
+                    maxHeight : '100%',
+                    width   : 560,
+                    height    : 315,
+                    autoSize  : true,
+                    closeClick  : true,
+                    openEffect  : 'elastic',
+                    closeEffect : 'elastic'
+                });
+            });
+        //- script.
+            $("#preview-player1").get(0).play();
+            $("#preview-player1").siblings('.play_button').addClass('on-play');
+

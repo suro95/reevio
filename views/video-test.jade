@@ -1,0 +1,19 @@
+extends layout
+block content
+    section
+    link(href='http://vjs.zencdn.net/5.6.0/video-js.css', rel='stylesheet')
+    // Page content
+    .content-wrapper
+        .content-heading Project Info
+        // START DATATABLE 1
+        .row
+            .col-lg-12
+                .panel.panel-default
+                    .panel-body
+                        video#my-video.video-js(controls='', preload='auto', width='640', height='264', poster='MY_VIDEO_POSTER.jpg', data-setup='{}')
+                            source(src='/templates/test-template2/video/1080HD.mp4', type='video/mp4')
+                            p.vjs-no-js
+                                | To view this video please enable JavaScript, and consider upgrading to a web browser that
+                                a(href='http://videojs.com/html5-video-support/', target='_blank') supports HTML5 video
+                        script(src='http://vjs.zencdn.net/5.6.0/video.js')
+        // END DATATABLE

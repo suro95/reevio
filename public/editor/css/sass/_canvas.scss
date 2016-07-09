@@ -1,0 +1,154 @@
+// ------------ Canvas ----------------
+.item-form {
+    .editable-unsaved {
+        font-weight: initial;
+    }
+    // -------------- Text field -----------------
+    .field.text {
+        text-align: center;
+        a {
+            text-decoration: none;
+            // width: auto !important;
+            top: 0;
+            left: 0;
+            box-sizing: content-box;
+            padding: 0px 10px;
+            transition: all 0.3s;
+            border: 2px dashed transparent !important;
+            &:after {
+                position: absolute;
+                font-family: FontAwesome;
+                font-size: 15px;
+                color: #fff;
+                content: "\f035";
+                margin: 0;
+                left: auto;
+                right: calc(50% - 15px);
+                top: calc(50% - 15px);
+                bottom: auto;
+                line-height: 30px;
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                transition: all .2s ease-in-out;
+                background-color: rgb(153, 200, 98);
+            }
+            &:hover:after {
+                // transform: scale(1.1);
+                background-color: #5caa00;
+            }
+            //When editing
+            &.editable-open {
+                border: 2px dashed #004e85 !important;
+            }
+            &.editable-unsaved {
+                // font-weight: 400;
+                background-color: #69BDE6;
+            }
+            &.editable-empty {
+                font-style: normal;
+                border-color: #D84A38;
+                &:after {
+                    background-color: #D84A38;
+                }
+            }
+        }
+    }
+    // -------------- Image field -----------------
+    .field.image___file {
+        padding: 0;
+        // border: 1px solid #fff;
+        .btn {
+            position: absolute;
+            content: '';
+            width: 35px;
+            height: 35px;
+            padding: 0 !important;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            border-radius: 50% !important;
+            background-color: rgba(102, 102, 102, 0.9);
+            box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all .2s ease-in-out;
+            z-index: 2;
+            &:hover {
+                background-color: #cd0008;
+            }
+            &:before {
+                font-family: FontAwesome;
+                content: "\f03e";
+                font-size: 18px;
+                position: absolute;
+                top: 5px;
+                left: 7px;
+                color: #fff;
+            }
+        }
+        &:hover .btn {
+            // transform: scale(1.1);
+            background: #cd0008;
+        }
+        &.empty {
+            border-color: #D84A38;
+            // .btn {
+            //     background-color: rgba(102, 102, 102, 0.9);
+            // }
+        }
+        &.exist {
+            border-color: #69BDE6;
+            .btn {
+                background-color: #69BDE6;
+            }
+        }
+    }
+    // -------------- Video field -----------------
+    .field.video___file {
+        padding: 0;
+        // border: 1px solid #fff;
+        .btn {
+            position: absolute;
+            // content: '';
+            width: 35px;
+            height: 35px;
+            border-radius: 50% !important;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            padding: 0;
+            background-color: rgba(102, 102, 102, 0.9);
+            box-shadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.3), 0px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all .2s ease-in-out;
+            z-index: 2;
+            &:before {
+                font-family: FontAwesome;
+                content: "\f008";
+                font-size: 19px;
+                position: absolute;
+                top: 3px;
+                left: 6px;
+                color: #fff;
+            }
+        }
+        &:hover .btn {
+            // transform: scale(1.1);
+            background: #009ad0;
+        }
+        &.empty {
+            border-color: #D84A38;
+            // .btn {
+            //     background-color: rgba(102, 102, 102, 0.9);
+            // }
+        }
+        &.exist {
+            border-color: #69BDE6;
+            .btn {
+                background-color: #69BDE6;
+            }
+        }
+    }
+}

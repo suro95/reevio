@@ -1,0 +1,74 @@
+#audio-start___modal.modal.modal-theme.fade(tabindex='-1', role='dialog')
+  .modal-dialog.modal-custom.modal-theme-yellow
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true')&times;
+        h4.modal-title UPLOAD YOUR MUSIC
+      .modal-body.height
+        .inner(style='min-height: 500px;')
+            //- .tools-modal
+                div
+                    select.form-control.selectpicker
+                      option(value='') Language
+                      option(value='') EN
+                div
+                    select.form-control.selectpicker
+                      option(value='') Gender
+                      option(value='') Male
+                      option(value='') Female
+                div
+                    select.form-control.selectpicker
+                      option(value='') Voices
+                      option(value='') Men
+                      option(value='') Women
+                      option(value='') Children
+                      option(value='') Rock
+                div
+                    a.btn.btn-info.btn-block(href='#audio-search___modal', data-toggle='modal', data-dismiss='modal') SEARCH
+            .user-audio.music-list
+                h4 User audio
+                .start-list-section
+                    .custom-scrollbar
+                        ul
+                          if(user_musics)
+                            each music, i in user_musics
+                              li(style='width:247px;min-height: 128px;')
+                                .item
+                                  .thumb.music-chart.user-music(id='user-music-wavesurfer-#{music.id}',data-music-url='#{music.music_name}')
+                                    //img(src='images/audio-img.jpg', alt='Audio Thumbnail')
+                                  .tools
+                                    .col1
+                                        span #{music.original_name}
+                                    .col2
+                                        a(href='#')
+                                          span
+                                            em.fa.fa-cog
+                                        a.select_music(data-music-id='#{music.id}')
+                                          span
+                                            em.fa.fa-plus-circle
+                                  .play-icon(data-music-id='user-music-wavesurfer-#{music.id}')
+            //- .user-audio
+                h4 Template video
+                .custom-scrollbar
+                  video#voice_video(src='/templates#{video}',style='width: 100%;',poster='')
+            //- .user-audio
+                h4 Voice recording
+                .custom-scrollbar
+                  audio(controls, src, id='audio')
+                  div(style="margin:10px;")
+                    a.btn.button#record Start
+                    a.btn.button.disabled.one#pause Pause
+                    //a.btn.button.disabled.one#stop Reset
+                    a.btn.button.disabled.one#play Stop
+                  
+        form#dropzone-music.dropzone(action='/target')
+          input(type='hidden',name='template_id',value='#{template_id}')
+      //- .modal-footer
+        a.btn.btn-info(href='#', data-dismiss='modal')
+            em.fa.fa-angle-left
+            | &nbsp;BACK
+        a.btn.btn-info.confirm-voice-trimming-static(href='#')
+            | CONTINUE&nbsp;
+            em.fa.fa-angle-right
+        

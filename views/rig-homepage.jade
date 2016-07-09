@@ -1,0 +1,111 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(name='description', content='')
+    meta(name='keywords', content='app, responsive, jquery, bootstrap, anlavina, dashboard, admin')
+    title Veeroll
+    // =============== VENDOR STYLES ===============
+    // FONT AWESOME
+    link(rel='stylesheet', href='/vendor/fontawesome/css/font-awesome.min.css')
+    // SIMPLE LINE ICONS
+    link(rel='stylesheet', href='/vendor/simple-line-icons/css/simple-line-icons.css')
+    // ANIMATE.CSS
+    link(rel='stylesheet', href='/vendor/animate.css/animate.min.css')
+    // WHIRL (spinners)
+    link(rel='stylesheet', href='/vendor/whirl/dist/whirl.css')
+    // =============== PAGE VENDOR STYLES ===============
+    // DATATABLES
+    link(rel='stylesheet', href='/vendor/datatables-colvis/css/dataTables.colVis.css')
+    link(rel='stylesheet', href='/vendor/datatables/media/css/dataTables.bootstrap.css')
+    link(rel='stylesheet', href='/vendor/dataTables.fontAwesome/index.css')
+    // =============== BOOTSTRAP STYLES ===============
+    link#bscss(rel='stylesheet', href='/rig/css/bootstrap.css')
+    // =============== APP STYLES ===============
+    link#maincss(rel='stylesheet', href='/rig/css/app.css')
+    link#maincss(rel='stylesheet', href='/rig/css/theme-an.css')
+    link#maincss(rel='stylesheet', href='/rig/css/style-table.css')
+  body
+    // PAGE TOP
+    // /END PAGE TOP
+    .container
+      // Main section
+      section
+        // Page content
+        .content-wrapper
+          .content-heading
+            | Homepage
+          .content-body
+            table#videoTable.table.table-bordered
+              thead
+                tr
+                  th Name
+                  th Rigged By
+                  th Status
+                  th Original Aep
+                  th Type
+                  th Source
+                  th Error
+                  th Aep File Path
+                  th Production Status
+                  th Actions
+              tbody
+                if(templates)
+                    each template, i in templates
+                      tr
+                        td #{template.name}
+                        td #{template.rigged_by}
+                        td #{template.status}
+                        td #{template.original_aep}
+                        td #{template.type}
+                        td 
+                          a(href='#{template.source}') #{template.source}
+                        td #{template.error}
+                        td 
+                          a(href='#{template.aep_file_path}') #{template.aep_file_path}
+                        td #{template.production_status}
+                        td
+                         .dropdown
+                           button#dropdownMenu1.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='true')
+                            | Actions
+                            span.caret
+                           ul.dropdown-menu(aria-labelledby='dropdownMenu1')
+                            li
+                              a(href='/rig/edit/#{template.id}') Edit
+                            li
+                              a(href='#') Delete
+    // =============== VENDOR SCRIPTS ===============
+    // MODERNIZR
+    script(src='/vendor/modernizr/modernizr.js')
+    // MATCHMEDIA POLYFILL
+    script(src='/vendor/matchMedia/matchMedia.js')
+    // JQUERY
+    script(src='/vendor/jquery/dist/jquery.js')
+    // BOOTSTRAP
+    script(src='/vendor/bootstrap/dist/js/bootstrap.js')
+    // STORAGE API
+    script(src='/vendor/jQuery-Storage-API/jquery.storageapi.js')
+    // JQUERY EASING
+    script(src='/vendor/jquery.easing/js/jquery.easing.js')
+    // ANIMO
+    script(src='/vendor/animo.js/animo.js')
+    // SLIMSCROLL
+    script(src='/vendor/slimScroll/jquery.slimscroll.min.js')
+    // SCREENFULL
+    script(src='/vendor/screenfull/dist/screenfull.js')
+    // LOCALIZE
+    script(src='/vendor/jquery-localize-i18n/dist/jquery.localize.js')
+    // RTL demo
+    script(src='/assets/js/demo/demo-rtl.js')
+    // =============== PAGE VENDOR SCRIPTS ===============
+    // DATATABLES
+    script(src='/vendor/datatables/media/js/jquery.dataTables.min.js')
+    script(src='/vendor/datatables-colvis/js/dataTables.colVis.js')
+    script(src='/vendor/datatables/media/js/dataTables.bootstrap.js')
+    // BOOTSTRAP SELECT
+    script(type='text/javascript', src='/vendor/bootstrap-select/bootstrap-select.min.js')
+    //- script(type='text/javascript', src='/vendor/jquery-multi-select/jquery.multi-select.js')
+    // =============== APP SCRIPTS ===============
+    script(src='/rig/js/app.js')
+    script(src='/rig/js/custom.js')

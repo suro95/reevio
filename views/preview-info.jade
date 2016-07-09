@@ -1,0 +1,77 @@
+extends layout
+block content
+    section
+        // Page content
+        .content-wrapper
+            .content-heading Preview info
+            .video-review-wrap
+                .row
+                    .col-lg-12
+                        .panel.panel-default
+                            .panel-body
+                                .row
+                                    .col-sm-6
+                                        .video-container.embed-responsive.embed-responsive-16by9
+                                            video(controls='', preload='metadata', src='https://pdlvimeocdn-a.akamaihd.net/79820/022/294822245.mp4?token2=1444898175_b6b99c29d486ad72f9a19dfbee89005b&aksessionid=c71527c5e7ba108f')
+                                    .col-sm-6.template-info
+                                        .details-container
+                                            h3 Transforming Logo
+                                            dl.dl-horizontal
+                                                dt Description:
+                                                dd
+                                                    | Make great 3D animations using your logo and website URL. You can use your 3D animation at the beginning or end of various video content.
+                                                dt Categories:
+                                                dd Logo Animation / Featured
+                                                dt Durations:
+                                                dd 7 secs. / 7 secs.
+                                                dt Share:
+                                                dd
+                                                    img(alt='', src='/img/btn-other.png')
+                                                dd
+                                                    .group-btns
+                                                        select.form-control
+                                                            option(value='7 Second Version/Text Version') 7 Second Version/Text Version
+                                                            option(value='7 Second Version/Logo Version') 7 Second Version/Logo Version
+                                                        a.btn.btn-primary.btn-lg(href='#') Create
+                        hr
+                        .row
+                            .col-xs-4
+                                .panel.widget
+                                    img.img-responsive(alt='', src='/img/2.jpg')
+                                    ul.row.panel-body.action-btns.text-center
+                                        li.col-xs-4
+                                            a.create-btn(href='index.html')
+                                                i.fa.fa-pencil-square-o
+                                        li.col-xs-4
+                                            a.view-btn(href='preview_info.html')
+                                                i.fa.fa-eye
+                                        li.col-xs-4
+                                            a.fav-btn(href='#')
+                                                i.fa.fa-star-o
+                            .col-xs-4
+                                .panel.widget
+                                    img.img-responsive(alt='', src='/img/2.jpg')
+                                    ul.row.panel-body.action-btns.text-center
+                                        li.col-xs-4
+                                            a.create-btn(href='index.html')
+                                                i.fa.fa-pencil-square-o
+                                        li.col-xs-4
+                                            a.view-btn(href='preview_info.html')
+                                                i.fa.fa-eye
+                                        li.col-xs-4
+                                            a.fav-btn(href='#')
+                                                i.fa.fa-star-o
+                            .col-xs-4
+                                .panel.widget
+                                    img.img-responsive(alt='', src='/img/2.jpg')
+                                    ul.row.panel-body.action-btns.text-center
+                                        li.col-xs-4
+                                            a.create-btn(href='index.html')
+                                                i.fa.fa-pencil-square-o
+                                        li.col-xs-4
+                                            a.view-btn(href='preview_info.html')
+                                                i.fa.fa-eye
+                                        li.col-xs-4
+                                            a.fav-btn(href='#')
+                                                i.fa.fa-star-o
+            // End .editor-container

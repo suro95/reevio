@@ -1,0 +1,98 @@
+body {
+    background-color: #fff;
+}
+
+/* CONTENT STYLING */
+.content-heading {
+    font-weight: 300;
+    background-color: #fafafa !important;
+    border-bottom: 1px solid rgb(232, 235, 236) !important;
+}
+.page-title {
+    padding: 25px 0px;
+    width: 100%;
+    position: relative;
+    background-color: #69BDE6;
+    box-shadow: 0px -1px 1px rgba(0, 0, 0, 0.1) inset;
+    z-index: 120;
+}
+.page-title.pt-small {
+    padding: 5px 0;
+}
+.heading-tools {
+    float: right;
+}
+
+/* theme styling */
+.btn-theme {
+    background-color: #69BDE6;
+    color: #fff;
+    border-color: #69BDE6;
+}
+.btn-theme:hover {
+    border-color: #69BDE6;
+    color: #fff;
+}
+
+table thead th {
+    padding: 10px !important;
+    background-color: #fafafa;
+}
+
+table tbody .thumb img {
+    max-width: 150px;   
+    width: 100%;
+}
+
+/* pagination */
+.pagination > li > a {
+    padding: 3px 10px;
+    font-size: 12px;
+}
+div.dataTables_paginate li.first a::before, div.dataTables_paginate li.previous a::before, div.dataTables_paginate li.next a::after, div.dataTables_paginate li.last a::after {
+    top: 3px;
+}
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus {
+    background-color: #69BDE6;
+    border-color: #69BDE6;
+}
+
+/* video table */
+#videoTable td {
+    vertical-align: top;
+}
+.custom-filter select {
+    font-size: 14px;
+}
+.custom-filter .btn {
+    font-size: 14px;
+    line-height: 20px;
+}
+.custom-filter .form-control {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 6px 15px;
+    border: 1px solid #eee;
+    border-radius: 0;
+    height: auto;
+    margin: 0 !important;
+}
+.custom-filter .dataTables_filter {
+    float: left;
+    text-align: left !important;
+    margin-right: 15px;
+}
+.custom-filter .dataTables_length {
+    float: right;
+}
+.custom-filter .toolbar {
+    float: right;
+}
+.custom-filter .toolbar .dropdown {
+    float: right;
+    margin-right: 15px;
+}
+.custom-filter .toolbar .dropdown .dropdown-menu {
+    right: 0;
+    left: auto;
+}

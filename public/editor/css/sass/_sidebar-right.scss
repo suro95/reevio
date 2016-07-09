@@ -1,0 +1,26 @@
+// ------------ Right sidebar ------------
+.app-content {
+    .sidebar-right {
+        // width: 220px;
+        // overflow: hidden !important;
+        .slides-container {
+            padding-bottom: 0 !important;
+        }
+    }
+}
+
+@media (min-width: 1600px) {
+    .app-content {
+        .sidebar-right {
+            // figure {
+            //     display: inline-block;
+            //     width: 50%;
+            //     margin: 0;
+            //     img {
+            //     	padding: 0 6px 6px 0;
+            //     }
+            // }
+        }
+    }
+}
+

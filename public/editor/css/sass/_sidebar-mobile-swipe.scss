@@ -1,0 +1,67 @@
+#show-sidebar-right,
+#show-sidebar-left {
+    // Hide arrows on large screen
+    display: none;
+}
+// Mobile version
+$bgMobileSb: rgba($main-bg, 0.9);
+$sidebarWidthLeft: 350px;
+$sidebarWidthRight: 300px;
+$beforeHeight: 50px;
+$beforeWidth: 50px;
+// --------------------
+
+
+@media (max-width: 1199px) {
+    .app-content {
+        display: block;
+        position: relative;
+    }
+    // Left sidebar
+    .sidebar-left {
+        position: absolute;
+        background: $bgMobileSb;
+        max-width: $sidebarWidthLeft;
+        width: 100%;
+        left: - $sidebarWidthLeft;
+        z-index: 1011;
+    }
+    // Right sidebar
+    .sidebar-right {
+        position: absolute;
+        background: $bgMobileSb;
+        width: 100%;
+        max-width: $sidebarWidthRight;
+        right: - $sidebarWidthRight;
+        z-index: 999;
+    }
+    #show-sidebar-right,
+    #show-sidebar-left {
+        display: block;
+        text-align: center;
+        width: $beforeWidth;
+        height: $beforeHeight;
+        color: #fff;
+        font-size: 28px;
+        line-height: $beforeHeight;
+        background: $bgMobileSb;
+        position: absolute;
+        z-index: 2;
+        top: 40%;
+        .fa {
+            opacity: 0.6;
+            transition: opacityt 0.3s;
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+    #show-sidebar-right {
+        left: - $beforeWidth;
+        border-radius: 5px 0 0 5px;
+    }
+    #show-sidebar-left {
+        right: - $beforeWidth;
+        border-radius: 0 5px 5px 0;
+    }
+}

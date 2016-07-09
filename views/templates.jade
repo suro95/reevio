@@ -1,0 +1,284 @@
+extends layout
+block content
+    link(rel='stylesheet', href='/css/grid-space.css')
+    link(rel='stylesheet', href='/css/grid-style.css')
+    main
+      .page-top.page-tools
+        .container
+          .inner
+            .filter-tabs
+                div
+                    a.link-custom.collection-link(href='javascript:;')
+                        span
+                          | Categories&nbsp;
+                        em.fa.fa-caret-down
+                div
+                    .btn-group
+                      a.btn-link.btn.btn-default.dropdown-toggle(data-toggle='dropdown', href='javascript:;')
+                        | Sort
+                        em.fa.fa-caret-down
+                      ul.dropdown-menu
+                        li
+                          a.sort_all(href='javascript:;')  All
+                        li
+                          a(href='javascript:;')  Popular
+                        li
+                          a.sort_newest(href='javascript:;')  Newest
+                // div
+                    .btn-group
+                      a.btn-link.btn.btn-default.dropdown-toggle(data-toggle='dropdown', href='javascript:;')
+                        | Media
+                        em.fa.fa-caret-down
+                      ul.dropdown-menu
+                        li
+                          a(href='javascript:;')  Image
+                        li
+                          a(href='javascript:;')  Video
+                //- div
+                    .btn-group
+                      a.btn-link.btn.btn-default.dropdown-toggle(data-toggle='dropdown', href='javascript:;')
+                        | Length
+                        em.fa.fa-caret-down
+                      ul.dropdown-menu
+                        li
+                          a.filter_length(href='javascript:;' data-id="15")  < 15
+                        li
+                          a.filter_length(href='javascript:;' data-id="30")  < 30
+                        li
+                          a.filter_length(href='javascript:;' data-id="45")  < 45
+            .sherch-count(style="line-height:55px;") #{video_count} Videos
+            .search-form
+                form#search-kw
+                    .form-group
+                        .input-group-btn
+                            input.form-control.clearable(placeholder='Search', type='text' class="search")
+                            button.btn.btn-default.search-btn(type='submit')
+                                i.fa.fa-search
+        .mega-menu
+          .container
+            .inner-menu
+              .inner-title
+                h1 Browse by Categories
+              .row
+                each category,i in categorys
+                  .col-sm-3
+                    a.filter_category(href='#' data-id="#{category.id}") #{category.name}
+                //- .col-sm-3
+                  ul
+                    li
+                      a(href='#') Promos
+                //- .col-sm-3
+                  ul
+                    li
+                      a(href='#') Typography
+                    li
+                      a(href='#') Facebook Ads
+                //- .col-sm-3
+                  ul
+                    li
+                      a(href='#') Bumpers
+                    li
+                      a(href='#') Slideshow
+                //- .col-sm-3
+                  ul
+                    li
+                      a(href='#') Whiteboard
+      .container.page-content.pgc-sm.section-template
+        .video-thumb-o.template-listing.mg-space-init
+          .inner#videos-list
+              ul.grid.thumb-list.list.mg-rows(data-cols="4",data-effect='slide-top' data-scroll="true")
+                each video,i in videos
+                  li.li.mg-row(data-count="#{i}",data-id="#{i}", data-section="0",data-row="0")
+                    figure
+                        .thumb( data-count="#{i}")
+                          .vd-thumb.hold-asp-ratio
+                            .asp-content.smoll-template-video
+                              img.video-spinner(src='/img/loading.gif')
+                              img.cover-image(src='/templates#{video.cover_photo}',data-video-src="/templates#{video.file_name}",data-video-id="preview-player#{video.id}",style='width:100%;height:100%;')
+                              //video.video_new.video_new_id(id='preview-player#{video.id}', data-play='false',preload="none", poster='/templates#{video.cover_photo}')
+                                source.source(src="/templates#{video.file_name}" type='video/mp4')
+                              .play_button.play_button_v_d
+                                span
+                                  i.fa.fa-play
+                              //button(type="button" aria-live="polite").play_button
+                                // i.fa.fa-play
+                          .info
+                            .inner
+                                .col.show_grid(data-id = '#{video.id}', data-video-id='#{i}')
+                                    a.name.link.mg-trigger.video-name(href='/editor/#{video.id}', title="#{video.name}") #{video.name}
+                                    .category_id(style="display:none") #{video.templates_category_id}
+                                    .newest(style="display:none") #{video.date}
+                                    //- a.btn-continue(href='/preview/#{video.id}', title='Continue')
+                                        em.icon-control-forward
+                        //figcaption
+                            .btn-group.btn-group-justified
+                                a.btn.btn-xs.btn-default(href='/preview/#{video.id}')
+                                    | Continue
+                                    em.fa.fa-angle-right
+                //- .mg-space(data-section='0', data-row='0')
+                //-   .mg-indicator 
+              //.row
+                .col-md-offset-4.col-md-4
+                    #loadMore.btn.btn-default.btn-block(data-id="20") Load More
+          .mg-targets.row
+            each video,i in videos
+                .thumb-expand-section.mg-target(data-id='1', data-video = '#{video.id}',data-section='0',data-date = '#{video.date}')
+                  a.mg-trigger.close-slide-target(href="#") Close
+                  .container-tes
+                    .item-main
+                      .col
+                        .item-view
+                          .vd-thumb.hold-asp-ratio
+                            .asp-content.template-information
+                              img.cover-image(src='/templates#{video.cover_photo}',data-video-src="/templates#{video.file_name}",data-video-id="preview-player#{video.id}")
+                              //video.video_new.video_new_id(id='preview-player#{video.id}s',data-video='#{video.id}',data-play='false', preload='none', poster='/templates#{video.cover_photo}', style='cursor: pointer;')
+                                source.source(src='/templates#{video.file_name}', type='video/mp4')
+                              .play_button.play_button_v_d
+                                span
+                                  i.fa.fa-play
+                          .item-details
+                            .col
+                              .meta.video_duration(data-id = '#{video.id}')
+                                em.fa.fa-clock-o
+                            .col
+                              .meta
+                                  span.images_count
+                                    em.fa.fa-image 
+                                    span
+                                  span.video_count
+                                    em.fa.fa-film
+                                    span
+                            .col
+                              .meta
+                                em.fa.fa-check
+                                span.type
+                                  | #{video.type == 'static' ? "Fixed" : "Modular"}
+                      .col
+                        .item-info
+                          .inner
+                            span.ribbon NEW
+                            .title
+                              h1 #{video.name}
+                              span Category:
+                              span.category
+                                if video.category
+                                  each category,i in video.category
+                                    |  #{category.name},
+                            .info
+                              p
+                                | #{video.description}
+                          .sub-inner
+                            img(src='/img/coins-black.png')
+                            span.price
+                              | #{video.price} credits
+                          .inner
+                            a.btn.btn-info.btn-block.video-url(href='/editor/#{video.id}')  Make My Video
+                    .similar-videos-section.hidden-xs(style="display:none")
+                        h4 Similar Videos
+                        .inner
+                          .col-sm-3.default.templates-child
+                            .inner.child(data-video-id="preview-player#{video.id}" data-video-src="/templates#{video.file_name}" data-img-src="/templates#{video.cover_photo}" data-name="#{video.name}" data-id="#{video.id}" data-price="#{video.price}", style="border: none;outline: 1px solid red;")
+                              img(src='/templates#{video.cover_photo}', style='width:100%')
+                              .item-details
+                                .col
+                                  .title
+                                    em.fa.fa-clock-o
+                                  .meta.duration
+                                .col
+                                  .meta
+                                    span
+                                      em.fa.fa-image
+                                      span.images_count
+                                    span
+                                      em.fa.fa-film
+                                      span.video_count
+                                .col
+                                  .meta.type
+                                    | #{video.type == 'static' ? "Fixed" : "Modular"}
+                                    //- em.fa.fa-check
+      div.loading-icon
+        img(src='/img/loading.gif')
+    //.category-list
+      .container
+        .title
+          h3 Browse by Categories
+        .inner
+          .row
+            .col-sm-3
+              ul
+                li
+                  a(href='#') Logos
+                li
+                  a(href='#') Promos
+            .col-sm-3
+              ul
+                li
+                  a(href='#') Typography
+                li
+                  a(href='#') Facebook Ads
+            .col-sm-3
+              ul
+                li
+                  a(href='#') Bumpers
+                li
+                  a(href='#') Slideshow
+            .col-sm-3
+              ul
+                li
+                  a(href='#') Whiteboard
+
+block append footer
+  script(src='/js/player.js')
+  script(src='/js/grid-space.js')
+  script.
+    $(function() {
+      $('.mg-space-init').mgSpace();
+    });
+  script(src='/js/show_grid.js')
+  script.
+    var options = {
+      valueNames: [
+                'name',
+                'category_id',
+                'newest',
+                { data: ['id']},
+                { name: 'thumb', attr: 'data-count' },
+                { name: 'video_new_id', attr: 'id' },
+                { name: 'video_new', attr: 'poster' },
+                { name: 'source', attr: 'src' },
+                { name: 'link', attr: 'href' }
+              ]
+    };
+    var userVideos = new List('videos-list', options);
+        userVideos.show(0, 16);
+        //- $('.thumb-list li ').show();
+  //script(src='http://vjs.zencdn.net/5.6.0/video.js')
+  //script.
+      size_li = $(".template-listing .thumb-list > li").size();
+      x=20;
+        if(x >= size_li){
+            $('#loadMore').hide();
+        }
+      $('.template-listing .thumb-list > li:lt('+x+')').show();
+      $('#loadMore').click(function () {
+       $('html, body').animate({
+            "scrollTop": $(window).height()+$(document).height()
+        }, 2500);
+        x= (x+x <= size_li) ? x+x : size_li;
+        $('.template-listing .thumb-list > li:lt('+x+')').show();
+        if(x == size_li){
+            $('#loadMore').hide();
+        }
+      });
+  //#load-video-modal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                    h4#video-title-modal.modal-title Modal title
+                .modal-body
+                    video#video-1( controls='', preload='auto', poster='../templates_logo/abstract-flat-logo/cov.jpg',style="width:100%",src="../templates_logo/abstract-flat-logo/vid.mp4",type="video/mp4")
+
+                .modal-footer
+                    button.btn.btn-default(type='button', data-dismiss='modal') Close

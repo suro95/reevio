@@ -1,0 +1,11 @@
+node_modules
+*.jpg
+*.jpeg
+*.png
+*.mp4
+/sessions
+.idea
+sessions
+npm-debug.log
+/public/upload
+/public/templates

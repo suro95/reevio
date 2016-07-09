@@ -1,0 +1,36 @@
+#video-search___modal.modal.modal-theme.fade(tabindex='-1', role='dialog')
+  //- .modal-dialog.modal-full 2016-04-07 IgorKiev
+  .modal-dialog.modal-full
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        h4.modal-title SEARCH OUR VIDEO LIBRARIES
+      .modal-body
+        .form-tools
+          .col.col1
+            #search-input
+              .input-group.col-md-12
+                input.form-control#search.search_video_input(type='text', placeholder='Search')
+                span.input-group-btn
+                  button#image-search.btn.btn-info.btn-lg.video-search1(type='button')
+                    i.glyphicon.glyphicon-search
+            //- IgorKiev 2016-04-13 Joel told to delete other options
+            select.form-control.selectpicker.dropdownMenuPlugin#api(data-width='200px')
+              option(value='videocloudsuite') Reevio
+              //- option(value='splashbase') Splashbase
+              option(value='pixabay') Pixabay
+              //option(value='videocloudsuite') Videocloudsuite
+            select.form-control.selectpicker#categories(data-width='200px')
+              option(value='') Categories
+            select.form-control.selectpicker#dropdownMenuPlugin(data-width='150px')
+              option(value='') Newest
+            a.btn.btn-info.video-search1 SEARCH
+            a.btn.btn-info(href='#video-start___modal', data-toggle='modal', data-dismiss='modal') Back
+        .search-section
+            .custom-scrollbar
+                .user-videos.video-search-list
+                  ul(data-count="1")
+                  //i.loding.fa.fa-circle-o-notch.fa-spin(style="font-size: 3em;margin-top: 20px;margin-left: 560px;")
+                  .loding
+                    div(data-loader="circle-side")

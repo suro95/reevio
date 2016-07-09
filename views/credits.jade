@@ -1,0 +1,74 @@
+extends layout
+block content
+    main.extraBottom
+        .page-title-gray
+            .container
+                .row
+                    .col-xs-12
+                        h2.accountH3-grey Buy Credits
+        .container.page-content
+            .col-md-offset-1.col-md-10.pricing-list
+              .row
+                .col-sm-4
+                  .pl-item.pli-yellow
+                    .pl-header 25
+                        span credits
+                    .pl-body
+                      .pl-inner
+                        .pl-thumb
+                            img.pl-coin(src='/img/coin-small.png')
+                        .desc
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        span.price $25/25 credits
+                      .pl-actions
+                        a.btn.btn-default(href='#') Buy Now
+                .col-sm-4
+                  .pl-item.pli-red
+                    .pl-header 50
+                        span credits
+                    .pl-body
+                      .pl-inner
+                        .pl-thumb
+                            img.pl-coin(src='/img/coin-medium.png')
+                        .desc
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        span.price $50/50 credits
+                      .pl-actions
+                        a.btn.btn-default(href='#') Buy Now
+                .col-sm-4
+                  .pl-item.pli-blue
+                    .pl-header 100
+                        span credits
+                    .pl-body
+                      .pl-inner
+                        .pl-thumb
+                            img.pl-coin(src='/img/coin-large.png')
+                        .desc
+                            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                        span.price $100/100 credits
+                      .pl-actions
+                        a.btn.btn-default(href='#') Buy Now
+
+block append footer
+    script.
+        $("#change-pass").click(function(e) {
+            e.preventDefault();
+            $("#change-pass-modal").modal();
+        });
+        $("#change-pass-form").submit(function(){
+            var pass=$("#inputpass").val().trim(),
+                    repass=$("#inputpassre").val().trim();
+
+                if(pass.length>=5&&pass==repass){
+                      return true;
+                }else{
+
+                    alert('Passwords must match and must have more than five characters!')
+                }
+
+
+            return false;
+        });
+
+
+

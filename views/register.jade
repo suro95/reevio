@@ -1,0 +1,43 @@
+extends layout
+block content
+    // Page content
+    main
+        .container.page-content.userform
+            .inner 
+                p.form-title.bg-red  Login information will be sent to your email after payment.
+                form.mb-lg(role='form'.name='register',action='',method='post')
+                    //.form-group
+                        .input-icon.right
+                            i.fa.fa-envelope
+                            input#signupInputEmail1.form-control(type='text', placeholder='Email Address',name='email',value='#{val.email}' ,required='')
+                            if errors && errors.email
+                                ul.parsley-errors-list.filled
+                                    li.parsley-required #{errors.email}
+                    // .form-group
+                        .input-icon.right
+                            i.fa.fa-lock
+                            input#signupInputPassword1.form-control(type='password', placeholder='Password', autocomplete='off',name='password',required='')
+                            if errors && errors.password
+                                ul.parsley-errors-list.filled
+                                    li.parsley-required #{errors.password}
+                    //.form-group
+                        .input-icon.right
+                            i.fa.fa-lock
+                            input#signupInputRePassword1.form-control(type='password', placeholder='Retype Password', autocomplete='off',name='repassword'
+                            data-parsley-equalto='#signupInputPassword1',required='')
+                            if errors && errors.repassword
+                                ul.parsley-errors-list.filled
+                                    li.parsley-required #{errors.repassword}
+                    .clearfix
+                        //.checkbox-list
+                            label
+                                input(type='checkbox', value='1', name='agree',checked=(val.agree ? "checked" : undefined),required='')
+                                | &nbsp; I agree with the
+                                a(href='#')  terms
+                     //  button.btn.btn-block.red.mt-lg(type='submit') Create Account
+                    a(href='https://www.jvzoo.com/b/0/203876/2')
+                        img(src='http://i.jvzoo.com/0/203876/2', alt='Vizeo Video Maker', border='0',style="width:100%;")
+                hr    
+                p.text-center Have an account?
+                a.btn.btn-block.btn-default(href='login') Login Now!
+               

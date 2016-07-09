@@ -1,0 +1,66 @@
+// --------- Lollipop ----------
+$lolli-border: #2e3844;
+$lolli-settings: #25313e;
+$lolli-dark-bg: #0a1b2b;
+$lolli-header-bg: #264c60;
+$lolli-theme: #09171D; // from theme.css
+$lolli-active: #112933; // from theme.css
+.editor-img___modal {
+    .modal-content {
+        border: 1px solid $lolli-border;
+        .modal-header {
+            border-bottom: 1px solid $lolli-border;
+            background-color: $lolli-header-bg;
+        }
+        .modal-body {
+            background-color: $lolli-dark-bg;
+            .setting {
+                position: absolute;
+                background-color: #1A222A;
+            }
+            #back,
+            #c-back {
+                position: absolute;
+            }
+            .footer {
+                position: absolute !important;
+                bottom: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                .tab-footer {
+                    position: relative !important;
+                    // background-color: rgba($lolli-dark-bg, .7);
+                    background-color: rgb(14, 25, 35);
+                    border-top: 1px solid $lolli-border;
+                    a:hover {
+                        background-color: rgba($lolli-settings, 0.6);
+                    }
+                    a.active {
+                        background-color: $lolli-settings;
+                    }
+                    #undo {
+                        text-decoration: none;
+                        span {
+                            font-family: 'Helvetica';
+                            font-size: 16px;
+                            margin-right: 5px;
+                            color: #fff;
+                            position: relative;
+                            top: -2px;
+                        }
+                    }
+                }
+            }
+        }
+        .modal-footer {
+            background-color: $lolli-dark-bg !important;
+            border-top: $lolli-border;
+        }
+        .theme {
+            background-color: $lolli-theme;
+        }
+        .active {
+            background-color: $lolli-active;
+        }
+    }
+}

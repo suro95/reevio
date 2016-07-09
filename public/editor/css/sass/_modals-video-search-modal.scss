@@ -1,0 +1,95 @@
+//-------------- Video Search ---------------
+#video-search___modal {
+    .modal-body {
+        padding: 25px;
+        height: auto;
+    }
+    // .modal-dialog {
+    //     width: 90% !important;
+    //     max-width: 1300px !important;
+    // }
+    .form-tools {
+        padding: 0;
+    }
+    .search-section {
+        margin-top: 25px;
+    }
+    // For not touching the ul in the dropdown
+    .search-section {
+        ul > li {
+            width: calc(33.33% - 12px);
+            margin: 2px 5px;
+            padding: 0;
+        }
+    }
+    .user-videos {
+        ul {
+            display: block;
+            width: 100%;
+            li {
+                .item.asp-content {
+                    position: absolute;
+                    .thumb {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                .tools {
+                    top: auto;
+                    height: 37px;
+                    overflow: hidden;
+                    a {
+                        display: inline-block;
+                        text-align: left;
+                        width: 33.33%;
+                        height: 37px;
+                        line-height: 37px;
+                        padding: 1px 0 0 10px;
+                        background-color: rgba(27, 51, 81, 0.5);
+                        transition: background-color 0.3s;
+                        &:hover {
+                            background-color: rgba(27, 51, 81, .8);
+                        }
+                        &:first-of-type {
+                            background-color: rgba(171, 171, 171, 0.5);
+                            &:hover {
+                                background-color: rgba(171, 171, 171, .8);
+                            }
+                        }
+                        span {
+                            height: 37px;
+                            display: inline-block;
+                        }
+                        span:first-of-type {
+                            font-size: 30px;
+                            margin-right: 8px;
+                            position: relative;
+                            top: 2px;
+                        }
+                        span + span {
+                            margin: 0;
+                            font-size: 12px !important;
+                        }
+                        &:nth-of-type(3) {
+                            span + span {
+                                line-height: 16px;
+                                position: relative;
+                                top: 2px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1300px) {
+    #video-search___modal {
+        .search-section {
+            ul > li {
+                width: calc(25% - 12px);
+            }
+        }
+    }
+}

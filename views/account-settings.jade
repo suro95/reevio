@@ -1,0 +1,87 @@
+extends layout
+block content
+    main.extraBottom
+        .page-title-gray
+            .container
+                h2.accountH3-grey Settings
+        .container.page-content
+            //- Account page
+            .row
+                .col-sm-4
+                    article.account-panel
+                        div.account-leftSidebar.text-center
+                            div.account-block-underscore
+                                img(src="/img/avatar.jpg")
+                                h4.font-weight-700.user-name #{user_data.name}
+                                p.accountText-grey Member since #{date}
+                                p.accountText-grey #{user_videos_count} videos
+
+                            a(href="/users/my-videos").btn.btn-info.btn-block.btn-lg.account-btn-blue My Videos
+
+                .col-sm-8
+                    article.account-panel
+                        div.wrapper-padding-20-30
+                            div.account-block-underscore
+                                h3.accountH3-blue ACCOUNT SETTINGS
+
+                            //- div.account-block-underscore.account-floats.clearfix
+                            //-     div
+                            //-         p.accountText-grey User image
+                            //-         p.accountText-grey
+                            //-             | To set or change your user image,
+                            //-             br
+                            //-             | go to
+                            //-             =" "
+                            //-             a.account-link-underlined Gravatar
+                            //-             |  and set your image.
+                            //-     div.account-avatar_2
+                            //-         img(src="/img/avatar_2.jpg")
+
+                            div.account-block-underscore
+                                p.accountText-grey Account E-mail
+                                p.accountText-grey #{user_data.email}
+
+                            form.account-form#change-name(action="/users/settings")
+                                .form-group
+                                    label.account-form-label(for='account-form-name') Name
+                                    input.form-control.account-form-input(type='text' name="name")#account-form-name
+
+                                button.btn.btn-info.account-btn-blue(type='button')#account-change-name-btn
+                                    | Change Name
+
+                    article.account-panel
+                        div.wrapper-padding-20-30
+                            div.account-block-underscore
+                                h3.accountH3-blue Change Your Password
+
+                            form.account-form
+                                div.form-group
+                                    label.account-form-label(for='account-form-password') Your Current Password:
+                                    input.form-control.account-form-input(type='password' name="pass")#account-form-password
+                                    p.error_pass(style="color:red")
+                                div.form-group
+                                    label.account-form-label(for='account-form-password2') Your New Password:
+                                    input.form-control.account-form-input(type='password' name="newpass")#account-form-password2
+                                    p.error_newpass(style="color:red")
+                                div.form-group
+                                    label.account-form-label(for='account-form-password3') Your Repeat Password:
+                                    input.form-control.account-form-input(type='password' name="repass")#account-form-password3
+                                    p.error_repass(style="color:red")
+                                p.accountText-grey Password should be longer than 8 characters.
+
+                                p.accountText-grey Make sure to create a strong memorable password by chaining  words or mixing uppercase letters, numbers and symbols.
+
+                                button.btn.btn-info.account-btn-blue(type='button')#change_pass_save
+                                    | Confirm
+
+                            p.accountText-grey
+                                | Forgot Password?
+                                =" "
+                                a.account-link-underlined Click here to reset it.
+    .modal.fade#success(tabindex='-1', role='dialog')
+        .modal-dialog
+            .modal-content(style="background-color: green;")
+                .modal-header
+                    h4.modal-title(style="text-align: center;color: #fff;")
+block append footer
+

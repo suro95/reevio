@@ -1,0 +1,192 @@
+html
+  head
+      link(rel='stylesheet', href='/css/bootstrap.css')    
+      link#maincss(rel='stylesheet', href='../youtube/css/app.css')
+      link#maincss(rel='stylesheet', href='../youtube/css/theme-an.css')
+      link#maincss(rel='stylesheet', href='../youtube/css/style.css')
+      link(rel='stylesheet', href='/jv/assets/vendor/font-awesome-4.5.0/css/font-awesome.min.css')
+      link(rel='stylesheet', href='/vendor/simple-line-icons/css/simple-line-icons.css')
+  body
+    // top navbar
+    header.topnavbar-wrapper
+      // START Top Navbar
+      nav.navbar.topnavbar(role='navigation')
+        .container
+          // START navbar header
+          .navbar-header
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-ex1-collapse')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href='#/')
+              .brand-logo
+                img.img-responsive(src='/youtube/img/logo.png', alt='App Logo')
+              .brand-logo-collapsed
+                img.img-responsive(src='/youtube/img/logo-single.png', alt='App Logo')
+          // END navbar header
+          // START Nav wrapper
+          .navbar-collapse.navbar-ex1-collapse.collapse(style='height: 1px;', aria-expanded='false')
+            // START Right Navbar
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='/youtube/settings', title='Settings')
+                  em.icon-settings
+                  span.hidden-xs  Setttings
+              li
+                a(href='#', title='Support')
+                  em.icon-support
+                  span.hidden-xs  Support
+              li
+                a(href='#', title='Logout')
+                  em.icon-logout
+                  span.hidden-xs  Logout
+            // END Right Navbar
+          // END Nav wrapper
+      // END Top Navbar
+    // PAGE TOP
+    // /END PAGE TOP
+    .wrapper.sidebar-section
+      // Main section
+      // sidebar
+      aside.aside
+        // START Sidebar (left)
+        .aside-inner
+              nav.sidebar(data-sidebar-anyclick-close='')
+                // START sidebar nav
+                ul.nav
+                  li
+                    a(href='/youtube/dashboard', title='DASHBOARD')
+                      em.icon-home
+                      span Dashboard
+                  li
+                    a(href='/youtube/my-videos', title='Videos')
+                      em.icon-film
+                      span My Videos
+                  li
+                    a(href='/youtube/create-video-ads', title='Create Video Ads')
+                      em.icon-plus
+                      span Create Video Ads
+                  li
+                    a(href='#videosearch_sub', title='Video Search', data-toggle='collapse')
+                      em.icon-control-play
+                      span
+                        | Video Search 
+                        em.fa.fa-angle-down
+                    ul#videosearch_sub.nav.sidebar-subnav.collapse
+                      li.sidebar-subnav-header Youtube Tools
+                      li
+                        a(href='/youtube/video-search', title='Video Search')
+                          span New video search
+                      li
+                        a(href='/youtube/video-search', title='Video Related Search')
+                          span Video Related Search
+                      li
+                        a(href='/youtube/video-search-history', title='Search History')
+                          span Search History
+                  li
+                    a(href='#channelsearch_sub', title='Video Search', data-toggle='collapse')
+                      em.icon-social-youtube
+                      span
+                        | Channel Search 
+                        em.fa.fa-angle-down
+                    ul#channelsearch_sub.nav.sidebar-subnav.collapse
+                      li.sidebar-subnav-header Channel Search
+                      li
+                        a(href='/youtube/channel-search', title='Channel Search')
+                          span New channel search
+                      li
+                        a(href='/youtube/channel-search-history', title='Search History')
+                          span Search History
+                  li
+                    a(href='#targetgroups_sub', title='Video Search', data-toggle='collapse')
+                      em.icon-plus
+                      span
+                        | Targeting Groups 
+                        em.fa.fa-angle-down
+                    ul#targetgroups_sub.nav.sidebar-subnav.collapse
+                      li.sidebar-subnav-header Targeting Groups
+                      li
+                        a(href='/youtube/video-groups', title='Video Groups')
+                          span Video Groups
+                      li
+                        a(href='/youtube/channel-groups', title='Channel Groups')
+                          span Channel Groups
+                  li
+                    a(href='#ytdtools_sub', title='Youtube Tools', data-toggle='collapse')
+                      em.icon-energy
+                      span
+                        | Youtube Tools 
+                        em.fa.fa-angle-down
+                    ul#ytdtools_sub.nav.sidebar-subnav.collapse
+                      li.sidebar-subnav-header Youtube Tools
+                      li
+                        a(href='/youtube/search-targets', title='Search for Targets')
+                          span Search for Targets
+                      li
+                        a(href='/youtube/placement-lists', title='Placement Lists')
+                          span Placement Lists
+                      li
+                        a(href='/youtube/keyword-lists', title='Keyword Lists')
+                          span Keyword Lists
+            // END sidebar nav
+        // END Sidebar (left)
+      // Main section
+      section
+        // Page content
+        .content-wrapper
+          .content-heading
+            | Keyword List
+            .btn-group.pull-right
+              button.btn.green.btn-outline.dropdown-toggle(data-toggle='dropdown')
+                | Actions
+                i.fa.fa-angle-down
+              ul.dropdown-menu.pull-right
+                li
+                  a(href='javascript:;')
+                    i.fa.fa-print
+                    |  Add To Existing Group
+                li
+                  a(href='javascript:;')
+                    i.fa.fa-file-pdf-o
+                    |  Add To New Group
+                li
+                  a(href='javascript:;')
+                    i.fa.fa-file-excel-o
+                    |  Remove From Group
+                li
+                  a(href='javascript:;')
+                    i.fa.fa-file-excel-o
+                    |  Delete Target List
+          .content-body
+            table.table.table-striped.table-bordered.datatables-checkbox
+              thead
+                tr
+                  th(style='width: 20px;')
+                    input#select-all(name='select_all', value='1', type='checkbox')
+                  th  LIST NAME 
+                  th  DATE CREATED 
+    footer
+      .container
+        .row
+          .col-md-8.col-sm-8
+            ul.footer-nav
+              li
+                a(href='#') Home
+              li
+                a(href='#') Terms of Use
+              li
+                a(href='#') Privacy Policy
+              li
+                a(href='#') Support
+              li
+                a(href='#') Blog
+              li
+                a(href='#') support@reevio.com
+          .col-md-4.col-sm-4
+            .footer-logo-section
+              p With love from Los Angeles
+              p ©2016 Reevio
+script(src='/vendor/jquery/dist/jquery.min.js')
+script(src='/vendor/bootstrap/dist/js/bootstrap.js')
+script(src='../youtube/js/script.js')

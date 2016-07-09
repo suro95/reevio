@@ -1,0 +1,49 @@
+#video-start___modal.modal.modal-theme.fade(tabindex='-1', role='dialog')
+  .modal-dialog.modal-custom
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') &times;
+        h4.modal-title SEARCH OUR VIDEO LIBRARIES OR UPLOAD YOUR OWN
+      .modal-body
+        .inner
+            //.tools-modal
+                div
+                    #search-input
+                      .input-group.col-md-12
+                        input.form-control#search.search_video_input(type='text', placeholder='Search')
+                        span.input-group-btn
+                          button#image-search.btn.btn-info.btn-lg.video-search1(type='button')
+                            i.glyphicon.glyphicon-search
+                //- IgorKiev 2016-04-12 Joel told to delete this dropdown
+                div
+                    select.form-control.selectpicker.dropdownMenuPlugin#api(data-width='200px')
+                      option(value='videocloudsuite') Reevio
+                      //- option(value='splashbase') Splashbase
+                      option(value='pixabay') Pixabay
+                      //option(value='videocloudsuite') Videocloudsuite
+                div
+                    select.form-control.selectpicker#categories(data-width='200px')
+                      option(value='') Categories
+                div
+                    a.btn.btn-info.btn-block.video-search1(href='#', data-toggle='modal', data-dismiss='modal') SEARCH
+            .user-videos
+                h4 User Videos
+                .start-list-section
+                    .custom-scrollbar
+                      .user-videos.video-search-list
+                        ul(style="width: 100%;")
+                        .loding
+                          div(data-loader="circle-side")
+        form#dropzone_video.dropzone(action='/target')
+          input(type="hidden", name="template_id",value='#{template_id}')
+      .modal-footer
+        button#delete-video.btn.btn-info(type='button') DELETE
+        a.btn.btn-info(href='#', data-dismiss='modal')
+            em.fa.fa-angle-left
+            | &nbsp;CLOSE
+        //a.btn.btn-info(href='#')
+            | ADD TO CANVAS &nbsp;
+            em.fa.fa-angle-right
+
+

@@ -1,0 +1,20 @@
+extends layout
+block content
+    // Page content
+    main
+        .container.page-content.section-welcome.text-center
+            .row
+                .col-md-offset-2.col-md-8
+                    h2 Lorem ipsum dolor sit amet, consectetur!
+                    p Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    .video-box-demo
+                        .vb-body
+                            .vd-thumb.hold-asp-ratio
+                                .asp-content
+                                    img.video-spinner(src='/img/loading.gif')
+                                    video#preview-player2.video_sales.video_new_id(data-play='false', preload='none', poster='img/covers/demo-video.jpg')
+                                        source.source(src='http://reevio.com/videos/middle-demo-optimzed.mp4', type='video/mp4')
+                                    .play_button.play_button_s
+                                        span
+                                            i.fa.fa-play
+                    a.btn.btn-info(href='/auth/next') NEXT

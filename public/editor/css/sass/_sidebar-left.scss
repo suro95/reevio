@@ -1,0 +1,157 @@
+// ------------ left-sidebar ----------------
+.sidebar-left {
+    .sidebar-left-nav {
+        .nav > li {
+            > a {
+                height: auto;
+            }
+            .fa {
+                display: inline-block;
+                margin-top: 0;
+            }
+        }
+    }
+    .tab-content {
+        overflow: hidden;
+    }
+    // ---- Main options panel
+    #main-options {
+        p.labelled {
+            padding: 25px 0;
+            margin: 0;
+            .font-red {
+                margin-right: 7px;
+            }
+        }
+        .nav-buttons {
+            margin-top: 25px;
+            padding: 0 5px;
+            li {
+                padding: 10px 5px;
+                width: 50%;
+                .btn {
+                    padding-right: 0;
+                    padding-left: 0;
+                }
+            }
+        }
+    }
+    #main-elements {
+        padding: 15px 15px 0;
+    }
+    #main-audio {
+        padding: 15px 15px 0;
+        // .nav-buttons li {
+        //     width: 50%;
+        // }
+        .bootstrap-select.form-control {
+            height: auto;
+            margin: 10px 0 5px;
+            .btn {
+                height: 30px !important;
+                padding-top: 4px;
+            }
+        }
+        .user-audio ul {
+            li {
+                padding: 0;
+                .item {
+                    &:hover {
+                        background: #515e6d;
+                    }
+                    padding: 15px 0 15px 15px;
+                    background: transparent;
+                    border-bottom: 2px solid #515e6d;
+                    transition: all 0.2s;
+                    > div {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+    }
+    // ---- Elements panel
+    // Search
+    .table-tools {
+        display: block;
+        padding: 10px 0; // important for scollbar below
+        margin-left: 0;
+        margin-right: 0;
+        form {
+            height: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            > div {
+                flex: 1 1 50%;
+                padding: 0 3px;
+                // input,
+                .btn-group.bootstrap-select {
+                    width: 100% !important;
+                    .selectpicker.btn {
+                        padding-right: 27px;
+                    }
+                }
+                input,
+                .btn {
+                    height: 30px !important;
+                }
+                input {
+                    border-radius: 5px;
+                }
+                &:nth-of-type(1) {
+                    // flex: 2 1 60%;
+                    min-width: 100px;
+                    > .input-group {
+                        border-radius: 5px;
+                        input {
+                            height: auto;
+                            border: none;
+                        }
+                    }
+                    button.btn {
+                        // margin: 2px 0 0 0;
+                        background: none;
+                        box-shadow: none;
+                        border: 0;
+                        color: #777;
+                        padding: 0 10px 0 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1199px) {
+    .sidebar-left {
+        .sidebar-left-nav .nav > li > a .fa {
+            display: block;
+            margin-top: 3px;
+        }
+        #main-audio {
+            padding: 15px 0 0;
+            // .nav-buttons li {
+            //     width: 50%;
+            // }
+        }
+    }
+}
+@media (max-height: 600px) {
+    .sidebar-left {
+        #main-options {
+        p.labelled {
+            padding: 10px 0;
+            margin: 0;
+        }
+        .nav-buttons {
+            margin-top: 10px;
+            li {
+                padding: 3px 4px;
+            }
+        }
+    }
+    }
+}

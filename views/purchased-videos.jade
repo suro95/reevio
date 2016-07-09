@@ -1,0 +1,187 @@
+extends layout
+block content
+    main.extraBottom
+      .page-title-gray
+        .container
+          .title
+            h4 My Vizeo
+      .container.page-content
+        .row
+          .col-md-3.col-sm-3
+            .sidebar-vid
+              .user-section
+                .user-img
+                  img(src='/img/logo-icon.png')
+                .user-name
+                  span kiriyo
+                .user-info
+                  p 2 video/s
+                  p Member since 2016-02-04
+              a.user-settings(href='#')
+                em.fa.fa-user
+                |  Account Settings
+            .sidebar-vid-nav
+              a.side-title(href='#')
+                em.fa.fa-play
+                |  MY VIDEOS
+              ul
+                li
+                  a(href='recent-videos') Recently Made
+                li
+                  a.active(href='purchased-videos') Order Status
+          .col-md-9.col-sm-9
+            .video-section-listing#video-section
+              .row
+                .col-md-7.col-sm-7
+                  .title
+                    h1 Order Status
+                    span 3 video/s
+                .col-md-5.col-sm-5
+                  .searchForm.form-group
+                    .input-icon.right
+                        i.fa.fa-search
+                        input.form-control.search(placeholder='Search by title, project name, template, date, status',type='text')
+   
+              ul.grid.cs-style-3-1.thumb-list.list(data-effect='slide-top')
+                li
+                  figure
+                    .thumb
+                        .thumbnail.pending
+                            .classyLoader.customLoader
+                                canvas(data-classyloader='', data-width='70', data-height='65', data-percentage='15', data-speed='20', data-font-size='14px', data-diameter='30', data-line-color='#23b7e5', data-remaining-line-color='rgba(200,200,200,0.4)', data-line-width='3', data-rounded-line='true')
+                                span Unfinished
+                        .info
+                            ul
+                                li
+                                    .title Title of Video
+                                    .project Project 1
+                                    .status.text-warning Pending
+                                li.date
+                                    span Feb 07, 2016
+                            ul
+                                li
+                                    .template 
+                                        em.fa.fa-tags
+                                        | Template No.1
+                                li.tools 
+                                    a.fa.fa-eye(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                                    a.fa.fa-trash(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                    figcaption
+                        .btn-group.btn-group-justified
+                            a.btn.btn-xs.btn-default(href='#') 
+                                | Continue
+                                em.fa.fa-angle-right
+                li
+                  figure
+                    .thumb
+                        .thumbnail
+                            img.img-responsive(src='/img/2.jpg')
+                        .info
+                            ul
+                                li
+                                    .title Purchased 1
+                                    .project Project 2
+                                    .status.text-info Complete
+                                li.date
+                                    span Feb 08, 2016
+                            ul
+                                li
+                                    .template 
+                                        em.fa.fa-tags
+                                        | Template No.1
+                                li.tools 
+                                    a.fa.fa-eye(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                                    a.fa.fa-trash(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                    figcaption
+                        .btn-group.btn-group-justified
+                            a.btn.btn-xs.btn-info(href='#') 
+                                em.fa.fa-download
+                                | Download
+                            a.btn.btn-xs.red(href='#') 
+                                em.fa.fa-youtube
+                                | Publish
+                li
+                  figure
+                    .thumb
+                        .thumbnail
+                            img.img-responsive(src='/img/2.jpg')
+                        .info
+                            ul
+                                li
+                                    .title Purchased 2
+                                    .project Project 2.2
+                                    .status.text-info Complete
+                                li.date
+                                    span Feb 08, 2016
+                            ul
+                                li
+                                    .template 
+                                        em.fa.fa-tags
+                                        | Template No.5
+                                li.tools 
+                                    a.fa.fa-eye(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                                    a.fa.fa-trash(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                    figcaption
+                        .btn-group.btn-group-justified
+                            a.btn.btn-xs.btn-info(href='#') 
+                                em.fa.fa-download
+                                | Download
+                            a.btn.btn-xs.red(href='#') 
+                                em.fa.fa-youtube
+                                | Publish
+                li
+                  figure
+                    .thumb
+                        .thumbnail.pending
+                            .classyLoader.customLoader
+                                canvas(data-classyloader='', data-width='70', data-height='65', data-percentage='61', data-speed='20', data-font-size='14px', data-diameter='30', data-line-color='#23b7e5', data-remaining-line-color='rgba(200,200,200,0.4)', data-line-width='3', data-rounded-line='true')
+                                span Unfinished
+                        .info
+                            ul
+                                li
+                                    .title Video Example
+                                    .project Project 1
+                                    .status.text-warning Pending
+                                li.date 
+                                    span Feb 08, 2016
+                            ul
+                                li
+                                    .template 
+                                        em.fa.fa-tags
+                                        | Template No.2
+                                li.tools 
+                                    a.fa.fa-eye(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                                    a.fa.fa-trash(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                    figcaption
+                        .btn-group.btn-group-justified
+                            a.btn.btn-xs.btn-default(href='#') 
+                                | Continue
+                                em.fa.fa-angle-right
+                li
+                  figure
+                    .thumb
+                        .thumbnail.pending
+                            .classyLoader.customLoader
+                                canvas(data-classyloader='', data-width='70', data-height='65', data-percentage='87', data-speed='20', data-font-size='14px', data-diameter='30', data-line-color='#23b7e5', data-remaining-line-color='rgba(200,200,200,0.4)', data-line-width='3', data-rounded-line='true')
+                                span Unfinished
+                        .info
+                            ul
+                                li
+                                    .title Video Example 2
+                                    .project Project 5
+                                    .status.text-warning Pending
+                                li.date 
+                                    span Feb 08, 2016
+                            ul
+                                li
+                                    .template 
+                                        em.fa.fa-tags
+                                        | Template No.2
+                                li.tools 
+                                    a.fa.fa-eye(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                                    a.fa.fa-trash(data-toggle='modal', data-target='#show-video', href='javascript:void(0);') &nbsp;
+                    figcaption
+                        .btn-group.btn-group-justified
+                            a.btn.btn-xs.btn-default(href='#') 
+                                | Continue
+                                em.fa.fa-angle-right

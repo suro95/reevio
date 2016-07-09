@@ -1,0 +1,173 @@
+
+.collage{
+    /*This is where you set the padding you want between the images*/
+    padding:5px;
+
+}
+.collage img{
+    margin:0;
+    padding:0;
+    display:inline-block;
+    vertical-align:bottom;
+    opacity:1;
+
+    /*This is where you set the border you want for the image*/
+}
+
+
+/* In this example, this is the main item being resized */
+.image-wrapper{
+    /* to get the fade in effect, set opacity to 0 on the first element within the gallery area */
+    opacity:0;
+}
+
+.Caption{
+    font-size:14px;
+    font-weight:normal;
+    font-family:arial;
+}
+.Caption_Content{
+    /* padding:10px; */
+    color:#FFF;
+    padding:20px;
+}
+
+
+/* Oh nice, welcome to the stylesheet of dreams. 
+It has it all. Classes, ID's, comments...the whole lot:)
+Enjoy responsibly!
+@ihatetomatoes
+*/
+.chromeframe {
+	margin:.2em 0;
+	background:#ccc;
+	color:#000;
+	padding:.2em 0
+}
+p {
+	line-height:1.33em;
+	color:#7E7E7E
+}
+#loader-wrapper {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:1000;
+	background:#111;
+}
+#loader {
+	display:block;
+	position:relative;
+	left:50%;
+	top:50%;
+	width:150px;
+	height:150px;
+	margin:-75px 0 0 -75px;
+	border-radius:50%;
+	border:1px solid transparent;
+	border-top-color:#3498db;
+	-webkit-animation:spin 2.2s linear infinite;
+	animation:spin 2s linear infinite
+}
+#loader:before {
+	content:"";
+	position:absolute;
+	top:5px;
+	left:5px;
+	right:5px;
+	bottom:5px;
+	border-radius:50%;
+	border:1px solid transparent;
+	border-top-color:#e74c3c;
+	-webkit-animation:spin 2.5s linear infinite;
+	animation:spin 3s linear infinite
+}
+#loader:after {
+	content:"";
+	position:absolute;
+	top:15px;
+	left:15px;
+	right:15px;
+	bottom:15px;
+	border-radius:50%;
+	border:1px solid transparent;
+	border-top-color:#f9c922;
+	-webkit-animation:spin 2s linear infinite;
+	animation:spin 2s linear infinite
+}
+@-webkit-keyframes spin {
+	0% {
+		-webkit-transform:rotate(0deg);
+		-ms-transform:rotate(0deg);
+		transform:rotate(0deg)
+	}
+	100% {
+		-webkit-transform:rotate(360deg);
+		-ms-transform:rotate(360deg);
+		transform:rotate(360deg)
+	}
+}
+@keyframes spin {
+	0% {
+		-webkit-transform:rotate(0deg);
+		-ms-transform:rotate(0deg);
+		transform:rotate(0deg)
+	}
+	100% {
+		-webkit-transform:rotate(360deg);
+		-ms-transform:rotate(360deg);
+		transform:rotate(360deg)
+	}
+}
+.ir {
+	background-color:transparent;
+	border:0;
+	overflow:hidden
+}
+.ir:before {
+	content:"";
+	display:block;
+	width:0;
+	height:150%
+}
+.hidden {
+	display:none!important;
+	visibility:hidden
+}
+.visuallyhidden {
+	border:0;
+	clip:rect(0 0 0 0);
+	height:1px;
+	margin:-1px;
+	overflow:hidden;
+	padding:0;
+	position:absolute;
+	width:1px
+}
+.visuallyhidden.focusable:active,.visuallyhidden.focusable:focus {
+	clip:auto;
+	height:auto;
+	margin:0;
+	overflow:visible;
+	position:static;
+	width:auto
+}
+.invisible {
+	visibility:hidden
+}
+.clearfix:after,.clearfix:before {
+	content:" ";
+	display:table
+}
+.clearfix:after {
+	clear:both
+}
+#loader-wrapper p {
+	position:absolute;
+	top:50%;
+	width:100%;
+	text-align:center;
+	margin:-10px 0 0;
+}

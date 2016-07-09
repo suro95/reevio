@@ -1,0 +1,207 @@
+extends layout
+block content
+   main
+      .page-title-gray
+        .container
+          .title
+            h4 Preview Video
+      .page-top
+        .container
+          .inner
+            .title
+              a.link-custom.collection-link(href='javascript:;')
+                em.fa.fa-th-large
+                |  COLLECTIONS
+                em.fa.fa-caret-down
+            .search-form
+              form(action='#')
+                .form-group
+                  .input-group-btn
+                    input.form-control(placeholder='Search', type='text')
+                    button.btn.btn-default(type='button')
+                      i.fa.fa-search
+        .mega-menu
+          .container
+            .inner-menu
+              .inner-title
+                h1 Browse by Categories
+              // .row
+                .col-md-3.col-sm-3
+                  ul
+                    li
+                      a(href='#') New & Fresh
+                    li
+                      a(href='#') Best of 2016
+                    li
+                      a(href='#') Kids & Family
+                    li
+                      a(href='#') Mobile & Games
+                    li
+                      a(href='#') Online Ads
+                .col-md-3.col-sm-3
+                  ul
+                    li
+                      a(href='#') Business & Services
+                    li
+                      a(href='#') Vizeo Subscription
+                    li
+                      a(href='#') Events
+                    li
+                      a(href='#') How-To-Make Videos
+                    li
+                      a(href='#') Travel
+                .col-md-3.col-sm-3
+                  ul
+                    li
+                      a(href='#') Restaurant
+                    li
+                      a(href='#') Sports & Car
+                    li
+                      a(href='#') Real Estate
+                    li
+                      a(href='#') E-commerce
+                    li
+                      a(href='#') Photo Slideshows
+                .col-md-3.col-sm-3
+                  ul
+                    li
+                      a(href='#') Digital Signage
+                    li
+                      a(href='#') Instagram
+                    li
+                      a(href='#') Fashion & Apparel
+      .container.page-content
+
+
+        .my-video
+          .col1
+            video(id='video-1', controls='', preload='auto', poster='../templates_logo/#{video.folder}/#{video.cover_photo}',style="width:100%")
+              source(src="../templates_logo/#{video.folder}/#{video.file_location}",type="video/mp4")
+
+          .col2
+            .title
+              h1 #{video.name}
+              span Vizeo
+            .info
+              span.sub-title
+                em.fa.fa-play
+                |  Original
+              h4 Are you feeling it?
+              p
+                | Get the positive vibes flowing with this family-friendly video style for PSAs, promotions and ads. With rays of summer sunshine built right in, this video will help you promote your kids camp, daycare, school, church or business.
+            .btn-make
+              a#get-inputs.btn.btn-info.btn-block
+                em.fa.fa-youtube-play
+                |  MAKE MY VIDEO
+      #modalVideo(style="display:none;width: 100%;height: 100%;position: absolute;top: 0;left: 0;background: rgba(0,0,0,0.5);z-index: 1000;")
+        input#dataDisplay(type="hidden" data-display='none')
+        #modalCentral(style="width: 60%;height: 60%;background: #EFEFEF;margin: auto;margin-top: 2%;")
+          h2 Update Files
+          form(action="/upload" class="dropzone needsclick dz-clickable" id="modalUpload" method="post" enctype="multipart/form-data")
+            div(class="fallback")
+              input(name="file" type="file")
+            div(class="dz-message needsclick") Drop files here or click to upload.<br>
+              span(class="needsclick" ) (This is just a demo dropzone. Selected files are <strong>not</strong> actually uploaded.)
+
+
+        .video-variations
+          .title
+            h1 Variations
+            span 1 variation/s
+          .listings
+            .inner
+              .item.active
+                .col1.thumb
+                  img.img-responsive(src='/img/temp/5.jpg')
+                .col2
+                  .title
+                    span Original
+                  .info
+                    span 0:32
+                    .extra
+                      em.fa.fa-file-image-o
+                      span 11
+                      em.fa.fa-film
+                      span 3
+              .item
+                .col1.thumb
+                  img.img-responsive(src='/img/temp/3.jpg')
+                .col2
+                  .title
+                    span Original
+                  .info
+                    span 0:04
+                    .extra
+                      em.fa.fa-file-image-o
+                      span 5
+                      em.fa.fa-film
+                      span 1
+              .item
+                .col1.thumb
+                  img.img-responsive(src='/img/temp/2.jpg')
+                .col2
+                  .title
+                    span Original
+                  .info
+                    span 0:15
+                    .extra
+                      em.fa.fa-file-image-o
+                      span 1
+                      em.fa.fa-film
+                      span 1
+              .item
+                .col1.thumb
+                  img.img-responsive(src='/img/temp/1.jpg')
+                .col2
+                  .title
+                    span Original
+                  .info
+                    span 0:41
+                    .extra
+                      em.fa.fa-file-image-o
+                      span 5
+                      em.fa.fa-film
+                      span 2
+    #myModal.editor-img___modal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+      .modal-dialog(role='document')
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal', aria-label='Close')
+              span(aria-hidden='true') &times;
+            h4#myModalLabel.modal-title
+                .em.fa.fa-file-video-o
+                | &nbsp;&nbsp;Make my video
+          .modal-body
+            .modal-section
+            .modal-section
+          .modal-footer
+            .btn-actions.pull-right
+                button.btn.btn-info.btn-save(type='button' data-id='#{template_id}') SAVE
+
+block append footer
+  //script(src='http://vjs.zencdn.net/5.6.0/video.js')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
